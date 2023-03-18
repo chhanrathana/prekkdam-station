@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             SetupTableSeeder::class,
             UsersTableSeeder::class,
             MenuTableSeeder::class,
-            BranchTableSeeder::class ,
+            BranchTableSeeder::class,
             // RoleSeeder::class,
             ProductTableSeeder::class,
             ShareholderTableSeeder::class,
