@@ -1,0 +1,29 @@
+{"data":
+[
+    {"id":"01","name_kh":"បន្ទាយមានជ័យ","name_en":"Banteay Meanchey","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":"2019-08-08 21:35:07","updated_by":"1","deleted_at":null,"deleted_by":null},
+    {"id":"02","name_kh":"បាត់ដំបង","name_en":"Battambang","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"03","name_kh":"កំពង់ចាម","name_en":"Kampong Cham","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"04","name_kh":"កំពង់ឆ្នាំង","name_en":"Kampong Chhnang","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"05","name_kh":"កំពង់ស្ពឺ","name_en":"Kampong Speu","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"06","name_kh":"កំពង់ធំ","name_en":"Kampong Thom","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"07","name_kh":"កំពត","name_en":"Kampot","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"08","name_kh":"កណ្ដាល","name_en":"Kandal","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"09","name_kh":"កោះកុង","name_en":"Koh Kong","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"10","name_kh":"ក្រចេះ","name_en":"Kratie","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"11","name_kh":"មណ្ឌលគិរី","name_en":"Mondolkiri","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"12","name_kh":"ភ្នំពេញ","name_en":"Phnom Penh","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"13","name_kh":"ព្រះវិហារ","name_en":"Preah Vihear","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"14","name_kh":"ព្រៃវែង","name_en":"Prey Veng","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"15","name_kh":"ពោធិ៍សាត់","name_en":"Pursat","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"16","name_kh":"រតនគីរី","name_en":"Ratanakiri","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"17","name_kh":"សៀមរាប","name_en":"Siem Reap","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"18","name_kh":"ព្រះសីហនុ","name_en":"Preah Sihanouk","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"19","name_kh":"ស្ទឹងត្រែង","name_en":"Steung Treng","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"20","name_kh":"ស្វាយរៀង","name_en":"Svay Rieng","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"21","name_kh":"តាកែវ","name_en":"Takeo","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"22","name_kh":"ឧត្ដរមានជ័យ","name_en":"Oudor Meanchey","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"23","name_kh":"កែប","name_en":"Kep","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"24","name_kh":"ប៉ៃលិន","name_en":"Pailin","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null},
+    {"id":"25","name_kh":"ត្បូងឃ្មុំ","name_en":"Tboung Khmum","active":"1","created_at":"2019-07-30 09:43:41","created_by":null,"updated_at":null,"updated_by":null,"deleted_at":null,"deleted_by":null}
+]
+}

@@ -33,6 +33,14 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 
 We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
+## Usefull artisan command
+php artisan serve --host=192.168.1.29
+php artisan migrate
+php artisan migrate:fresh
+php artisan migrate:fresh --seed
+php -d memory_limit=-1 artisan migrate:fresh --seed
+php artisan db:seed
+
 ### Premium Partners
 
 - **[Vehikl](https://vehikl.com/)**

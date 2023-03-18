@@ -1,0 +1,44 @@
+{
+    "RECORDS": [
+        {
+            "id": "8802304d-b1cd-4c12-9a2a-5fcd49ba8f68",
+            "name_en": "CHC",
+            "name_kh": "ចោមចៅ",
+            "active": "1",
+            "sort": "",
+            "created_at": "",
+            "updated_at": "",
+            "deleted_at": "",
+            "created_by": "",
+            "updated_by": "",
+            "deleted_by": "",
+            "home_number": "",
+            "street_number": "",
+            "address_detail": "",
+            "province_id": "",
+            "district_id": "",
+            "commune_id": "",
+            "village_id": ""
+        },
+        {
+            "id": "8832304d-b1cd-4c12-9a2a-5fcd49ba8f68",
+            "name_en": "RN3",
+            "name_kh": "ផ្លូវជាតិលេខ៣",
+            "active": "1",
+            "sort": "",
+            "created_at": "",
+            "updated_at": "",
+            "deleted_at": "",
+            "created_by": "",
+            "updated_by": "",
+            "deleted_by": "",
+            "home_number": "",
+            "street_number": "",
+            "address_detail": "",
+            "province_id": "",
+            "district_id": "",
+            "commune_id": "",
+            "village_id": ""
+        }
+    ]
+}

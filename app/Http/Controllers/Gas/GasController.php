@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Gag;
+namespace App\Http\Controllers\Gas;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

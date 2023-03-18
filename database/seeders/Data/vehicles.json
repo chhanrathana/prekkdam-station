@@ -1,0 +1,43 @@
+{
+    "RECORDS": [
+        {
+            "id": "1d215f9a-f95c-44ce-9910-a8ad79d099f2",
+            "plate_number": "ភ្នំពេញ 3E-8799",
+            "volume_kg": "0",
+            "active": "1",
+            "sort": "",
+            "created_at": "",
+            "updated_at": "",
+            "deleted_at": "",
+            "created_by": "",
+            "updated_by": "",
+            "deleted_by": ""
+        },
+        {
+            "id": "1d215f9a-f95c-44ce-9910-a8ad79d099f3",
+            "plate_number": "ភ្នំពេញ-0058",
+            "volume_kg": "0",
+            "active": "1",
+            "sort": "",
+            "created_at": "",
+            "updated_at": "",
+            "deleted_at": "",
+            "created_by": "",
+            "updated_by": "",
+            "deleted_by": ""
+        },
+        {
+            "id": "1d215f9a-f95c-44ce-9910-a8ad79d099f5",
+            "plate_number": "ភ្នំពេញ-1045",
+            "volume_kg": "0",
+            "active": "1",
+            "sort": "",
+            "created_at": "",
+            "updated_at": "",
+            "deleted_at": "",
+            "created_by": "",
+            "updated_by": "",
+            "deleted_by": ""
+        }
+    ]
+}

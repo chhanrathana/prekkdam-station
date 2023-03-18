@@ -1,0 +1,24 @@
+{
+    "RECORDS": [
+        {
+            "sale_type_id": "85ffa8ee-3a36-47f0-9cb3-cab09dd27571",
+            "product_id": "0098caed-4f20-46f0-b089-8b1e740d92d1"
+        },
+        {
+            "sale_type_id": "85ffa8ee-3a36-47f0-9cb3-cab09dd27572",
+            "product_id": "0098caed-4f20-46f0-b089-8b1e740d92dd"
+        },
+        {
+            "sale_type_id": "85ffa8ee-3a36-47f0-9cb3-cab09dd27572",
+            "product_id": "0098caed-4f20-46f0-b089-8b1e740d92d1"
+        },
+        {
+            "sale_type_id": "85ffa8ee-3a36-47f0-9cb3-cab09dd27571",
+            "product_id": "0441d68e-5537-4903-8000-5a33ac449dce"
+        },
+        {
+            "sale_type_id": "85ffa8ee-3a36-47f0-9cb3-cab09dd27572",
+            "product_id": "0441d68e-5537-4903-8000-5a33ac449dce"
+        }
+    ]
+}

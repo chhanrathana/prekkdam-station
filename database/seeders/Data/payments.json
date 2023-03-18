@@ -1,0 +1,70 @@
+{
+    "RECORDS": [
+        {
+            "id": "1710352c-355c-4ad8-beee-221d8532f8fc",
+            "reference_number": "WS0001",
+            "paid_amount": "22222",
+            "payment_datetime": "22/2/2022 00:00:00",
+            "remark": "111",
+            "created_at": "30/12/2021 00:42:07",
+            "updated_at": "30/12/2021 00:42:07",
+            "payment_method_id": "",
+            "deleted_at": ""
+        },
+        {
+            "id": "6b1d61f1-bb3f-4e77-be79-d97e196887ff",
+            "reference_number": "WS0002",
+            "paid_amount": "22222",
+            "payment_datetime": "22/2/2020 00:00:00",
+            "remark": "មិនទាន់មានលុង",
+            "created_at": "30/12/2021 00:43:56",
+            "updated_at": "30/12/2021 00:58:49",
+            "payment_method_id": "1",
+            "deleted_at": ""
+        },
+        {
+            "id": "9e185370-0281-4d7e-9852-99b5f1acd81c",
+            "reference_number": "WS0002",
+            "paid_amount": "50000",
+            "payment_datetime": "11/11/2011 00:00:00",
+            "remark": "ទើបបង់",
+            "created_at": "30/12/2021 00:44:17",
+            "updated_at": "30/12/2021 00:58:28",
+            "payment_method_id": "1",
+            "deleted_at": ""
+        },
+        {
+            "id": "b1d1b46e-a9a4-4c73-a315-0bb34243b06a",
+            "reference_number": "WS0002",
+            "paid_amount": "50000",
+            "payment_datetime": "11/11/2011 00:00:00",
+            "remark": "បង់ថ្ងៃមុខ",
+            "created_at": "30/12/2021 00:57:17",
+            "updated_at": "30/12/2021 00:57:17",
+            "payment_method_id": "2",
+            "deleted_at": ""
+        },
+        {
+            "id": "bc974dda-466e-4dc5-a27f-1b2f55fd5090",
+            "reference_number": "WS0002",
+            "paid_amount": "2000",
+            "payment_datetime": "22/2/2022 00:00:00",
+            "remark": "ksfjkldsfds",
+            "created_at": "30/12/2021 00:52:50",
+            "updated_at": "30/12/2021 00:52:50",
+            "payment_method_id": "1",
+            "deleted_at": ""
+        },
+        {
+            "id": "d694d7d1-8411-4231-a4f5-1faef54fc94e",
+            "reference_number": "WS0002",
+            "paid_amount": "50000",
+            "payment_datetime": "11/11/2011 00:00:00",
+            "remark": "តស",
+            "created_at": "30/12/2021 00:57:34",
+            "updated_at": "30/12/2021 00:57:34",
+            "payment_method_id": "3",
+            "deleted_at": ""
+        }
+    ]
+}
