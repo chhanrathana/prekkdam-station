@@ -15,7 +15,7 @@ class CreateVehiclesTable extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('plate_number')->unique();
+            $table->string('plate_number',50)->unique();
             $table->decimal('volume_kg');
             $table->boolean('active')->default(true);
             $table->integer('sort')->nullable();
