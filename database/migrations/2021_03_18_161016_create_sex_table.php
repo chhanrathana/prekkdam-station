@@ -13,7 +13,7 @@ class CreateSexTable extends Migration
      */
     public function up()
     {
-        Schema::create('sex', function (Blueprint $table) {
+        Schema::create('sex_id', function (Blueprint $table) {
             $table->char('id',1)->primary();
             $table->string('name_en')->nullable();
             $table->string('name_kh')->nullable();
@@ -36,6 +36,6 @@ class CreateSexTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sex');
+        Schema::dropIfExists('sex_id');
     }
 }

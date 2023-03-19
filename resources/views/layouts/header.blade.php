@@ -90,7 +90,7 @@
                                 <li>
                                     <div class="timeline-panel">
                                         <div class="media me-2">
-                                            <img alt="image" width="50" src="images/avatar/1.jpg">
+                                            <img alt="image" width="50" src="{{ asset('images/avatar/1.jpg') }}">
                                         </div>
                                         <div class="media-body">
                                             <h6 class="mb-1">Dr sultads Send you Photo</h6>
@@ -123,7 +123,7 @@
                                  <li>
                                     <div class="timeline-panel">
                                         <div class="media me-2">
-                                            <img alt="image" width="50" src="images/avatar/1.jpg">
+                                            <img alt="image" width="50" src="{{ asset('images/avatar/1.jpg') }}">
                                         </div>
                                         <div class="media-body">
                                             <h6 class="mb-1">Dr sultads Send you Photo</h6>
@@ -156,7 +156,7 @@
                                 <li>
                                     <div class="timeline-panel">
                                         <div class="media me-2">
-                                            <img alt="image" width="50" src="images/avatar/1.jpg">
+                                            <img alt="image" width="50" src="{{ asset('images/avatar/1.jpg') }}">
                                         </div>
                                         <div class="media-body">
                                             <h6 class="mb-1">Dr sultads Send you Photo</h6>
@@ -189,7 +189,7 @@
                                  <li>
                                     <div class="timeline-panel">
                                         <div class="media me-2">
-                                            <img alt="image" width="50" src="images/avatar/1.jpg">
+                                            <img alt="image" width="50" src="{{ asset('images/avatar/1.jpg') }}">
                                         </div>
                                         <div class="media-body">
                                             <h6 class="mb-1">Dr sultads Send you Photo</h6>
@@ -239,7 +239,7 @@
                         <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="header-info2 d-flex align-items-center">
                                 <div class="header-media">
-                                    <img src="images/tab/1.jpg" alt="">
+                                    <img src="{{ asset('images/tab/1.jpg') }}" alt="">
                                 </div>
                                 <div class="header-info">
                                     <h6>Thomas Fleming</h6>
@@ -252,7 +252,7 @@
                             <div class="card border-0 mb-0">
                                 <div class="card-header py-2">
                                     <div class="products">
-                                        <img src="images/tab/1.jpg" class="avatar avatar-md" alt="">
+                                        <img src="{{ asset('images/tab/1.jpg') }}" class="avatar avatar-md" alt="">
                                         <div>
                                             <h6>Thomas Fleming</h6>
                                             <span>Web Designer</span>	

@@ -3,8 +3,8 @@ namespace Database\Seeders;
 
 use App\Models\SaleMgts\WholesaleStatus;
 use Illuminate\Database\Seeder;
-use App\Models\Settings\Product;
-use App\Models\Settings\ProductType;
+use App\Models\MasterData\Product;
+use App\Models\MasterData\ProductType;
 use Carbon\Carbon;
 
 class ProductTableSeeder extends Seeder
@@ -23,7 +23,7 @@ class ProductTableSeeder extends Seeder
             $inserts [] 
             = [
                 'id' => $item['id'],
-                'prefix' => $item['prefix'],
+                'code' => $item['prefix'],
                 'name_kh' => $item['name_kh'],
                 'name_en' => $item['name_en'],
                 'active' => $item['active'],
@@ -48,8 +48,8 @@ class ProductTableSeeder extends Seeder
                 'code' => $item['code'],
                 'name_kh' => $item['name_kh'],
                 'name_en' => $item['name_en'],
-                'unit_kh' => $item['unit_kh'],
-                'unit_en' => $item['unit_en'],
+                // 'unit_kh' => $item['unit_kh'],
+                // 'unit_en' => $item['unit_en'],
                 'active' => $item['active'],
                 'sort' => (int)($item['sort']),
                 'created_at'=> Carbon::now(),

@@ -15,7 +15,7 @@ class CreateProductTypesTable extends Migration
     {
         Schema::create('product_types', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->char('prefix',1)->unique();
+            $table->char('code',1)->unique();
             $table->string('name_en')->nullable();
             $table->string('name_kh')->nullable();
             $table->boolean('active')->default(true);

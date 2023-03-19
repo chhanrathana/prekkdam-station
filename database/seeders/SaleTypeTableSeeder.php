@@ -2,7 +2,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Settings\SaleType;
+use App\Models\MasterData\SaleType;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 

@@ -2,10 +2,10 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Settings\Province;
-use App\Models\Settings\District;
-use App\Models\Settings\Commune;
-use App\Models\Settings\Village;
+use App\Models\MasterData\Province;
+use App\Models\MasterData\District;
+use App\Models\MasterData\Commune;
+use App\Models\MasterData\Village;
 use Carbon\Carbon;
 
 class GeolocationTableSeeder extends Seeder

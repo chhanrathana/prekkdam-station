@@ -1,8 +1,8 @@
 <?php
 namespace Database\Seeders;
 
-use App\Models\Settings\GroupMenu;
-use App\Models\Settings\Menu;
+use App\Models\MasterData\GroupMenu;
+use App\Models\MasterData\Menu;
 use Illuminate\Database\Seeder;
 
 class MenuTableSeeder extends Seeder

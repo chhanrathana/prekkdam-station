@@ -4,9 +4,9 @@ namespace App\Models\SaleMgts;
 
 use App\Models\BaseModel;
 use App\Models\Payments\Payment;
-use App\Models\Settings\Product;
-use App\Models\Settings\ShareHolder;
-use App\Models\Settings\Vehicle;
+use App\Models\MasterData\Product;
+use App\Models\MasterData\ShareHolder;
+use App\Models\MasterData\Vehicle;
 
 class RetailSale extends BaseModel
 {

@@ -12,12 +12,15 @@
 	<meta property="og:description" content="W3crm:Customer Relationship Management Admin Bootstrap 5 Template">
 	<meta property="og:image" content="https://w3crm.dexignzone.com/xhtml/social-image.png">
 	<meta name="format-detection" content="telephone=no">
-	
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 	<!-- PAGE TITLE HERE -->
 	<title>W3CRM Customer Relationship Management</title>
 	<!-- FAVICONS ICON -->
 	<link rel="shortcut icon" type="image/png" href="images/favicon.png">
 	
+    <link href="{{ asset('vendor/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ asset('vendor/select2/css/select2.min.css') }}">
 	<link href="{{ asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
 	<link href="{{ asset('vendor/swiper/css/swiper-bundle.min.css') }}" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
@@ -30,8 +33,10 @@
 	<!-- tagify-css -->
 	<link href="{{ asset('vendor/tagify/dist/tagify.css') }}" rel="stylesheet">
 	
+	
 	<!-- Style css -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">	
+    @yield('css')
 </head>
 <body data-typography="poppins" data-theme-version="light" data-layout="vertical" data-nav-headerbg="black" data-headerbg="color_1">
 
@@ -99,12 +104,12 @@
         <div class="content-body">
             <!-- row -->	
 			<div class="page-titles">
-				@include('layouts.breadcrumb')  
+                @yield('breadcrumb')				
 			</div>
             
 			<div class="container-fluid">
 				<div class="row">
-                    @yield('content')					
+                    @yield('content')
 				</div>
 			</div>
         </div>
@@ -141,6 +146,8 @@
     <!--**********************************
         Scripts
     ***********************************-->
+
+    <link href="{{ asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}" rel="stylesheet">
     <!-- Required vendors -->
     <script src="{{ asset('vendor/global/global.min.js') }}"></script>
 	<script src="{{ asset('vendor/chart.js/Chart.bundle.min.js') }}"></script>
@@ -166,12 +173,34 @@
 	<script src="{{ asset('vendor/bootstrap-datetimepicker/js/moment.js') }}"></script>
 	<script src="{{ asset('vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
 	
-
 	<!-- Vectormap -->
     <script src="{{ asset('vendor/jqvmap/js/jquery.vmap.min.js') }}"></script>
     <script src="{{ asset('vendor/jqvmap/js/jquery.vmap.world.js') }}"></script>
     <script src="{{ asset('vendor/jqvmap/js/jquery.vmap.usa.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
-	<script src="{{ asset('js/deznav-init.js') }}"></script>
+	<script src="{{ asset('js/deznav-init.js') }}"></script>    
+    <script src="{{ asset('vendor/select2/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('js/plugins-init/select2-init.js') }}"></script>
+    <script src="{{ asset('js/jquery.inputmask.bundle.js') }}"></script>
+    <script type="text/javascript">
+        $(function () {                
+            $(".number").inputmask('Regex', {
+                regex: "^[0-9]{1,9}(\\.\\d{1,2})?$"
+            });
+                        
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+          });
+
+          $('#formModal').modal({
+                backdrop: 'static',
+                keyboard: false
+            });                
+        });        
+    </script>
+    @stack('script')
+    
 </body>
 </html>

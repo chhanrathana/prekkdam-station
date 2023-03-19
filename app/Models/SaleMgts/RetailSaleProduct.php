@@ -3,7 +3,7 @@
 namespace App\Models\SaleMgts;
 
 use App\Models\BaseModel;
-use App\Models\Settings\Product;
+use App\Models\MasterData\Product;
 
 class RetailSaleProduct extends BaseModel
 {

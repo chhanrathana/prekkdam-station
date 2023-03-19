@@ -3,10 +3,10 @@
 namespace App\Models\ProductMgts;
 
 use App\Models\BaseModel;
-use App\Models\Settings\Branch;
-use App\Models\Settings\File;
-use App\Models\Settings\Product;
-use App\Models\Settings\ShareHolder;
+use App\Models\MasterData\Branch;
+use App\Models\MasterData\File;
+use App\Models\MasterData\Product;
+use App\Models\MasterData\ShareHolder;
 
 class ProductOrder extends BaseModel
 {

@@ -1,11 +1,11 @@
 <?php
 namespace Database\Seeders;
 
-use App\Models\Settings\Branch;
+use App\Models\MasterData\Branch;
 use Illuminate\Database\Seeder;
-use App\Models\Settings\Product;
-use App\Models\Settings\ProductType;
-use App\Models\Settings\Vehicle;
+use App\Models\MasterData\Product;
+use App\Models\MasterData\ProductType;
+use App\Models\MasterData\Vehicle;
 use Carbon\Carbon;
 
 class VehicleTableSeeder extends Seeder

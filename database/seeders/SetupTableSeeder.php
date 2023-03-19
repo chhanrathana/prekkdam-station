@@ -2,8 +2,10 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Settings\Sex;
-use App\Models\Settings\Turn;
+use App\Models\MasterData\Sex;
+use App\Models\MasterData\Turn;
+use App\Models\MasterData\Unit;
+use Illuminate\Support\Str;
 use Carbon\Carbon;
 
 class SetupTableSeeder extends Seeder
@@ -52,7 +54,16 @@ class SetupTableSeeder extends Seeder
             Turn::insert($chunk);
         }
 
-        
-        
+        $users[] =[
+            'id'                => Str::uuid()->toString(),
+            'code'              => 'L',
+            'name_kh'           => 'លីត្រ',
+            'name_en'           => 'Liter',            
+        ];
+
+        $chunks = array_chunk($users, 5000);
+        foreach ($chunks as $chunk) {
+            Unit::insert($chunk);
+        }                
     }
 }

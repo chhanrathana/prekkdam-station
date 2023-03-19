@@ -3,6 +3,16 @@
 (function($) {
   "use strict"
   
+  $(".select-product-type").select2({
+      placeholder: "Select a Type",
+      allowClear: true
+  });
+
+  $(".select-unit").select2({
+    placeholder: "Select a Unit",
+    allowClear: true
+});
+
   // single select box
   $("#single-select").select2();
 

@@ -4,8 +4,8 @@ namespace App\Models\SaleMgts;
 
 use App\Models\BaseModel;
 use App\Models\Payments\Payment;
-use App\Models\Settings\ShareHolder;
-use App\Models\Settings\Turn;
+use App\Models\MasterData\ShareHolder;
+use App\Models\MasterData\Turn;
 
 class StationSale extends BaseModel
 {

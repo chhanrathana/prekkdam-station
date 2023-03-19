@@ -2,10 +2,10 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Settings\Product;
-use App\Models\Settings\ProductType;
-use App\Models\Settings\ShareHolder;
-use App\Models\Settings\ShareHolderType;
+use App\Models\MasterData\Product;
+use App\Models\MasterData\ProductType;
+use App\Models\MasterData\ShareHolder;
+use App\Models\MasterData\ShareHolderType;
 use Carbon\Carbon;
 
 class ShareholderTableSeeder extends Seeder
@@ -44,21 +44,21 @@ class ShareholderTableSeeder extends Seeder
             $inserts [] 
             = [
                 'id' => $item['id'],
-                'shareholder_type_id' => $item['shareholder_type_id'],
+                // 'shareholder_type_id' => $item['shareholder_type_id'],
                 'code' => $item['code'],
-                'is_company' => $item['is_company'],
+                // 'is_company' => $item['is_company'],
                 'name_kh' => $item['name_kh'],
                 'name_en' => $item['name_en'],
-                'sex' => $item['sex'] != ''?$item['sex']:null,
+                'sex_id' => $item['sex'] != ''?$item['sex']:null,
                 'phone_number_01' => $item['phone_number_01'],
                 'phone_number_02' => $item['phone_number_02'],
                 'home_number' => $item['home_number'],
                 'street_number' => $item['street_number'],
-                'address_detail' => $item['address_detail'],
-                'province_id' => $item['province_id'] != ''?$item['province_id']:null,
-                'district_id' => $item['district_id'] != ''?$item['district_id']:null,
-                'commune_id' => $item['commune_id'] != ''?$item['commune_id']:null,
-                'village_id' => $item['village_id'] != ''?$item['village_id']:null,
+                'address' => $item['address_detail'],
+                // 'province_id' => $item['province_id'] != ''?$item['province_id']:null,
+                // 'district_id' => $item['district_id'] != ''?$item['district_id']:null,
+                // 'commune_id' => $item['commune_id'] != ''?$item['commune_id']:null,
+                // 'village_id' => $item['village_id'] != ''?$item['village_id']:null,
 
                 'active' => $item['active'],
                 'sort' => (int)($item['sort']),

@@ -1,10 +1,10 @@
 <?php
 namespace Database\Seeders;
 
-use App\Models\Settings\Branch;
+use App\Models\MasterData\Branch;
 use Illuminate\Database\Seeder;
-use App\Models\Settings\Product;
-use App\Models\Settings\ProductType;
+use App\Models\MasterData\Product;
+use App\Models\MasterData\ProductType;
 use Carbon\Carbon;
 
 class BranchTableSeeder extends Seeder
