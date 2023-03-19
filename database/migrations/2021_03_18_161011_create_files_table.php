@@ -15,7 +15,7 @@ class CreateFilesTable extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('file')->nullable()->unique();
+            
             $table->string('remark', 50)->nullable();
             $table->boolean('active')->default(true);        
             $table->timestamps();
