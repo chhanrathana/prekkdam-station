@@ -1,0 +1,87 @@
+
+.print{
+    display:none;
+}
+
+@page{
+    /* size: A4;  */
+    margin-top: 0.3cm;
+    margin-bottom: 1cm;
+
+
+    /* margin: 1.5in 1in 1.5in 1in;   */
+}
+/* .page-break { page-break-before: always !important;} */
+@media  all {
+    .page-break { display: none; }
+}
+
+@media  print {
+    .page-break	{
+        display: block;
+        page-break-after: auto;
+        /* page-break-before: always;  */
+    }
+    .no-print, .no-print *{
+        display: none !important;
+    }
+}
+/* @page {
+    size: A4;
+    margin: 0;
+} */
+@media print {
+    img {
+        width: 150px;
+        page-break-inside: avoid;
+    }
+
+    html, body {
+        background: gray;
+        width: 25cm;
+        /*height: 29.7cm;*/
+        height: auto;
+        /*height: 124cm;*/
+        display: block;
+        margin: 0;
+        overflow-y: hidden;
+    }
+
+    .header{
+        font-family: Open Sans;
+        font-weight: bold;
+    }
+
+    .header-logo{
+        margin-top: -15%;
+    }
+
+    .no-print{display: none;}
+    .print{display:block;}
+
+    #page-01 { position: fixed !important; top: 10px !important; }
+    #report { font-size: 14px; margin-top: -15px;}
+    #report .for-print{display:block;}
+    #report .print{display:block;}
+    #report .navbar{display: none;}
+    #report .no-print,.btn,.input,.input-sm,.flag{display: none;}
+    #report .portlet.light.bordered>.portlet-title{ border-bottom: 0; }
+    #report .portlet.light>.portlet-title>.caption>.caption-subject { display: none; }
+    #report .panel.border-dash{border:2px dashed #c0c0c0;}
+    #report .invoice_title{  display: block; font-size: 20px; padding-top: -50px; margin-bottom: 10px;}
+    #report .note.note-info{ border-color: white;}
+    #report #report-header{ margin-top: 0px;}
+    #report #report-top-header{margin-left: -11px;}
+    #report #report-footer { margin-top: -25px; font-size: 15px !important;}
+
+    #inspectionreport .for-print{display:block;}
+    #inspectionreport .no-print{display: none;}
+
+
+    #noLogo { display: none}
+    .underline { border-bottom: solid 1px; }
+
+    #registration-form { font-size: 16px; display: block; padding-left: 10px !important; }
+    #registration-form .l-header { font-family: "Khmer OS Muol"; font-size: 16px !important;}
+    #registration-form .row{  line-height: 30px;  }
+}

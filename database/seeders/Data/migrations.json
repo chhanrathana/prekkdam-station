@@ -1,0 +1,149 @@
+{
+    "RECORDS": [
+        {
+            "id": "1",
+            "migration": "2014_02_09_134650_create_branches_table",
+            "batch": "1"
+        },
+        {
+            "id": "2",
+            "migration": "2014_10_12_000001_create_sexes_table",
+            "batch": "1"
+        },
+        {
+            "id": "3",
+            "migration": "2014_10_12_000002_create_staff_status_table",
+            "batch": "1"
+        },
+        {
+            "id": "4",
+            "migration": "2014_10_12_000003_create_client_status_table",
+            "batch": "1"
+        },
+        {
+            "id": "5",
+            "migration": "2014_10_12_000004_create_loan_status_table",
+            "batch": "1"
+        },
+        {
+            "id": "6",
+            "migration": "2014_10_12_000005_create_payment_status_table",
+            "batch": "1"
+        },
+        {
+            "id": "7",
+            "migration": "2014_10_12_000006_create_user_types_table",
+            "batch": "1"
+        },
+        {
+            "id": "8",
+            "migration": "2014_10_12_000007_create_users_table",
+            "batch": "1"
+        },
+        {
+            "id": "9",
+            "migration": "2020_05_17_223712_create_urls_table",
+            "batch": "1"
+        },
+        {
+            "id": "10",
+            "migration": "2021_01_15_112941_create_staffs_table",
+            "batch": "1"
+        },
+        {
+            "id": "11",
+            "migration": "2021_01_22_142409_create_group_menus_table",
+            "batch": "1"
+        },
+        {
+            "id": "12",
+            "migration": "2021_01_22_142410_create_menus_table",
+            "batch": "1"
+        },
+        {
+            "id": "13",
+            "migration": "2021_02_20_064308_create_provinces_table",
+            "batch": "1"
+        },
+        {
+            "id": "14",
+            "migration": "2021_02_20_064324_create_districts_table",
+            "batch": "1"
+        },
+        {
+            "id": "15",
+            "migration": "2021_02_20_064343_create_communes_table",
+            "batch": "1"
+        },
+        {
+            "id": "16",
+            "migration": "2021_02_20_064547_create_villages_table",
+            "batch": "1"
+        },
+        {
+            "id": "17",
+            "migration": "2021_02_23_055902_create_interest_rates_table",
+            "batch": "1"
+        },
+        {
+            "id": "18",
+            "migration": "2021_02_25_081915_create_clients_table",
+            "batch": "1"
+        },
+        {
+            "id": "19",
+            "migration": "2021_02_25_091954_create_loans_table",
+            "batch": "1"
+        },
+        {
+            "id": "20",
+            "migration": "2021_02_25_094201_create_payments_table",
+            "batch": "1"
+        },
+        {
+            "id": "21",
+            "migration": "2021_05_15_160859_create_user_has_menu_table",
+            "batch": "1"
+        },
+        {
+            "id": "22",
+            "migration": "2021_06_20_104410_create_calendars_table",
+            "batch": "1"
+        },
+        {
+            "id": "23",
+            "migration": "2021_08_22_162143_create_payment_transactions_table",
+            "batch": "1"
+        },
+        {
+            "id": "24",
+            "migration": "2022_05_14_221049_create_shareholders_table",
+            "batch": "1"
+        },
+        {
+            "id": "25",
+            "migration": "2022_05_14_221106_create_deposits_table",
+            "batch": "1"
+        },
+        {
+            "id": "26",
+            "migration": "2022_05_14_221137_create_expense_types_table",
+            "batch": "1"
+        },
+        {
+            "id": "27",
+            "migration": "2022_05_15_160858_create_payment_revenues_table",
+            "batch": "1"
+        },
+        {
+            "id": "28",
+            "migration": "2022_05_16_005853_create_expense_items_table",
+            "batch": "1"
+        },
+        {
+            "id": "29",
+            "migration": "2022_05_17_223727_create_user_type_urls_table",
+            "batch": "1"
+        }
+    ]
+}

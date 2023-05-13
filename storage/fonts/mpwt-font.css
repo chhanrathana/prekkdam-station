@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'Siemreap';
+  src: url('Siemreap.eot');
+  src: url('Siemreap.woff2') format('woff2'),
+       url('Siemreap.woff') format('woff'),
+       url('Siemreap.ttf') format('truetype'),
+       url('Siemreap.svg#KhmerOSsys') format('svg'),
+       url('Siemreap.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+
+  font-family: 'KhmerMoul'; 
+  src: url('khmermoul/KhmerMoul.eot'); /* IE9 Compat Modes */ 
+  src: url('khmermoul/KhmerMoul.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ 
+       url('khmermoul/KhmerMoul.woff2') format('woff2'), /* Super Modern Browsers */ 
+       url('khmermoul/KhmerMoul.woff') format('woff'), /* Pretty Modern Browsers */ 
+       url('khmermoul/KhmerMoul.ttf')  format('truetype'), /* Safari, Android, iOS */ 
+       url('khmermoul/KhmerMoul.svg#svgFontName') format('svg'); /* Legacy iOS */ 
+}
+
