@@ -5,7 +5,7 @@
         <div class="card-group">
             <div class="card p-4">
                 <div class="card-body">
-                    <h3 class="font-weight-bold text-center text-nowrap">ប្រព័ន្ធគ្រប់គ្រងស្ថានីយ៍ឥន្ទនៈ</h3>
+                    <h3 class="font-weight-bold text-center text-nowrap">ស្ថានីយ៍ឥន្ទនៈ SAVIMEX R5</h3>
                     <br/>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
