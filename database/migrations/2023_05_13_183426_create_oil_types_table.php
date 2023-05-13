@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBranchesTable extends Migration
+class CreateOilTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateBranchesTable extends Migration
      */
     public function up()
     {
-        Schema::create('branches', function (Blueprint $table) {
+        Schema::create('oil_types', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('code',10)->unique();
             $table->string('name_kh')->nullable();
             $table->string('name_en')->nullable();
-            $table->string('description',500)->nullable();                        
-            $table->timestamps();            
+            $table->timestamps();
             $table->softDeletes();
         });
     }
@@ -31,6 +29,6 @@ class CreateBranchesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('branches');
+        Schema::dropIfExists('oil_types');
     }
 }
