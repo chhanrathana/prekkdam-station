@@ -41,22 +41,22 @@ Route::middleware(['auth'])->group(function () {
         })->name('dashboard');
 
         Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function () {
-            Route::get('loan',      [LoanController::class, 'index'])->name('loan.index');
-            Route::get('deposit',   [DepositController::class, 'index'])->name('deposit.index');
+            Route::get('loan',      [BlankController::class, 'index'])->name('loan.index');
+            Route::get('deposit',   [BlankController::class, 'index'])->name('deposit.index');
         });
                 
         Route::group(['prefix' => 'report', 'as' => 'report.'], function () {
             Route::group(['prefix' => 'accounting', 'as' => 'accounting.'], function () {
-                Route::get('balancesheet',  [BalancesheetController::class, 'index'])->name('balancesheet.index');
-                Route::get('netincome',     [NetIncomeController::class, 'index'])->name('netincome.index');
-                Route::get('cashflow',      [CashFlowController::class, 'index'])->name('cashflow.index');
-                Route::get('revenue',       [RevenueController::class, 'index'])->name('revenue.index');
-                Route::get('expense',       [ExpenseController::class, 'index'])->name('expense.index');
+                Route::get('balancesheet',  [BlankController::class, 'index'])->name('balancesheet.index');
+                Route::get('netincome',     [BlankController::class, 'index'])->name('netincome.index');
+                Route::get('cashflow',      [BlankController::class, 'index'])->name('cashflow.index');
+                Route::get('revenue',       [BlankController::class, 'index'])->name('revenue.index');
+                Route::get('expense',       [BlankController::class, 'index'])->name('expense.index');
             });
     
             Route::group(['prefix' => 'operation', 'as' => 'operation.'], function () {
-                Route::get('loan',          [LoanController::class, 'index'])->name('loan.index');
-                Route::get('deposit',       [LoanController::class, 'index'])->name('deposit.index');
+                Route::get('loan',          [BlankController::class, 'index'])->name('loan.index');
+                Route::get('deposit',       [BlankController::class, 'index'])->name('deposit.index');
             });
         });
       
@@ -64,16 +64,16 @@ Route::middleware(['auth'])->group(function () {
             // loans transaction
             Route::group(['prefix' => 'loan', 'as' => 'loan.'], function () {
                 Route::group(['prefix' => 'payment', 'as' => 'payment.'], function () {
-                    Route::get('',          [LoansPaymentController::class, 'index'])->name('index');
+                    Route::get('',          [BlankController::class, 'index'])->name('index');
                     Route::get('{id}/edit', [LoansPaymentController::class, 'edit'])->name('edit');
                     Route::patch('{id}',    [LoansPaymentController::class, 'update'])->name('update');
                 });
                 
                 Route::group(['prefix' => 'request', 'as' => 'request.'], function () {
                     Route::get('download',          [RequestController::class, 'download'])->name('download');            
-                    Route::get('create',            [RequestController::class, 'create'])->name('create');
+                    Route::get('create',            [BlankController::class, 'create'])->name('create');
                     Route::post('create',           [RequestController::class, 'store'])->name('store');
-                    Route::get('list',              [RequestController::class, 'index'])->name('index');
+                    Route::get('list',              [BlankController::class, 'index'])->name('index');
                     Route::get('list/{id}',         [RequestController::class, 'show'])->name('show');            
                     Route::delete('list/{id}',      [RequestController::class, 'destroy'])->name('destroy');
                     Route::patch('list/{id}',       [RequestController::class, 'update'])->name('update');
@@ -155,7 +155,7 @@ Route::middleware(['auth'])->group(function () {
         Route::group(['prefix' => 'setting', 'as' => 'setting.'], function () {
             Route::group(['prefix' => 'master-data', 'as' => 'master-data.'], function () {            
                 Route::group(['prefix' => 'calendar', 'as' => 'calendar.'], function () {
-                    Route::get('',          [CalendarController::class, 'index'])->name('index');
+                    Route::get('',          [BlankController::class, 'index'])->name('index');
                     Route::get('download',  [CalendarController::class, 'download'])->name('download');
                     Route::post('',         [CalendarController::class, 'store'])->name('store');
                     Route::get('create',    [CalendarController::class, 'create'])->name('create');
@@ -166,15 +166,15 @@ Route::middleware(['auth'])->group(function () {
                 });
     
                 Route::group(['prefix' => 'deposit', 'as' => 'deposit.'], function () {
-                    Route::get('',          [MasterDataDepositController::class, 'index'])->name('index');
+                    Route::get('',          [BlankController::class, 'index'])->name('index');
                 });
              
                 Route::group(['prefix' => 'loan', 'as' => 'loan.'], function () {    
-                    Route::get('',          [MasterDataLoanController::class, 'index'])->name('index');
+                    Route::get('',          [BlankController::class, 'index'])->name('index');
                 });
                 
                 Route::group(['prefix' => 'expense-type', 'as' => 'expense-type.'], function () {
-                    Route::get('',          [ExpenseTypeController::class, 'index'])->name('index');
+                    Route::get('',          [BlankController::class, 'index'])->name('index');
                     Route::post('',         [ExpenseTypeController::class, 'store'])->name('store');
                     Route::get('create',    [ExpenseTypeController::class, 'create'])->name('create');
                     Route::delete('{id}',   [ExpenseTypeController::class, 'destroy'])->name('destroy');
@@ -184,7 +184,7 @@ Route::middleware(['auth'])->group(function () {
                 });
     
                  Route::group(['prefix' => 'revenue-type', 'as' => 'revenue-type.'], function () {
-                    Route::get('',          [RevenueTypeController::class, 'index'])->name('index');
+                    Route::get('',          [BlankController::class, 'index'])->name('index');
                     Route::post('',         [RevenueTypeController::class, 'store'])->name('store');
                     Route::get('create',    [RevenueTypeController::class, 'create'])->name('create');
                     Route::delete('{id}',   [RevenueTypeController::class, 'destroy'])->name('destroy');

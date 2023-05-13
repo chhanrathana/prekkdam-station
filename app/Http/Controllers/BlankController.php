@@ -16,4 +16,12 @@ class BlankController extends Controller
             'interests' => null,
         ]);
     }
+
+    public function create(Request $request)
+    {                
+        return view('blanks.index',[
+        
+            'interests' => null,
+        ]);
+    }
 }
