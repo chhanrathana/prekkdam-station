@@ -37,7 +37,7 @@ Route::middleware(['auth'])->group(function () {
                         
 
         Route::get('', function () {
-            return redirect()->route('dashboard.loan');
+            return redirect()->route('dashboard.loan.index');
         })->name('dashboard');
 
         Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function () {
