@@ -9,12 +9,9 @@ use App\Models\Sex;
 use App\Models\StaffStatus;
 use App\Models\ExchangeRate;
 use App\Models\ExpenseType;
-use App\Models\LoanStatus;
-use App\Models\LoanType;
 use App\Models\OilStatus;
 use App\Models\OilType;
 use App\Models\Staff;
-use App\Models\PaymentStatus;
 use App\Models\WorkShift;
 
 class SetupTableSeeder extends Seeder

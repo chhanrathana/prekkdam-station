@@ -13,36 +13,37 @@ use App\Models\LoanPayment;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\LoanExport;
 use App\Http\Requests\LoanRequest;
+use App\Http\Requests\OilSaleRequest;
+use App\Models\OilSale;
 
 class RequestController extends Controller
 {        
     public function index(Request $request)
     {
-        $records = $this->loanRequstService->getLoans($request);
+        $records = $this->saleRequstService->getSales($request);
         $status = LoanStatus::all();
 
-        return view('operations.sales.requests.index',[
-            'records' => $records,
-            'status' => $status,
+        return view('operations.sales.requests.index',[            
+            'records'   => $records,
+            'status'    => $status,
         ]);
     }
 
     public function create()
     {                       
-        return view('operations.sales.requests.create', [              
+        return view('operations.sales.requests.create', [
+            'code'          => generateOilSaleCode(),
             'currentDate'   => $this->currentDate,
-            'types'         => $this->getOilTypes(),
+            'types'         => $this->getOnsaleOils(),
             'shifts'        => $this->getWorkShifts(),
         ]);
     }
  
-    public function store(LoanRequest $request)
+    public function store(OilSaleRequest $request)
     {        
         DB::beginTransaction();
         try {          
-            $client = Client::find($request->client_id);            
-            $record = $this->loanRequstService->createLoan($request, $client);                        
-            $this->loanPaymentSevice->createFristPayment($record);
+            $this->saleRequstService->createSale($request); 
             DB::commit();
             return redirect()->back()->with('success', __('message.success'));
         } catch (\Exception $ex) {
@@ -54,9 +55,9 @@ class RequestController extends Controller
 
     public function edit($id)
     {
-        $record = Loan::find($id);
+        $record = OilSale::find($id);
 
-        return view('operations.loans.requests.edit', [
+        return view('operations.sales.requests.edit', [
             'record' => $record,
         ]);
     }

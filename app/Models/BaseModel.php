@@ -40,9 +40,9 @@ class BaseModel extends Model
         $this->attributes['purchase_date'] = $value ? Carbon::createFromFormat('d/m/Y', $value)->format('Y-m-d') : null;
     }
 
-    public function setEndInterestDateAttribute($value)
+    public function setSaleDateAttribute($value)
     {
-        $this->attributes['end_interest_date'] = Carbon::createFromFormat('d/m/Y', $value)->format('Y-m-d');
+        $this->attributes['sale_date'] = Carbon::createFromFormat('d/m/Y', $value)->format('Y-m-d');
     }
 
      public function setDateAttribute($value)

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Services\Operations\Loans;
+namespace App\Http\Services\Operations\Sales;
 
 use App\Enums\LoanStatusEnum;
 use App\Enums\LoanTypeEnum;

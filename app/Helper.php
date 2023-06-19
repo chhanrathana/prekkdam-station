@@ -2,6 +2,7 @@
 
 use App\Models\ExchangeRate;
 use App\Models\OilPurchase;
+use App\Models\OilSale;
 use App\Models\OilType;
 use App\Models\PaymentTransaction;
 use Carbon\Carbon;
@@ -19,6 +20,13 @@ function generateOilPurchaseCode()
     $count = OilPurchase::withTrashed()->count();
     $code = (1 + $count);
     return 'P'.str_pad($code, 4, '0', STR_PAD_LEFT);
+}
+
+function generateOilSaleCode()
+{
+    $count = OilSale::withTrashed()->count();
+    $code = (1 + $count);
+    return 'S'.str_pad($code, 4, '0', STR_PAD_LEFT);
 }
 
 function getExchangeRate($date){

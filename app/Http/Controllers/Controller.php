@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Enums\ActiveEnum;
+use App\Enums\OilStatusEnum;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 use App\Http\Services\Operations\ClientService;
-use App\Http\Services\Operations\Loans\PaymentService;
-use App\Http\Services\Operations\Loans\RequestService;
+use App\Http\Services\Operations\Sales\PaymentService;
+use App\Http\Services\Operations\Sales\RequestService;
 use App\Http\Services\Operations\Purchases\RequestService as PurchasesRequestService;
 use App\Http\Services\Settings\PDFService;
 use App\Models\LoanPayment;
@@ -27,8 +28,8 @@ class Controller extends BaseController
 
     protected $staffService;
     protected $clientService;
-    protected $loanRequstService;
-    protected $loanPaymentSevice;        
+    protected $saleRequstService;
+    protected $salePaymentSevice;        
     protected $purchaseRequstService;
     protected $depositPaymentService;
     protected $pdfService;
@@ -36,16 +37,13 @@ class Controller extends BaseController
 
     public function __construct()
     {
-        $this->clientService = new ClientService();
-        
-        $this->loanRequstService = new RequestService();
-        $this->loanPaymentSevice = new PaymentService();
-        
+        $this->clientService = new ClientService();        
+        $this->saleRequstService = new RequestService();
+        $this->salePaymentSevice = new PaymentService();        
         $this->purchaseRequstService = new PurchasesRequestService();     
         $this->pdfService = new PDFService();
         $this->currentDate = Carbon::now()->format('d/m/Y');
     }
-
     
     protected function updateLateTransaction(){
         $today = Carbon::now()->format('Y-m-d');
@@ -81,7 +79,11 @@ class Controller extends BaseController
         return $expenses;
     }
 
-    
+    protected function getOnsaleOils(){
+        $query = OilType::join('oil_purchases', 'oil_types.id', 'oil_purchases.oil_type_id');
+        $query->where('oil_purchases.status_id', OilStatusEnum::ON_SALE);
+        return $query->get(['oil_purchases.id', 'oil_types.name_kh', 'oil_types.name_en', 'oil_purchases.pending_qty_liter', 'oil_purchases.code']);
+    }        
 
     protected function getNetIncome($brandId, $fromDate, $toDate){
         $query = PaymentRevenue::query();

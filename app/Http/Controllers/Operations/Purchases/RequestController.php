@@ -27,7 +27,7 @@ class RequestController extends Controller
         return view('operations.purchases.requests.create', [
             'currentDate'   => $this->currentDate,
             'types'         => $this->getOilTypes(),
-            'code'          => generateOilPurchaseCode(),            
+            'code'          => generateOilPurchaseCode(),
             'statuses'      => $this->getOilStatuses(),
         ]);
     }
