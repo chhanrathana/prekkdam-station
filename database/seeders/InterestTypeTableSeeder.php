@@ -14,8 +14,8 @@ class InterestTypeTableSeeder extends Seeder
      */
     public function run()
     {
-        $rates = getBackupData($name = 'interest_rates');        
-        $this->storeInterestRate($rates);
+        // $rates = getBackupData($name = 'interest_rates');        
+        // $this->storeInterestRate($rates);
     }
 
     private function storeInterestRate($rates){

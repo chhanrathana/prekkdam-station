@@ -14,9 +14,11 @@ class CreateOilTypesTable extends Migration
     public function up()
     {
         Schema::create('oil_types', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->string('id',10)->primary();
             $table->string('name_kh')->nullable();
             $table->string('name_en')->nullable();
+            $table->integer('liter_of_ton')->default(0)->comment('liters of a ton');            
+            $table->boolean('active')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -14,8 +14,12 @@ class CreateWorkShiftsTable extends Migration
     public function up()
     {
         Schema::create('work_shifts', function (Blueprint $table) {
-            $table->id();
+            $table->string('id',10)->primary();
+            $table->string('name_kh')->nullable();
+            $table->string('name_en')->nullable();
+            $table->boolean('active')->default(1);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

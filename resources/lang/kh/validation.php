@@ -177,7 +177,10 @@ return [
         'start_interest_date' => 'ថ្ងៃគិតការដំបូង',
         'interest_rate' => 'ការប្រាក់',
         'interest_paid_amount' => 'ការប្រាក់',
-        'deduct_paid_amount' => 'រលស់ដើម'
+        'deduct_paid_amount' => 'រលស់ដើម',
+        'oil_type_id' => 'ប្រភេទឥន្ទនៈ',
+        'cost_usd' => 'តម្លៃដើម',
+        'qty_ton' => 'បរិមាណ',
 ],
 
 ];

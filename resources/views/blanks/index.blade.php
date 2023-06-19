@@ -6,8 +6,8 @@
         $totalPrincipal = 0;
     @endphp
     <div class="row">
-        <div class="text-center align-middle">
-            <h1 >Comming Soon ...</h1>
+        <div class="col text-center">
+            <h1>Comming Soon...</h1>
         </div>
             
         

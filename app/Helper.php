@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\ExchangeRate;
+use App\Models\OilPurchase;
+use App\Models\OilType;
 use App\Models\PaymentTransaction;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
@@ -11,6 +14,31 @@ function convertDaytoKhmer($weekDay)
     return $day[$weekDay];
 }
 
+function generateOilPurchaseCode()
+{
+    $count = OilPurchase::withTrashed()->count();
+    $code = (1 + $count);
+    return 'P'.str_pad($code, 4, '0', STR_PAD_LEFT);
+}
+
+function getExchangeRate($date){
+    $record = ExchangeRate::where('date', $date)->first();
+    if(!$record){
+        // new new once if null
+        $lastUpdate = ExchangeRate::orderByDesc('date')->first();
+        $record = new ExchangeRate();
+        $record->date = $date;
+        $record->usd = $lastUpdate->usd;
+        $record->khr = $lastUpdate->khr;
+        $record->save();
+    }
+    return $record->khr;
+}
+
+function getLiterOfTon($id){
+    $record = OilType::where('id', $id)->first();
+    return $record->liter_of_ton;
+}
 
 function currentParamter(){	
 	return  str_replace(url()->current(),'',url()->full());

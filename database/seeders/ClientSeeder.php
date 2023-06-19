@@ -12,8 +12,8 @@ class ClientSeeder extends Seeder
        
     public function run()
     {       
-        $clients = getBackupData($name = 'clients');        
-        $this->storeClient($clients);
+        // $clients = getBackupData($name = 'clients');        
+        // $this->storeClient($clients);
     }
     
    

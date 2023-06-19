@@ -181,11 +181,11 @@
     <div class="card-footer">
         <div class="row">
             <div class="col">
-                <a class="btn btn btn-warning float-left" href="{{ route('operation.client.index')}}">
+                <a class="btn btn-warning float-left" href="{{ route('operation.client.index')}}">
                     <i class="fas fa-arrow-left"></i> {{ __('form.btn_back') }}
                 </a>
 
-                <button class="btn btn btn-success float-right" type="submit">                    
+                <button class="btn btn-success float-right" type="submit">                    
                     <i class="fas fa-save"></i> {{ __('form.btn_save') }}
                 </button>
             </div>

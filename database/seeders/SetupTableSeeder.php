@@ -7,15 +7,15 @@ use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 use App\Models\Sex;
 use App\Models\StaffStatus;
-use App\Models\ClientStatus;
-use App\Models\ClientType;
-use App\Models\DepositStatus;
-use App\Models\DepositType;
+use App\Models\ExchangeRate;
 use App\Models\ExpenseType;
 use App\Models\LoanStatus;
 use App\Models\LoanType;
+use App\Models\OilStatus;
+use App\Models\OilType;
 use App\Models\Staff;
 use App\Models\PaymentStatus;
+use App\Models\WorkShift;
 
 class SetupTableSeeder extends Seeder
 {
@@ -49,22 +49,58 @@ class SetupTableSeeder extends Seeder
             ]
         ]);
 
-        ClientType::insert([
+        OilType::insert([
             [
-                'id' => 'ind',
-                'name_kh' => 'បុគ្គល',
-                'name_en' => 'Individual',
+                'id' => 'ex',
+                'name_kh' => 'ស៊ុបពែ',
+                'name_en' => 'Super',
+                'liter_of_ton' => 1390,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
-                'id' => 'comm',
-                'name_kh' => 'សមាគម',
-                'name_en' => 'Community',
+                'id' => 'ea',
+                'name_kh' => 'សាំង',
+                'name_en' => 'Regular',
+                'liter_of_ton' => 1390,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'id' => 'do',
+                'name_kh' => 'ម៉ាស៊ូត',
+                'name_en' => 'Diesel',
+                'liter_of_ton' => 1190,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'id' => 'lpg',
+                'name_kh' => 'ហ្គាស់',
+                'name_en' => 'Gas',
+                'liter_of_ton' => 1850,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]
         ]);
+
+        WorkShift::insert([
+            [
+                'id' => 'day',
+                'name_kh' => 'ថ្ងៃ',
+                'name_en' => 'Day',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'id' => 'night',
+                'name_kh' => 'យប់',
+                'name_en' => 'Night',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],           
+        ]);
+
 
         StaffStatus::insert([
             [
@@ -85,156 +121,48 @@ class SetupTableSeeder extends Seeder
             ]
         ]);
 
-        ClientStatus::insert([
-            [
-                'id' => 'active',
-                'name_kh' => 'បើក',
-                'name_en' => 'ACTIVE',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-            [
-                'id' => 'inactive',
-                'name_kh' => 'បិទ',
-                'name_en' => 'INACTIVE',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ]
-        ]);
-        LoanType::insert([
-            [
-                'id' => 'fix',
-                'name_kh' => 'កំណត់',
-                'name_en' => 'FIX',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-            [
-                'id' => 'flexible',
-                'name_kh' => 'បត់បែន',
-                'name_en' => 'FLIXBLE',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],            
-        ]);
+       
 
-        LoanStatus::insert([
+        OilStatus::insert([            
             [
-                'id' => 'pending',
-                'name_kh' => 'កម្ចីថ្មី',
-                'name_en' => 'New',
-                'css' => 'badge badge-primary',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-            [
-                'id' => 'progress',
-                'name_kh' => 'ដំណើការ',
+                'id' => 'on_sale',
+                'name_kh' => 'ដាក់លក់',
                 'name_en' => 'Progress',
                 'css' => 'badge badge-info',
+                'active' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
-                'id' => 'finish',
-                'name_kh' => 'បញ្ចប់',
-                'name_en' => 'CLOSE',
-                'css' => 'badge badge-danger',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ]
-        ]);
-
-        DepositStatus::insert([
-            [
-                'id' => 'pending',
-                'name_kh' => 'សន្សំថ្មី',
-                'name_en' => 'New',
-                'css' => 'badge badge-primary',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-            [
-                'id' => 'progress',
-                'name_kh' => 'ដំណើការ',
-                'name_en' => 'Progress',
-                'css' => 'badge badge-info',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-            [
-                'id' => 'finish',
-                'name_kh' => 'បញ្ចប់',
-                'name_en' => 'CLOSE',
-                'css' => 'badge badge-danger',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ]
-        ]);
-
-        DepositType::insert([
-            [
-                'id' => 'saving',
-                'name_kh' => 'សន្សំ',
-                'name_en' => 'Saving',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-            [
-                'id' => 'deposit',
-                'name_kh' => 'បញ្ញើរ',
-                'name_en' => 'Depsoit',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],            
-        ]);
-
-        PaymentStatus::insert([
-            [
-                'id' => 'pending',
-                'name_kh' => 'មិនទាន់បង់',
-                'name_en' => 'PENDING',
-                'css' => 'badge badge-info',
-                'visible' => true,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-            [
-                'id' => 'paid',
-                'name_kh' => 'បង់រួច',
-                'name_en' => 'PAID',
-                'css' => 'badge badge-success',
-                'visible' => true,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-            [
-                'id' => 'late',
-                'name_kh' => 'យឺត',
-                'name_en' => 'LATE',
-                'css' => 'badge badge-danger',
-                'visible' => true,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-            [
-                'id' => 'lack',
-                'name_kh' => 'បង់ទុក',
-                'name_en' => 'LACK',
+                'id' => 'postpone',
+                'name_kh' => 'ផ្អាកលក់',
+                'name_en' => 'Postponse',
                 'css' => 'badge badge-warning',
-                'visible' => true,
+                'active' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
-                'id' => 'finish',
-                'name_kh' => 'បញ្ចប់',
-                'name_en' => 'CLOSE',
+                'id' => 'out_stock',
+                'name_kh' => 'អស់ស្តុក',
+                'name_en' => 'Out Stock',
                 'css' => 'badge badge-danger',
-                'visible' => false,
+                'active' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]
+        ]);
+
+       
+        ExchangeRate::insert([
+            [
+                'id' => '003a91eb-9d48-464e-b242-82e260feed9e',
+                'date' => Carbon::now(),
+                'usd' => 1,
+                'khr' => 4100,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
         ]);
         
         $staffs = getBackupData('staffs');

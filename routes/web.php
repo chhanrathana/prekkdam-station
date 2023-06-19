@@ -1,27 +1,19 @@
 <?php
 
 use App\Http\Controllers\BlankController;
-use App\Http\Controllers\Dashboards\DepositController;
-use App\Http\Controllers\Dashboards\LoanController;
 use App\Http\Controllers\Operations\ClientController;
 use App\Http\Controllers\Operations\Deposits\PaymentController;
 use App\Http\Controllers\Operations\Deposits\RequestController as DepositsRequestController;
 use App\Http\Controllers\Operations\ExpenseController as OperationsExpenseController;
-use App\Http\Controllers\Operations\Loans\PaymentController as LoansPaymentController;
-use App\Http\Controllers\Operations\Loans\RequestController;
+use App\Http\Controllers\Operations\Sales\PaymentController as LoansPaymentController;
+use App\Http\Controllers\Operations\Sales\RequestController;
 use App\Http\Controllers\Operations\Memberships\PaymentController as MembershipsPaymentController;
 use App\Http\Controllers\Operations\Memberships\RequestController as MembershipsRequestController;
+use App\Http\Controllers\Operations\Purchases\RequestController as PurchasesRequestController;
 use App\Http\Controllers\Operations\RevenueController as OperationsRevenueController;
-use App\Http\Controllers\Reports\Accountings\BalancesheetController;
-use App\Http\Controllers\Reports\Accountings\CashFlowController;
-use App\Http\Controllers\Reports\Accountings\NetIncomeController;
-use App\Http\Controllers\Reports\Accountings\RevenueController;
-use App\Http\Controllers\Reports\Accountings\ExpenseController;
 use App\Http\Controllers\Settings\AddressController;
 use App\Http\Controllers\Settings\MasterData\CalendarController;
-use App\Http\Controllers\Settings\MasterData\DepositController as MasterDataDepositController;
 use App\Http\Controllers\Settings\MasterData\ExpenseTypeController;
-use App\Http\Controllers\Settings\MasterData\LoanController as MasterDataLoanController;
 use App\Http\Controllers\Settings\MasterData\RevenueTypeController;
 use App\Http\Controllers\Settings\ProfileController;
 use App\Http\Controllers\Settings\UserController;
@@ -62,7 +54,7 @@ Route::middleware(['auth'])->group(function () {
       
         Route::group(['prefix' => 'operation', 'as' => 'operation.'], function () {
             // loans transaction
-            Route::group(['prefix' => 'loan', 'as' => 'loan.'], function () {
+            Route::group(['prefix' => 'sale', 'as' => 'sale.'], function () {
                 Route::group(['prefix' => 'payment', 'as' => 'payment.'], function () {
                     Route::get('',          [BlankController::class, 'index'])->name('index');
                     Route::get('{id}/edit', [LoansPaymentController::class, 'edit'])->name('edit');
@@ -71,7 +63,7 @@ Route::middleware(['auth'])->group(function () {
                 
                 Route::group(['prefix' => 'request', 'as' => 'request.'], function () {
                     Route::get('download',          [RequestController::class, 'download'])->name('download');            
-                    Route::get('create',            [BlankController::class, 'create'])->name('create');
+                    Route::get('create',            [RequestController::class, 'create'])->name('create');
                     Route::post('create',           [RequestController::class, 'store'])->name('store');
                     Route::get('list',              [BlankController::class, 'index'])->name('index');
                     Route::get('list/{id}',         [RequestController::class, 'show'])->name('show');            
@@ -81,7 +73,7 @@ Route::middleware(['auth'])->group(function () {
                 });            
             });
 
-            Route::group(['prefix' => 'deposit', 'as' => 'deposit.'], function () {
+            Route::group(['prefix' => 'purchase', 'as' => 'purchase.'], function () {
                 Route::group(['prefix' => 'payment', 'as' => 'payment.'], function () {
                     Route::get('',          [PaymentController::class, 'index'])->name('index');
                     Route::get('{id}/edit', [PaymentController::class, 'edit'])->name('edit');
@@ -89,15 +81,15 @@ Route::middleware(['auth'])->group(function () {
                 });
                 
                 Route::group(['prefix' => 'request', 'as' => 'request.'], function () {
-                    Route::get('download',          [DepositsRequestController::class, 'download'])->name('download');            
-                    Route::get('create',            [DepositsRequestController::class, 'create'])->name('create');
-                    Route::post('create',           [DepositsRequestController::class, 'store'])->name('store');
-                    Route::get('list',              [DepositsRequestController::class, 'index'])->name('index');
-                    Route::get('list/{id}',         [DepositsRequestController::class, 'show'])->name('show');            
-                    Route::delete('list/{id}',      [DepositsRequestController::class, 'destroy'])->name('destroy');
-                    Route::post('photo/{id}',       [DepositsRequestController::class, 'updatePhoto'])->name('updatePhoto');
-                    Route::patch('list/{id}',       [DepositsRequestController::class, 'update'])->name('update');
-                    Route::get('list/{id}/edit',    [DepositsRequestController::class, 'edit'])->name('edit');
+                    Route::get('download',          [PurchasesRequestController::class, 'download'])->name('download');            
+                    Route::get('create',            [PurchasesRequestController::class, 'create'])->name('create');
+                    Route::post('create',           [PurchasesRequestController::class, 'store'])->name('store');
+                    Route::get('list',              [PurchasesRequestController::class, 'index'])->name('index');
+                    Route::get('list/{id}',         [PurchasesRequestController::class, 'show'])->name('show');            
+                    Route::delete('list/{id}',      [PurchasesRequestController::class, 'destroy'])->name('destroy');
+                    Route::post('photo/{id}',       [PurchasesRequestController::class, 'updatePhoto'])->name('updatePhoto');
+                    Route::patch('list/{id}',       [PurchasesRequestController::class, 'update'])->name('update');
+                    Route::get('list/{id}/edit',    [PurchasesRequestController::class, 'edit'])->name('edit');
                 });                
             });
 
