@@ -21,7 +21,7 @@
                     <tr>                        
                         <td class="text-center text-nowrap">   
                             <div class="btn-group" role="group" aria-label="Action">                            
-                                <a class="btn btn-sm btn-primary mr-1" href="{{ route('expense.edit',['id' => $record->id ])}}" type="button">
+                                <a class="btn btn-sm btn-primary mr-1" href="{{ route('operation.expense.edit',['id' => $record->id ])}}" type="button">
                                     <i class="fas fa-pen"></i> {{ __('form.btn_edit') }}
                                 </a>
                                   <button class="btn btn-sm btn-danger btn-delete mr-1" data-id="{{ $record->id }}">                                    

@@ -19,6 +19,7 @@ class RequestController extends Controller
 
         return view('operations.purchases.requests.index',[
             'records' => $records,
+            'types'   => $this->getOilTypes(),
         ]);
     }
 

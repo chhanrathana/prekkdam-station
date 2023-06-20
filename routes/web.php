@@ -65,7 +65,7 @@ Route::middleware(['auth'])->group(function () {
                     Route::get('download',          [RequestController::class, 'download'])->name('download');            
                     Route::get('create',            [RequestController::class, 'create'])->name('create');
                     Route::post('create',           [RequestController::class, 'store'])->name('store');
-                    Route::get('list',              [BlankController::class, 'index'])->name('index');
+                    Route::get('list',              [RequestController::class, 'index'])->name('index');
                     Route::get('list/{id}',         [RequestController::class, 'show'])->name('show');            
                     Route::delete('list/{id}',      [RequestController::class, 'destroy'])->name('destroy');
                     Route::patch('list/{id}',       [RequestController::class, 'update'])->name('update');

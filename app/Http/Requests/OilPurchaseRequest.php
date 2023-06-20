@@ -24,9 +24,9 @@ class OilPurchaseRequest extends FormRequest
     public function rules()
     {
         return [
-            'qty_ton' => 'required',
-            'purchase_date' => 'date_format:d/m/Y',
-            'cost_usd' => 'required',
+            'qty' => 'required',
+            'date' => 'date_format:d/m/Y',
+            'cost' => 'required',
             'oil_type_id' => 'required',
         ];       
     }

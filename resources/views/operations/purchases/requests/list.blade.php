@@ -24,7 +24,6 @@
                     </tr>                  
                 </thead>
                 <tbody>
-
                 @foreach ($records as $record)
                     <tr>
                         <td class="text-center text-nowrap">
@@ -48,12 +47,12 @@
                         <td class="text-center text-nowrap">{{ $record->code??''}}</td>
                         
                         <td class="text-center text-nowrap"><span class="{{ $record->_status->css }}">{{ $record->_status->name_kh }}</span></td>
-                        <td class="text-center text-nowrap">{{ $record->purchase_date??''}}</td>
-                        <td class="text-center text-nowrap">{{ $record->type->name_kh??''}}</td>                        
-                        <td class="text-right">{{ number_format($record->qty_ton,2) }} T</td>
-                        <td class="text-right">{{ number_format($record->pending_qty_ton,2) }} T</td>
-                        <td class="text-right">{{ number_format($record->cost_usd,2) }} USD</td>
-                        <td class="text-right">{{ number_format($record->total_cost_usd,2) }} USD</td>
+                        <td class="text-center text-nowrap">{{ $record->date??''}}</td>
+                        <td class="text-center text-nowrap">{{ $record->type->name_kh??''}}</td>
+                        <td class="text-right">{{ number_format($record->qty,2) }} {{ $record->unit }}</td>
+                        <td class="text-right">{{ number_format($record->remain_qty,2) }} {{ $record->unit }}</td>
+                        <td class="text-right">{{ number_format($record->cost,2) }} {{ $record->currency }}</td>
+                        <td class="text-right">{{ number_format($record->total_cost,2) }} {{ $record->currency }}</td>
                     </tr>
                 @endforeach
                 </tbody>

@@ -2,6 +2,9 @@
 
 namespace App\Http\Services\Operations\Sales;
 
+use App\Enums\CurrencyEnum;
+use App\Enums\OilStatusEnum;
+use App\Enums\UnitEnum;
 use App\Models\OilPurchase;
 use App\Models\OilSale;
 
@@ -12,28 +15,47 @@ class RequestService
     {
         $oilPurchase = OilPurchase::where('id', $request->oil_purchase_id)->first();
 
-        $record = OilSale::find($request->oil_purchase_id);
+        $record = OilSale::find($request->oil_sale_id);
         if (!$record) {
             $record = new OilSale();
             $record->code = generateOilSaleCode();
         }
         $record->fill($request->only([
-            'sale_date', 'oil_purchase_id', 'work_shift_id', 'old_capacitor_r', 'new_capacitor_r', 'old_capacitor_l', 'new_capacitor_l','sale_price_khr'
-        ]));
-        $record->qty_liter_r = $request->new_capacitor_r - $request->old_capacitor_r;
-        $record->qty_liter_l = $request->new_capacitor_l - $request->old_capacitor_l;
-        $record->total_qty_liter = $record->qty_liter_r + $request->qty_liter_l;
-        $record->total_qty_ton = $record->total_qty_liter / getLiterOfTon($oilPurchase->oil_type_id);
-        $record->sale_price_usd = $request->sale_price_khr / getExchangeRate($request->sale_date);
-        $record->total_sale_price_khr = $record->total_qty_liter * $request->sale_price_khr;
-        $record->total_sale_price_usd = $record->total_sale_price_khr / getExchangeRate($request->sale_date);
+            'date', 'oil_purchase_id', 'work_shift_id', 'old_motor_right', 'new_motor_right', 'old_motor_left', 'new_motor_left','price'
+        ]));            
+        $record->exchange_rate = getExchangeRate(formatToOrignDate($request->date));        
+        $record->cost = ($oilPurchase->cost * $oilPurchase->exchange_rate / ($oilPurchase->qty * $oilPurchase->type->liter_of_ton)) ;
+        $record->currency = CurrencyEnum::KHR;
+        $record->unit = UnitEnum::LITERS;
         $record->save();
+
+        $useQty = OilSale::where('oil_purchase_id', $request->oil_purchase_id)->sum('qty');
+        // update remain qty
+        $oilPurchase->remain_qty = $oilPurchase->qty -  ($useQty / $oilPurchase->type->liter_of_ton);
+        if($oilPurchase->remain_qty <= 0){
+            $oilPurchase->status_id = OilStatusEnum::OUT_STOCK;
+        }
+        $oilPurchase->save();
         return $record;
     }
 
     public function getSales($request, $paginate = true)
     {
-        $query = OilSale::query();              
+        $query = OilSale::query();      
+        
+        $query->when($request->oil_type_id, function ($q) use ($request) {
+            $q->where('oil_type_id', $request->oil_type_id);
+        });
+
+        $query->when($request->from_date, function ($q) use ($request) {
+            $q->where('date', '>=', formatToOrignDate($request->from_date));
+        });
+
+        $query->when($request->to_date, function ($q) use ($request) {
+            $q->where('date', '<=', formatToOrignDate($request->to_date));
+        });
+
+        
         $query->orderByDesc('code');        
         if ($paginate) {
             return $query->paginate(env('PAGINATION'));

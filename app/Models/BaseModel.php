@@ -22,7 +22,7 @@ class BaseModel extends Model
         parent::boot();
         self::creating(function ($model) {
             $model->id = Str::uuid();
-        });       
+        });
     }  
 
     public function setRegistrationDateAttribute($value)
@@ -93,6 +93,16 @@ class BaseModel extends Model
     public function getStartInterestDateAttribute($value)
     {
         return Carbon::parse($value)->format('d/m/Y');
+    }
+
+    public function getUnitAttribute($value)
+    {
+        return strtoupper($value);
+    }
+
+    public function getCurrencyAttribute($value)
+    {
+        return strtoupper($value);
     }
     
 }

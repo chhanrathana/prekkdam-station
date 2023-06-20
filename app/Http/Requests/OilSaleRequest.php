@@ -24,14 +24,14 @@ class OilSaleRequest extends FormRequest
     public function rules()
     {
         return [
-            'sale_date' => 'date_format:d/m/Y',            
+            'date' => 'date_format:d/m/Y',            
             'work_shift_id' =>'required',
             'oil_purchase_id' => 'required',
-            'old_capacitor_r' => 'required|numeric',
-            'new_capacitor_r' => 'required|numeric|gt:old_capacitor_r',
-            'old_capacitor_l' => 'required|numeric',
-            'new_capacitor_l' => 'required|numeric|gt:old_capacitor_l',
-            'sale_price_khr' => 'required|numeric',
+            'old_motor_right' => 'required|numeric',
+            'new_motor_right' => 'required|numeric|gt:old_motor_right',
+            'old_motor_left' => 'required|numeric',
+            'new_motor_left' => 'required|numeric|gt:old_motor_left',
+            'price' => 'required|numeric',
         ];
     }
 }

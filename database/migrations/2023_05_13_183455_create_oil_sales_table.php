@@ -16,20 +16,19 @@ class CreateOilSalesTable extends Migration
         Schema::create('oil_sales', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->char('code', 5)->unique();
-            $table->date('sale_date');
-            $table->double('old_capacitor_r',10)->default(0);
-            $table->double('new_capacitor_r',10)->default(0);
-            $table->double('qty_liter_r',10)->default(0);
-            $table->double('old_capacitor_l',10)->default(0);
-            $table->double('new_capacitor_l',10)->default(0);
-            $table->double('qty_liter_l',10)->default(0);            
-            $table->double('total_qty_liter',10)->default(0);
-            $table->double('total_qty_ton',10)->default(0);            
-            $table->double('sale_price_khr',10)->default(0);
-            $table->double('sale_price_usd',10)->default(0);
-            $table->double('total_sale_price_khr',10)->default(0);
-            $table->double('total_sale_price_usd',10)->default(0);
-            
+            $table->date('date');
+            $table->double('old_motor_right',2)->default(0);
+            $table->double('new_motor_right',2)->default(0);
+            $table->double('old_motor_left',2)->default(0);
+            $table->double('new_motor_left',2)->default(0);
+            $table->double('qty',2)->virtualAs('(new_motor_right - old_motor_right) + (new_motor_left - old_motor_left)');
+            $table->enum('unit', ['tons', 'liters'])->default('liters');
+            $table->double('cost',2)->default(0);
+            $table->double('price',2)->default(0);
+            $table->double('total_cost',2)->virtualAs('(cost * qty)');
+            $table->double('total_price',2)->virtualAs('(price * qty)');
+            $table->enum('currency', ['usd', 'khr'])->default('khr');
+            $table->double('exchange_rate',2)->default(0);
             $table->boolean('active')->default(1);
             $table->timestamps();
             $table->softDeletes();

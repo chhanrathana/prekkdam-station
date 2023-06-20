@@ -40,5 +40,12 @@ return [
     
     'user_index' => 'តារាង-អ្នកប្រើប្រាស់',
     'user_edit' => 'កែប្រែ-អ្នកប្រើប្រាស់',
-    'user_create' => 'បង្កើត-អ្នកប្រើប្រាស់'
+    'user_create' => 'បង្កើត-អ្នកប្រើប្រាស់',
+    'sale_request_index' => 'ការលក់',
+    'sale_request_create' => 'ការលក់-បង្កើត',
+    'sale_request_edit' => 'ការលក់-កែប្រែ',
+
+    'purchase_request_index' => 'ការទិញ',
+    'purchase_request_create' => 'ការទិញ-បង្កើត',
+    'purchase_request_edit' => 'ការទិញ-កែប្រែ',
 ];

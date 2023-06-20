@@ -119,3 +119,7 @@ function uploadImage($base64, $dir = 'avatars'){
     Storage::disk('local')->put('public/'.$imageUrl, base64_decode($image));
     return 'storage/'.$imageUrl;
 }
+
+function formatToOrignDate($date){
+    return Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d');
+}

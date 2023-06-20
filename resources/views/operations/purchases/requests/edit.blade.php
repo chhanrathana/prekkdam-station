@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title' ,  __('page-titles.loan_request_edit'))
+@section('title' ,  __('page-titles.purchase_request_edit'))
 
 @section('content')            
     <form action="{{ route('operation.purchase.request.update',['id' => $record->id]) }}" method="POST">

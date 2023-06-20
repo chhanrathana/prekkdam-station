@@ -155,5 +155,8 @@ return [
     'left' => 'ឆ្វេង',
     'khr' => 'KHR',
     'usd' => 'USD',
-    'ton' => 'តោន'
+    'ton' => 'តោន',
+    'price' => 'តម្លៃលក់',
+    'total_price' => 'លក់សរុប',
+    'sale_list' => 'តារាងលក់'
 ];

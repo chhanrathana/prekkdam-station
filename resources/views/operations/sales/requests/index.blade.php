@@ -1,15 +1,15 @@
 @extends('layouts.app')
-@section('title' ,  __('page-titles.loan_request_index'))
+@section('title' ,  __('page-titles.sale_request_index'))
 @section('content')    
-    @include('operations.loans.requests.search')
-    @include('operations.loans.requests.list')
+    @include('operations.sales.requests.search')
+    @include('operations.sales.requests.list')
     @include('includes.confirm-delete')    
 @endsection
 @section('script')
     <script>
         $(document).ready( function () {
             $('#table').on('click', '.btn-delete', function(){
-                var url = '/operation/loan/request/list/'+$(this).attr("data-id");;
+                var url = '/operation/sale/request/list/'+$(this).attr("data-id");;
                 $('#frmDelete').attr('action', url);
                 console.log('console....' + url);
                 $('#deleteModal').modal('show');

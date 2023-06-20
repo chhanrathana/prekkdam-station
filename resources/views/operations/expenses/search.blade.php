@@ -4,7 +4,7 @@
         <strong>{{ __('form.search') }}</strong>
     </div>
     <div class="card-body">
-        <form action="{{ route('operation.expense.store') }}" class="mt-2" id="frmSearch" method="GET">
+        <form action="{{ route('operation.expense.index') }}" class="mt-2" id="frmSearch" method="GET">
             <div class="form-row">   
 
                  <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 mb-1">
@@ -50,7 +50,7 @@
                         <i class="fas fa-search"></i>
                         {{ __('form.search') }}
                     </button>
-                    <a href="{{route('operation.expense.store')}}" class="btn btn-warning mb-2">
+                    <a href="{{route('operation.expense.index')}}" class="btn btn-warning mb-2">
                         <i class="fas fa-times"></i>
                         {{ __('form.clear') }}
                     </a>

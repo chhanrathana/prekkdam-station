@@ -1,7 +1,7 @@
 @extends('layouts.app')
-@section('title' ,  __('page-titles.loan_request_index'))
+@section('title' ,  __('page-titles.purchase_request_index'))
 @section('content')    
-    {{-- @include('operations.purchases.requests.search') --}}
+    @include('operations.purchases.requests.search')
     @include('operations.purchases.requests.list')
     @include('includes.confirm-delete')    
 @endsection

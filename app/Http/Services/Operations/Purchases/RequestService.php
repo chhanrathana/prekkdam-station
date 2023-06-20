@@ -2,6 +2,8 @@
 
 namespace App\Http\Services\Operations\Purchases;
 
+use App\Enums\CurrencyEnum;
+use App\Enums\UnitEnum;
 use App\Models\OilPurchase;
 
 class RequestService
@@ -15,21 +17,32 @@ class RequestService
             $record->code = generateOilPurchaseCode();
         }
         $record->fill($request->only([
-            'purchase_date', 'status_id', 'oil_type_id', 'qty_ton', 'cost_usd'
+            'date', 'status_id', 'oil_type_id', 'qty', 'cost'
         ]));
-        $record->qty_liter = $request->qty_ton * getLiterOfTon($request->oil_type_id);
-        $record->cost_khr = $request->cost_usd * getExchangeRate($request->purchase_date);
-        $record->total_cost_usd = $record->cost_usd * $request->qty_ton;
-        $record->total_cost_khr = $record->cost_khr * $request->qty_ton;
-        $record->pending_qty_ton = $record->qty_ton;
-        $record->pending_qty_liter = $record->qty_liter;
+        $record->remain_qty = $record->qty;
+        $record->exchange_rate = getExchangeRate(formatToOrignDate($request->date));
+        $record->currency = CurrencyEnum::USD;
+        $record->unit = UnitEnum::TONS;
         $record->save();
         return $record;
     }
 
     public function getPurchases($request, $paginate = true)
     {
-        $query = OilPurchase::query();              
+        $query = OilPurchase::query();       
+        
+        $query->when($request->oil_type_id, function ($q) use ($request) {
+            $q->where('oil_type_id', $request->oil_type_id);
+        });
+
+        $query->when($request->from_date, function ($q) use ($request) {
+            $q->where('date', '>=', formatToOrignDate($request->from_date));
+        });
+
+        $query->when($request->to_date, function ($q) use ($request) {
+            $q->where('date', '<=', formatToOrignDate($request->to_date));
+        });
+
         $query->orderByDesc('code');        
         if ($paginate) {
             return $query->paginate(env('PAGINATION'));

@@ -8,11 +8,9 @@ class OilPurchase extends BaseModel
 
     protected $fillable = [
         'code',
-        'purchase_date',
-        'qty_ton',        
-        'qty_liter',
-        'cost_usd',
-        'cost_khr',
+        'date',
+        'qty', 
+        'cost',
         'oil_type_id',        
         'status_id',
     ];

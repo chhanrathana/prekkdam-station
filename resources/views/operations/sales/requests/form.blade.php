@@ -25,17 +25,17 @@
             <div class="form-group col-sm-4">
                 <label>{{ __('form.sale_date') }}<span class="text-danger">*</span></label>
                 <input
-                    class="form-control {{ $errors->first('sale_date') ? 'is-invalid':'' }}"
-                    name="sale_date"
+                    class="form-control {{ $errors->first('date') ? 'is-invalid':'' }}"
+                    name="date"
                     type="text"
                     maxlength="10"
                     pattern="[0-9/]+"
                     data-inputmask-alias="dd/mm/yyyy"
                     data-val="true"
                     placeholder="ថ្ងៃ/ខែ/ឆ្នាំ"
-                    value="{{ (old('sale_date')??$record->sale_date??$currentDate)?? $currentDate }}"
+                    value="{{ (old('date')??$record->date??$currentDate)?? $currentDate }}"
                     >
-                <div class="invalid-feedback">{{ $errors->first('sale_date') }}</div>
+                <div class="invalid-feedback">{{ $errors->first('date') }}</div>
             </div>
 
             <div class="form-group col-sm-4">
@@ -44,9 +44,9 @@
                     <option value="" selected>[-- {{ __('form.select') }} --]</option>
                     @foreach ($types as $type)
                         @isset ($record)
-                            <option value="{{ $type->id }}" {{ $record->oil_purchase_id == $type->id ? 'selected' :  '' }} >{{ $type->code.' | '.$type->name_kh.' | '.number_format($type->pending_qty_liter).' L' }}</option>
+                            <option value="{{ $type->id }}" {{ $record->oil_purchase_id == $type->id ? 'selected' :  '' }} >{{ $type->code.' | '.$type->name_kh.' | '.number_format($type->remain_qty).' LITERS' }}</option>
                         @else
-                            <option value="{{ $type->id }}">{{$type->code.' | '. $type->name_kh.' | '.number_format($type->pending_qty_liter) .' L' }}</option>
+                            <option value="{{ $type->id }}">{{$type->code.' | '. $type->name_kh.' | '.number_format($type->remain_qty) .' LITERS' }}</option>
                         @endif
                     @endforeach
                 </select>
@@ -59,7 +59,7 @@
                     <option value="" selected>[-- {{ __('form.select') }} --]</option>
                     @foreach ($shifts as $shift)
                         @isset ($record)
-                            <option value="{{ $shift->id }}" {{ $record->work_shift_id == $type->id ? 'selected' :  '' }} >{{ $shift->name_kh }}</option>
+                            <option value="{{ $shift->id }}" {{ $record->work_shift_id == $shift->id ? 'selected' :  '' }} >{{ $shift->name_kh }}</option>
                         @else
                             <option value="{{ $shift->id }}">{{ $shift->name_kh }}</option>
                         @endif
@@ -72,102 +72,103 @@
                 <label>{{ __('form.old_capacitor') }} <span class="text-danger">*</span></label>
                 <div class="input-group">
                     <input
-                    class="form-control number {{ $errors->first('old_capacitor_r') ? 'is-invalid':'' }}"
-                    name="old_capacitor_r"
+                    class="form-control number {{ $errors->first('old_motor_right') ? 'is-invalid':'' }}"
+                    name="old_motor_right"
                     pattern="[0-9.]+"
                     type="text"
                     placeholder="293777.7"
                     maxlength="6"
-                    value="{{ (old('old_capacitor_r')??$record->old_capacitor_r??0)?? 0 }}"
+                    value="{{ (old('old_motor_right')??$record->old_motor_right??0)?? 0 }}"
                     >
                     <div class="input-group-append">
                         <span class="input-group-text">{{ __('form.right') }}</span>
                       </div>
-                </div>                                
-                <div class="invalid-feedback">{{ $errors->first('old_capacitor_r') }}</div>
+                    <div class="invalid-feedback">{{ $errors->first('old_motor_right') }}</div>
+                </div>                                                
             </div>
 
             <div class="form-group col-sm-4">
                 <label>{{ __('form.new_capacitor') }} <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <input
-                    class="form-control number {{ $errors->first('new_capacitor_r') ? 'is-invalid':'' }}"
-                    name="new_capacitor_r"
+                    class="form-control number {{ $errors->first('new_motor_right') ? 'is-invalid':'' }}"
+                    name="new_motor_right"
                     pattern="[0-9.]+"
                     type="text"
                     placeholder="293777.7"
                     maxlength="6"
-                    value="{{ (old('new_capacitor_r')??$record->new_capacitor_r??0)?? 0 }}"
+                    value="{{ (old('new_motor_right')??$record->new_motor_right??0)?? 0 }}"
                     >
                     <div class="input-group-append">
                         <span class="input-group-text">{{ __('form.right') }}</span>
                     </div>
-                </div>      
-                <div class="invalid-feedback">{{ $errors->first('new_capacitor_r') }}</div>
+                    <div class="invalid-feedback">{{ $errors->first('new_motor_right') }}</div>
+                </div>                      
             </div>
 
             <div class="form-group col-sm-4">
                 <label>{{ __('form.old_capacitor') }} <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <input
-                    class="form-control number {{ $errors->first('old_capacitor_l') ? 'is-invalid':'' }}"
-                    name="old_capacitor_l"
+                    class="form-control number {{ $errors->first('old_motor_left') ? 'is-invalid':'' }}"
+                    name="old_motor_left"
                     pattern="[0-9.]+"
                     type="text"
                     placeholder="455.63"
                     maxlength="6"
-                    value="{{ (old('old_capacitor_l')??$record->old_capacitor_l??0)?? 0 }}"
+                    value="{{ (old('old_motor_left')??$record->old_motor_left??0)?? 0 }}"
                     >
                     <div class="input-group-append">
                         <span class="input-group-text">{{ __('form.left') }}</span>
                       </div>
-                </div>      
-                <div class="invalid-feedback">{{ $errors->first('old_capacitor_l') }}</div>
+                    <div class="invalid-feedback">{{ $errors->first('old_motor_left') }}</div>
+                </div>                      
             </div>
 
             <div class="form-group col-sm-4">
                 <label>{{ __('form.new_capacitor') }} <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <input
-                    class="form-control number {{ $errors->first('new_capacitor_l') ? 'is-invalid':'' }}"
-                    name="new_capacitor_l"
+                    class="form-control number {{ $errors->first('new_motor_left') ? 'is-invalid':'' }}"
+                    name="new_motor_left"
                     pattern="[0-9.]+"
                     type="text"
                     placeholder="460.28"
                     maxlength="6"
-                    value="{{ (old('new_capacitor_l')??$record->new_capacitor_l??0)?? 0 }}"
+                    value="{{ (old('new_motor_left')??$record->new_motor_left??0)?? 0 }}"
                     >
                     <div class="input-group-append">
                         <span class="input-group-text">{{ __('form.left') }}</span>
                       </div>
+                      <div class="invalid-feedback">{{ $errors->first('new_motor_left') }}</div>
                 </div>
-                <div class="invalid-feedback">{{ $errors->first('new_capacitor_l') }}</div>
+                
             </div>
 
             <div class="form-group col-sm-4">
                 <label>{{ __('form.sale_price') }} <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <input
-                    class="form-control number {{ $errors->first('sale_price_khr') ? 'is-invalid':'' }}"
-                    name="sale_price_khr"
+                    class="form-control number {{ $errors->first('price') ? 'is-invalid':'' }}"
+                    name="price"
                     pattern="[0-9.]+"
                     type="text"
                     placeholder="4300"
                     maxlength="4"
-                    value="{{ (old('sale_price_khr')??$record->sale_price_khr??0)?? 0 }}"
+                    value="{{ (old('price')??$record->price??0)?? 0 }}"
                     >
                     <div class="input-group-append">
                         <span class="input-group-text">{{ __('form.khr') }}</span>
                     </div>
+                    <div class="invalid-feedback">{{ $errors->first('price') }}</div>
                 </div>
-                <div class="invalid-feedback">{{ $errors->first('sale_price_khr') }}</div>
+                
             </div>                                          
         </div>
     </div>
     <div class="card-footer">
         <div class="row">
-            <div class="col">            
-
+            <div class="col">
                 <button class="btn btn-success float-right" type="submit">                    
                     {{ __('form.btn_save') }} <i class="fas fa-save"></i> 
                 </button>

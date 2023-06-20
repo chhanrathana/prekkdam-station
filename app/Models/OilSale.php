@@ -8,20 +8,12 @@ class OilSale extends BaseModel
 
     protected $fillable = [
         'code',
-        'sale_date',
-        'old_capacitor_r',        
-        'new_capacitor_r',
-        'qty_liter_r',
-        'old_capacitor_l',
-        'new_capacitor_l',        
-        'qty_liter_l',
-        'total_qty_liter',
-        'total_qty_ton',
-        'sale_price_khr',
-        'sale_price_usd',
-        'total_sale_price_khr',
-        'total_sale_price_usd',
-
+        'date',
+        'old_motor_right',        
+        'new_motor_right',
+        'old_motor_left',
+        'new_motor_left',
+        'price',
         'oil_purchase_id',
         'work_shift_id',
     ];
@@ -31,9 +23,9 @@ class OilSale extends BaseModel
         parent::boot();      
     }
 
-    public function type()
+    public function purchase()
     {
-        return $this->belongsTo(OilType::class,'oil_type_id');
+        return $this->belongsTo(OilPurchase::class,'oil_purchase_id');
     }
 
     public function _status()

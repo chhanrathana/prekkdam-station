@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDepositTypeTable extends Migration
+class CreateExchangeRatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateDepositTypeTable extends Migration
      */
     public function up()
     {
-        Schema::create('deposit_types', function (Blueprint $table) {
-            $table->string('id', 10)->primary();
-            $table->string('name_kh')->nullable();
-            $table->string('name_en')->nullable();
-            $table->timestamps();
+        Schema::create('exchange_rates', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->date('date')->unique();
+            $table->double('usd',2)->default(1);
+            $table->double('khr',2)->default(4000);
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 
@@ -29,6 +30,6 @@ class CreateDepositTypeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('deposit_types');
+        Schema::dropIfExists('exchange_rates');
     }
 }
