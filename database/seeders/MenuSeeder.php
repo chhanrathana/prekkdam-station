@@ -17,7 +17,7 @@ class MenuSeeder extends Seeder
                 'active'        => 1,
                 'data'  => [
                     [
-                        'label'         => 'ស្ថានីយ',
+                        'label'         => 'ស្ថានីយ៍',
                         'permission'    => 'dashboard',
                         'url'           => 'dashboard.loan.index',
                         'active_url'    => 'dashboard/*',
