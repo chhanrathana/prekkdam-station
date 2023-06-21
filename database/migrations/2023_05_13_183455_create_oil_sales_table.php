@@ -27,6 +27,7 @@ class CreateOilSalesTable extends Migration
             $table->double('price',2)->default(0);
             $table->double('total_cost',2)->virtualAs('(cost * qty)');
             $table->double('total_price',2)->virtualAs('(price * qty)');
+            $table->double('paid_amount',2)->default(0);
             $table->enum('currency', ['usd', 'khr'])->default('khr');
             $table->double('exchange_rate',2)->default(0);
             $table->boolean('active')->default(1);
@@ -35,7 +36,13 @@ class CreateOilSalesTable extends Migration
             $table->uuid('oil_purchase_id')->nullable();
             $table->foreign('oil_purchase_id')->references('id')->on('oil_purchases');
             $table->string('work_shift_id',10)->nullable();
-            $table->foreign('work_shift_id')->references('id')->on('work_shifts');     
+            $table->foreign('work_shift_id')->references('id')->on('work_shifts');
+            $table->uuid('branch_id')->nullable();
+            $table->foreign('branch_id')->references('id')->on('branches');     
+            $table->uuid('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->uuid('customer_id')->nullable();
+            $table->foreign('customer_id')->references('id')->on('customers');
         });
     }
 

@@ -25,6 +25,7 @@ class CreateOilPurchasesTable extends Migration
             $table->enum('currency', ['usd', 'khr'])->default('usd');
             $table->double('exchange_rate',2)->default(0);
             $table->double('total_cost',2)->virtualAs('cost * qty');
+            $table->double('paid_amount',2)->default(0);
             $table->boolean('active')->default(1);
             $table->timestamps();
             $table->softDeletes();
@@ -32,6 +33,15 @@ class CreateOilPurchasesTable extends Migration
             $table->foreign('oil_type_id')->references('id')->on('oil_types');     
             $table->string('status_id',10)->nullable();
             $table->foreign('status_id')->references('id')->on('oil_status');     
+
+            $table->uuid('vendor_id')->nullable();
+            $table->foreign('vendor_id')->references('id')->on('vendors');
+
+            $table->uuid('branch_id')->nullable();
+            $table->foreign('branch_id')->references('id')->on('branches');
+
+            $table->uuid('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

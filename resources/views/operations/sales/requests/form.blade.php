@@ -69,6 +69,21 @@
             </div>
 
             <div class="form-group col-sm-4">
+                <label >{{ __('form.client') }} <span class="text-danger">*</span></label>
+                <select class="form-control select2  {{ $errors->first('work_shift_id') ? 'is-invalid':'' }}"  name="work_shift_id" id="work_shift_id">
+                    <option value="" selected>[-- {{ __('form.select') }} --]</option>
+                    @foreach ($shifts as $shift)
+                        @isset ($record)
+                            <option value="{{ $shift->id }}" {{ $record->work_shift_id == $shift->id ? 'selected' :  '' }} >{{ $shift->name_kh }}</option>
+                        @else
+                            <option value="{{ $shift->id }}">{{ $shift->name_kh }}</option>
+                        @endif
+                    @endforeach
+                </select>
+                <div class="invalid-feedback">{{ $errors->first('work_shift_id') }}</div>
+            </div>
+
+            <div class="form-group col-sm-4">
                 <label>{{ __('form.old_capacitor') }} <span class="text-danger">*</span></label>
                 <div class="input-group">
                     <input
@@ -161,9 +176,48 @@
                         <span class="input-group-text">{{ __('form.khr') }}</span>
                     </div>
                     <div class="invalid-feedback">{{ $errors->first('price') }}</div>
+                </div>                
+            </div> 
+
+            <div class="form-group col-sm-4">
+                <label>{{ __('form.total_price') }} <span class="text-danger">*</span></label>
+                <div class="input-group">
+                <input
+                    class="form-control number {{ $errors->first('price') ? 'is-invalid':'' }}"
+                    name="price"
+                    pattern="[0-9.]+"
+                    type="text"
+                    placeholder="4300"
+                    maxlength="4"
+                    readonly
+                    value="{{ (old('price')??$record->price??0)?? 0 }}"
+                    >
+                    <div class="input-group-append">
+                        <span class="input-group-text">{{ __('form.khr') }}</span>
+                    </div>
+                    <div class="invalid-feedback">{{ $errors->first('price') }}</div>
+                </div>                
+            </div> 
+            
+
+            <div class="form-group col-sm-4">
+                <label>{{ __('form.payment') }} <span class="text-danger">*</span></label>
+                <div class="input-group">
+                <input
+                    class="form-control number {{ $errors->first('cost') ? 'is-invalid':'' }}"
+                    name="cost"
+                    pattern="[0-9.]+"
+                    type="text"
+                    placeholder="40000"
+                    maxlength="7"
+                    value="{{ (old('cost')??$record->cost??0)?? 0 }}"
+                    >
+                    <div class="input-group-append">
+                        <span class="input-group-text">{{ __('form.usd') }}</span>
+                    </div>
                 </div>
-                
-            </div>                                          
+                <div class="invalid-feedback">{{ $errors->first('cost') }}</div>
+            </div>                                         
         </div>
     </div>
     <div class="card-footer">
