@@ -28,7 +28,7 @@ class CreateOilPurchasesTable extends Migration
             $table->boolean('active')->default(1);
             $table->timestamps();
             $table->softDeletes();
-            $table->string('oil_type_id',2)->nullable();
+            $table->string('oil_type_id',10)->nullable();
             $table->foreign('oil_type_id')->references('id')->on('oil_types');     
             $table->string('status_id',10)->nullable();
             $table->foreign('status_id')->references('id')->on('oil_status');     

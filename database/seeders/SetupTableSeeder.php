@@ -73,7 +73,7 @@ class SetupTableSeeder extends Seeder
             ],
             [
                 'id' => 'lpg',
-                'name_kh' => 'ហ្គាស់',
+                'name_kh' => 'ហ្គាស',
                 'name_en' => 'Gas',
                 'liter_of_ton' => 1850,
                 'created_at' => Carbon::now(),
