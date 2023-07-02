@@ -75,7 +75,7 @@ class ClientController extends Controller
 
     public function edit($id)
     {        
-        return view('settings.master-data.vendors.edit', [
+        return view('settings.master-data.clients.edit', [
             'record' => Client::find($id),
             'sexes' => Sex::all(),
             'status' => ClientStatus::all()

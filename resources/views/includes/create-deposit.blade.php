@@ -98,7 +98,7 @@
     <div class="card-footer">
         <div class="row">
             <div class="col">
-                <a class="btn btn-sm btn-warning float-left" href="{{ route('operation.deposit.request.index')}}">
+                <a class="btn btn-sm btn-warning float-left" href="{{ route('operation.deposit.index')}}">
                     <span class="material-icons-outlined">chevron_left</span>
                 </a>
 

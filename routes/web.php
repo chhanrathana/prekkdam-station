@@ -2,14 +2,12 @@
 
 use App\Http\Controllers\BlankController;
 use App\Http\Controllers\Dashboards\OilTypeController as DashboardsOilTypeController;
+use App\Http\Controllers\Operations\ExpenseController;
 use App\Http\Controllers\Settings\MasterData\ClientController;
-use App\Http\Controllers\Operations\Deposits\PaymentController;
-use App\Http\Controllers\Operations\ExpenseController as OperationsExpenseController;
-use App\Http\Controllers\Operations\Sales\PaymentController as LoansPaymentController;
-use App\Http\Controllers\Operations\Sales\RequestController;
-use App\Http\Controllers\Operations\Memberships\PaymentController as MembershipsPaymentController;
-use App\Http\Controllers\Operations\Memberships\RequestController as MembershipsRequestController;
-use App\Http\Controllers\Operations\Purchases\RequestController as PurchasesRequestController;
+use App\Http\Controllers\Operations\PurchaseController;
+use App\Http\Controllers\Operations\SaleController;
+use App\Http\Controllers\Reports\Operations\PurchaseController as OperationsPurchaseController;
+use App\Http\Controllers\Reports\Operations\SaleController as OperationsSaleController;
 use App\Http\Controllers\Settings\AddressController;
 use App\Http\Controllers\Settings\MasterData\ExpenseTypeController;
 use App\Http\Controllers\Settings\MasterData\OilTypeController;
@@ -46,128 +44,75 @@ Route::middleware(['auth'])->group(function () {
             });
     
             Route::group(['prefix' => 'operation', 'as' => 'operation.'], function () {
-                Route::get('loan',          [BlankController::class, 'index'])->name('loan.index');
-                Route::get('deposit',       [BlankController::class, 'index'])->name('deposit.index');
+                Route::group(['prefix' => 'sale', 'as' => 'sale.'], function () {                    
+                    Route::get('',                  [OperationsSaleController::class, 'index'])->name('index');
+                    Route::get('download/{type?}',  [OperationsSaleController::class, 'download'])->name('download');
+                });
+
+                Route::group(['prefix' => 'purchase', 'as' => 'purchase.'], function () {                    
+                    Route::get('',                  [OperationsPurchaseController::class, 'index'])->name('index');
+                    Route::get('download/{type?}',  [OperationsPurchaseController::class, 'download'])->name('show');
+                });
             });
         });
       
         Route::group(['prefix' => 'operation', 'as' => 'operation.'], function () {
-            // loans transaction
             Route::group(['prefix' => 'sale', 'as' => 'sale.'], function () {
-                Route::group(['prefix' => 'payment', 'as' => 'payment.'], function () {
-                    Route::get('',          [BlankController::class, 'index'])->name('index');
-                    Route::get('{id}/edit', [LoansPaymentController::class, 'edit'])->name('edit');
-                    Route::patch('{id}',    [LoansPaymentController::class, 'update'])->name('update');
-                });
-                
-                Route::group(['prefix' => 'request', 'as' => 'request.'], function () {
-                    Route::get('download',          [RequestController::class, 'download'])->name('download');            
-                    Route::get('create',            [RequestController::class, 'create'])->name('create');
-                    Route::post('create',           [RequestController::class, 'store'])->name('store');
-                    Route::get('list',              [RequestController::class, 'index'])->name('index');
-                    Route::get('list/{id}',         [RequestController::class, 'show'])->name('show');            
-                    Route::delete('list/{id}',      [RequestController::class, 'destroy'])->name('destroy');
-                    Route::patch('list/{id}',       [RequestController::class, 'update'])->name('update');
-                    Route::get('list/{id}/edit',    [RequestController::class, 'edit'])->name('edit');
-                });            
-            });
-
+                Route::get('create',            [SaleController::class, 'create'])->name('create');
+                Route::post('create',           [SaleController::class, 'store'])->name('store');
+                Route::get('list',              [SaleController::class, 'index'])->name('index');
+                Route::get('list/{id}',         [SaleController::class, 'show'])->name('show');
+                Route::delete('list/{id}',      [SaleController::class, 'destroy'])->name('destroy');
+                Route::patch('list/{id}',       [SaleController::class, 'update'])->name('update');
+                Route::get('list/{id}/edit',    [SaleController::class, 'edit'])->name('edit');
+            });            
             
             Route::group(['prefix' => 'purchase', 'as' => 'purchase.'], function () {
-                Route::group(['prefix' => 'payment', 'as' => 'payment.'], function () {
-                    Route::get('',          [PaymentController::class, 'index'])->name('index');
-                    Route::get('{id}/edit', [PaymentController::class, 'edit'])->name('edit');
-                    Route::patch('{id}',    [PaymentController::class, 'update'])->name('update');
-                });
-                
-                Route::group(['prefix' => 'request', 'as' => 'request.'], function () {
-                    Route::get('download',          [PurchasesRequestController::class, 'download'])->name('download');            
-                    Route::get('create',            [PurchasesRequestController::class, 'create'])->name('create');
-                    Route::post('create',           [PurchasesRequestController::class, 'store'])->name('store');
-                    Route::get('list',              [PurchasesRequestController::class, 'index'])->name('index');
-                    Route::get('list/{id}',         [PurchasesRequestController::class, 'show'])->name('show');            
-                    Route::delete('list/{id}',      [PurchasesRequestController::class, 'destroy'])->name('destroy');
-                    Route::post('photo/{id}',       [PurchasesRequestController::class, 'updatePhoto'])->name('updatePhoto');
-                    Route::patch('list/{id}',       [PurchasesRequestController::class, 'update'])->name('update');
-                    Route::get('list/{id}/edit',    [PurchasesRequestController::class, 'edit'])->name('edit');
-                });                
-            });
+                Route::get('create',            [PurchaseController::class, 'create'])->name('create');
+                Route::post('create',           [PurchaseController::class, 'store'])->name('store');
+                Route::get('list',              [PurchaseController::class, 'index'])->name('index');
+                Route::get('list/{id}',         [PurchaseController::class, 'show'])->name('show');            
+                Route::delete('list/{id}',      [PurchaseController::class, 'destroy'])->name('destroy');
+                Route::post('photo/{id}',       [PurchaseController::class, 'updatePhoto'])->name('updatePhoto');
+                Route::patch('list/{id}',       [PurchaseController::class, 'update'])->name('update');
+                Route::get('list/{id}/edit',    [PurchaseController::class, 'edit'])->name('edit');
+            });                
 
             Route::group(['prefix' => 'account-receivable', 'as' => 'account-receivable.'], function () {
-                Route::group(['prefix' => 'payment', 'as' => 'payment.'], function () {
-                    Route::get('',          [MembershipsPaymentController::class, 'index'])->name('index');
-                    Route::get('{id}/edit', [MembershipsPaymentController::class, 'edit'])->name('edit');
-                    Route::patch('{id}',    [MembershipsPaymentController::class, 'update'])->name('update');
-                });
-                
-                Route::group(['prefix' => 'request', 'as' => 'request.'], function () {
-                    Route::get('download',          [MembershipsRequestController::class, 'download'])->name('download');            
-                    Route::get('create',            [MembershipsRequestController::class, 'create'])->name('create');
-                    Route::post('create',           [MembershipsRequestController::class, 'store'])->name('store');
-                    Route::get('list',              [MembershipsRequestController::class, 'index'])->name('index');
-                    Route::get('list/{id}',         [MembershipsRequestController::class, 'show'])->name('show');            
-                    Route::delete('list/{id}',      [MembershipsRequestController::class, 'destroy'])->name('destroy');
-                    Route::post('photo/{id}',       [MembershipsRequestController::class, 'updatePhoto'])->name('updatePhoto');
-                    Route::patch('list/{id}',       [MembershipsRequestController::class, 'update'])->name('update');
-                    Route::get('list/{id}/edit',    [MembershipsRequestController::class, 'edit'])->name('edit');
-                });
+                Route::get('create',            [BlankController::class, 'create'])->name('create');
+                Route::post('create',           [BlankController::class, 'store'])->name('store');
+                Route::get('list',              [BlankController::class, 'index'])->name('index');
+                Route::get('list/{id}',         [BlankController::class, 'show'])->name('show');
+                Route::delete('list/{id}',      [BlankController::class, 'destroy'])->name('destroy');
+                Route::patch('list/{id}',       [BlankController::class, 'update'])->name('update');
+                Route::get('list/{id}/edit',    [BlankController::class, 'edit'])->name('edit');
             });
 
             Route::group(['prefix' => 'account-payable', 'as' => 'account-payable.'], function () {
-                Route::group(['prefix' => 'payment', 'as' => 'payment.'], function () {
-                    Route::get('',          [MembershipsPaymentController::class, 'index'])->name('index');
-                    Route::get('{id}/edit', [MembershipsPaymentController::class, 'edit'])->name('edit');
-                    Route::patch('{id}',    [MembershipsPaymentController::class, 'update'])->name('update');
-                });
-                
-                Route::group(['prefix' => 'request', 'as' => 'request.'], function () {
-                    Route::get('download',          [MembershipsRequestController::class, 'download'])->name('download');            
-                    Route::get('create',            [MembershipsRequestController::class, 'create'])->name('create');
-                    Route::post('create',           [MembershipsRequestController::class, 'store'])->name('store');
-                    Route::get('list',              [MembershipsRequestController::class, 'index'])->name('index');
-                    Route::get('list/{id}',         [MembershipsRequestController::class, 'show'])->name('show');            
-                    Route::delete('list/{id}',      [MembershipsRequestController::class, 'destroy'])->name('destroy');
-                    Route::post('photo/{id}',       [MembershipsRequestController::class, 'updatePhoto'])->name('updatePhoto');
-                    Route::patch('list/{id}',       [MembershipsRequestController::class, 'update'])->name('update');
-                    Route::get('list/{id}/edit',    [MembershipsRequestController::class, 'edit'])->name('edit');
-                });
+                Route::get('create',            [BlankController::class, 'create'])->name('create');
+                Route::post('create',           [BlankController::class, 'store'])->name('store');
+                Route::get('list',              [BlankController::class, 'index'])->name('index');
+                Route::get('list/{id}',         [BlankController::class, 'show'])->name('show');
+                Route::delete('list/{id}',      [BlankController::class, 'destroy'])->name('destroy');
+                Route::patch('list/{id}',       [BlankController::class, 'update'])->name('update');
+                Route::get('list/{id}/edit',    [BlankController::class, 'edit'])->name('edit');
             });
 
             Route::group(['prefix' => 'expense', 'as' => 'expense.'], function () {
-                Route::get('create',            [OperationsExpenseController::class, 'create'])->name('create');
-                Route::post('create',           [OperationsExpenseController::class, 'store'])->name('store');            
-                Route::get('list',              [OperationsExpenseController::class, 'index'])->name('index');
-                Route::get('list/{id}',         [OperationsExpenseController::class, 'show'])->name('show');
-                Route::delete('list/{id}',      [OperationsExpenseController::class, 'destroy'])->name('destroy');
-                Route::patch('list/{id}',       [OperationsExpenseController::class, 'update'])->name('update');
-                Route::get('list/{id}/edit',    [OperationsExpenseController::class, 'edit'])->name('edit');
-            });
-
-            // Route::group(['prefix' => 'revenue', 'as' => 'revenue.'], function () {
-            //     Route::get('create',            [OperationsRevenueController::class, 'create'])->name('create');
-            //     Route::post('create',           [OperationsRevenueController::class, 'store'])->name('store');
-            //     Route::get('list',              [OperationsRevenueController::class, 'index'])->name('index');
-            //     Route::get('list/{id}',         [OperationsRevenueController::class, 'show'])->name('show');
-            //     Route::delete('list/{id}',      [OperationsRevenueController::class, 'destroy'])->name('destroy');
-            //     Route::patch('list/{id}',       [OperationsRevenueController::class, 'update'])->name('update');
-            //     Route::get('list/{id}/edit',    [OperationsRevenueController::class, 'edit'])->name('edit');
-            // });
-        
+                Route::get('create',            [ExpenseController::class, 'create'])->name('create');
+                Route::post('create',           [ExpenseController::class, 'store'])->name('store');
+                Route::get('list',              [ExpenseController::class, 'index'])->name('index');
+                Route::get('list/{id}',         [ExpenseController::class, 'show'])->name('show');
+                Route::delete('list/{id}',      [ExpenseController::class, 'destroy'])->name('destroy');
+                Route::patch('list/{id}',       [ExpenseController::class, 'update'])->name('update');
+                Route::get('list/{id}/edit',    [ExpenseController::class, 'edit'])->name('edit');
+            });                 
         });
         
         Route::group(['prefix' => 'setting', 'as' => 'setting.'], function () {
-            Route::group(['prefix' => 'master-data', 'as' => 'master-data.'], function () {            
-                
-                Route::group(['prefix' => 'oil-type', 'as' => 'oil-type.'], function () {
-                    Route::get('',          [OilTypeController::class, 'index'])->name('index');
-                    // Route::post('',         [OilTypeController::class, 'store'])->name('store');
-                    // Route::get('create',    [OilTypeController::class, 'create'])->name('create');
-                    // Route::delete('{id}',   [OilTypeController::class, 'destroy'])->name('destroy');
-                    // Route::patch('{id}',    [OilTypeController::class, 'update'])->name('update');
-                    // Route::get('{id}',      [OilTypeController::class, 'show'])->name('show');
-                    // Route::get('{id}/edit', [OilTypeController::class, 'edit'])->name('edit');
-                });
-    
+
+            Route::group(['prefix' => 'master-data', 'as' => 'master-data.'], function () {                            
+                Route::get('oil-type',    [OilTypeController::class, 'index'])->name('oil-type.index');                
                 Route::group(['prefix' => 'staff', 'as' => 'staff.'], function () {
                     Route::get('',          [StaffController::class, 'index'])->name('index');
                     Route::post('',         [StaffController::class, 'store'])->name('store');
@@ -206,27 +151,17 @@ Route::middleware(['auth'])->group(function () {
                     Route::patch('{id}',    [ExpenseTypeController::class, 'update'])->name('update');
                     Route::get('{id}',      [ExpenseTypeController::class, 'show'])->name('show');
                     Route::get('{id}/edit', [ExpenseTypeController::class, 'edit'])->name('edit');
-                });
-    
-                //  Route::group(['prefix' => 'revenue-type', 'as' => 'revenue-type.'], function () {
-                //     Route::get('',          [BlankController::class, 'index'])->name('index');
-                //     Route::post('',         [RevenueTypeController::class, 'store'])->name('store');
-                //     Route::get('create',    [RevenueTypeController::class, 'create'])->name('create');
-                //     Route::delete('{id}',   [RevenueTypeController::class, 'destroy'])->name('destroy');
-                //     Route::patch('{id}',    [RevenueTypeController::class, 'update'])->name('update');
-                //     Route::get('{id}',      [RevenueTypeController::class, 'show'])->name('show');
-                //     Route::get('{id}/edit', [RevenueTypeController::class, 'edit'])->name('edit');
-                // });    
-
+                });          
             });
+
             Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
-                Route::get('',          [UserController::class, 'index'])->name('index');
-                Route::post('',         [UserController::class, 'store'])->name('store');
-                Route::get('create',    [UserController::class, 'create'])->name('create');
-                Route::delete('{id}',   [UserController::class, 'destroy'])->name('destroy');
-                Route::patch('{id}',    [UserController::class, 'update'])->name('update');
-                Route::get('{id}',      [UserController::class, 'show'])->name('show');
-                Route::get('{id}/edit', [UserController::class, 'edit'])->name('edit');
+                Route::get('',          [BlankController::class, 'index'])->name('index');
+                Route::post('',         [BlankController::class, 'store'])->name('store');
+                Route::get('create',    [BlankController::class, 'create'])->name('create');
+                Route::delete('{id}',   [BlankController::class, 'destroy'])->name('destroy');
+                Route::patch('{id}',    [BlankController::class, 'update'])->name('update');
+                Route::get('{id}',      [BlankController::class, 'show'])->name('show');
+                Route::get('{id}/edit', [BlankController::class, 'edit'])->name('edit');
             });
     
             Route::group(['prefix' => 'role', 'as' => 'role.'], function () {

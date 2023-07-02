@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class BaseModel extends Model
@@ -22,79 +23,28 @@ class BaseModel extends Model
         parent::boot();
         self::creating(function ($model) {
             $model->id = Str::uuid();
-        });
+            $model->user_id = Auth::id();
+        });       
     }  
+    
 
     public function setRegistrationDateAttribute($value)
     {
         $this->attributes['registration_date'] = $value ? Carbon::createFromFormat('d/m/Y', $value)->format('Y-m-d') : null;
     }
-
-    public function setStartInterestDateAttribute($value)
-    {
-        $this->attributes['start_interest_date'] = $value ? Carbon::createFromFormat('d/m/Y', $value)->format('Y-m-d') : null;
-    }
-    
-    public function setPurchaseDateAttribute($value)
-    {
-        $this->attributes['purchase_date'] = $value ? Carbon::createFromFormat('d/m/Y', $value)->format('Y-m-d') : null;
-    }
-
-    public function setSaleDateAttribute($value)
-    {
-        $this->attributes['sale_date'] = Carbon::createFromFormat('d/m/Y', $value)->format('Y-m-d');
-    }
+ 
 
      public function setDateAttribute($value)
     {
         $this->attributes['date'] = Carbon::createFromFormat('d/m/Y', $value)->format('Y-m-d');
     }
 
-    public function setInterestAmountAttribute($value)
-    {
-        $this->attributes['interest_amount'] = round($value, -2);
-    }
-    
-    public function getRegistrationDateAttribute($value)
-    {
-        return Carbon::parse($value)->format('d/m/Y');
-    }
-
-    public function getPurchaseDateAttribute($value)
-    {
-        return Carbon::parse($value)->format('d/m/Y');
-    }
-
-    public function getUpdateBalanceDateAttribute($value)
-    {
-        return Carbon::parse($value)->format('d/m/Y');
-    }
-
+   
       public function getDateAttribute($value)
     {
         return Carbon::parse($value)->format('d/m/Y');
     }
-
-    public function getTransactionDatetimeAttribute($value)
-    {
-        return $value?Carbon::parse($value)->format('d/m/Y H:i:s'):null;
-    }
-
-    public function getPaymentDateAttribute($value)
-    {
-        return Carbon::parse($value)->format('d/m/Y');
-    }
-
-    public function getEndInterestDateAttribute($value)
-    {
-        return Carbon::parse($value)->format('d/m/Y');
-    }
-    
-    public function getStartInterestDateAttribute($value)
-    {
-        return Carbon::parse($value)->format('d/m/Y');
-    }
-
+ 
     public function getUnitAttribute($value)
     {
         return strtoupper($value);
@@ -103,6 +53,5 @@ class BaseModel extends Model
     public function getCurrencyAttribute($value)
     {
         return strtoupper($value);
-    }
-    
+    }    
 }

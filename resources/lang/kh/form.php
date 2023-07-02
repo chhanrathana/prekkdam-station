@@ -137,8 +137,8 @@ return [
     'oil_type_list' => 'តារាងប្រភេទឥន្ទនៈ',
     'oil_type_info' => 'ព័ត៌មានប្រភេទឥន្ទនៈ',
     'shift' => 'វេន',
-    'old_capacitor' => 'លេខកុងទ័រចាស់',
-    'new_capacitor' => 'លេខកុងទ័រថ្មី',    
+    'old_motor' => 'កុងទ័រចាស់',
+    'new_motor' => 'កុងទ័រថ្មី',    
     'purchase_info' => 'ព័ត៌មានទិញ',
     'sale_date' => 'ថ្ងៃលក់',
     'sale_price' => 'តម្លៃលក់',
@@ -172,5 +172,7 @@ return [
     'staff' => 'បុគ្គលិក',
     'staff_list' => 'តារាងបុគ្គលិក',
     'staff_info' => 'ព័ត៌មានបុគ្គលិក',
-    'in_stock' => 'ក្នុងស្តុក'
+    'in_stock' => 'ក្នុងស្តុក',
+    'print' => 'បោះពុម្ភ PDF',
+    'download' => 'ទាញយក Excel'
 ];

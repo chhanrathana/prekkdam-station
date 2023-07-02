@@ -16,6 +16,9 @@ class OilSale extends BaseModel
         'price',
         'oil_purchase_id',
         'work_shift_id',
+        'staff_id',
+        'client_id',
+        'paid_amount'
     ];
   
     public static function boot()
@@ -31,6 +34,21 @@ class OilSale extends BaseModel
     public function _status()
     {
         return $this->belongsTo(OilStatus::class, 'status_id');
+    }
+
+    public function staff()
+    {
+        return $this->belongsTo(Staff::class,'staff_id');
+    }
+
+    public function shift()
+    {
+        return $this->belongsTo(WorkShift::class,'work_shift_id');
+    }
+
+    public function client()
+    {
+        return $this->belongsTo(Client::class,'client_id');
     }
    
 }

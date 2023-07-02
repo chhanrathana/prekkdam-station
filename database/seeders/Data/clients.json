@@ -1,3 +1,24 @@
 {
-    "RECORDS": []
+    "RECORDS": [
+        {
+            "id": "d6d3cddd-210b-43cd-8962-27edd06cac12",
+            "code": "CL001",
+            "name_en": "OTHER",
+            "name_kh": "ផ្សេងៗ",
+            "date_of_birth": "",
+            "phone_number": "NIL",
+            "id_card_no": "",
+            "photo": "",
+            "address": "",
+            "created_at": "2/7/2023 19:06:00",
+            "updated_at": "2/7/2023 19:06:00",
+            "deleted_at": "",
+            "sex": "M",
+            "status": "active",
+            "user_id": "",
+            "village_id": "",
+            "branch_id": "",
+            "client_type_id": ""
+        }
+    ]
 }

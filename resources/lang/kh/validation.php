@@ -51,9 +51,9 @@ return [
         'array' => ':attribute must have more than :value items.',
     ],
     'gte' => [
-        'numeric' => ':attribute ចាំបាច់ត្រូវធំជាង or equal :value.',
-        'file' => ':attribute ចាំបាច់ត្រូវធំជាង or equal :value kilobytes.',
-        'string' => ':attribute ចាំបាច់ត្រូវធំជាង or equal :value characters.',
+        'numeric' => ':attribute ចាំបាច់ត្រូវធំជាង ឫ ស្មើរ :value.',
+        'file' => ':attribute ចាំបាច់ត្រូវធំជាង ឫ ស្មើរ :value kilobytes.',
+        'string' => ':attribute ចាំបាច់ត្រូវធំជាង ឫ ស្មើរ :value characters.',
         'array' => ':attribute must have :value items or more.',
     ],
     'image' => ':attribute must be an image.',
@@ -190,6 +190,7 @@ return [
         'vendor_id' => 'អ្នកផ្គត់ផ្គង់',
         'status_id' => 'សភាព',
         'staff_id' => 'បុគ្គលិក',
+        'client_id' => 'អតិថិជន'
 ],
 
 ];

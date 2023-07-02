@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Branch;
+use App\Models\Client;
 use App\Models\ClientStatus;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
@@ -209,6 +210,7 @@ class SetupTableSeeder extends Seeder
         $this->storeStaff($staffs);
 
         $this->storeVendors();
+        $this->storeClients();
     }
 
     private function storeExpenseType(){
@@ -253,6 +255,30 @@ class SetupTableSeeder extends Seeder
         $chunks = array_chunk( $data , 5000 );
         foreach ( $chunks as $chunk ){
             Vendor::insert( $chunk );
+        }
+    }
+
+    private function storeClients(){
+        $file = json_decode(file_get_contents(base_path('database/seeders/Data/clients.json')) , true );
+        $data = [];
+        foreach ( $file['RECORDS'] as $item ){
+            $data []        = [
+                'id' => $item['id'],
+                'code'=> $item['code'],
+                'name_kh'=> $item['name_kh'],
+                'name_en' => $item['name_en'],
+                'phone_number' => $item['phone_number'],
+                'sex' => $item['sex'],
+                'status' => $item['status'],
+                'address' => $item['address'],
+                'created_at'=> Carbon::now(),
+                'updated_at'=> Carbon::now()
+            ];          
+        }
+
+        $chunks = array_chunk( $data , 5000 );
+        foreach ( $chunks as $chunk ){
+            Client::insert( $chunk );
         }
     }
 

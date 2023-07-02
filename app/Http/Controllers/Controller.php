@@ -14,6 +14,8 @@ use App\Http\Services\Operations\ClientService;
 use App\Http\Services\Operations\Sales\PaymentService;
 use App\Http\Services\Operations\Sales\RequestService;
 use App\Http\Services\Operations\Purchases\RequestService as PurchasesRequestService;
+use App\Http\Services\Operations\PurchaseService;
+use App\Http\Services\Operations\SaleService;
 use App\Http\Services\Settings\PDFService;
 use App\Models\Client;
 use App\Models\LoanPayment;
@@ -32,9 +34,9 @@ class Controller extends BaseController
 
     protected $staffService;
     protected $clientService;
-    protected $saleRequstService;
+    protected $saleService;
     protected $salePaymentSevice;        
-    protected $purchaseRequstService;
+    protected $purchaseService;
     protected $depositPaymentService;
     protected $pdfService;
     protected $currentDate;
@@ -42,10 +44,8 @@ class Controller extends BaseController
     public function __construct()
     {
         $this->clientService = new ClientService();        
-        $this->saleRequstService = new RequestService();
-        $this->salePaymentSevice = new PaymentService();        
-        $this->purchaseRequstService = new PurchasesRequestService();     
-        $this->pdfService = new PDFService();
+        $this->saleService = new SaleService();       
+        $this->purchaseService = new PurchaseService();     
         $this->currentDate = Carbon::now()->format('d/m/Y');
     }
     

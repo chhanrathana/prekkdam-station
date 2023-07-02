@@ -40,10 +40,18 @@ return [
     'master_data_revenue_type_create' => 'ទិន្នន័យមេ-បង្កើត-ប្រភេទចំណូល',
 
     'master_data_vendor_index' => 'ទិន្នន័យមេ-អ្នកផ្គត់ផ្គង់',
-    'master_data_rvendor_edit' => 'ទិន្នន័យមេ-កែប្រែ-អ្នកផ្គត់ផ្គង់',
+    'master_data_vendor_edit' => 'ទិន្នន័យមេ-កែប្រែ-អ្នកផ្គត់ផ្គង់',
     'master_data_vendor_create' => 'ទិន្នន័យមេ-បង្កើត-អ្នកផ្គត់ផ្គង់',
 
     'master_data_oil_type_index' => 'ទិន្នន័យមេ-ប្រភេទឥន្ទនៈ',
+
+    'master_data_client_index' => 'ទិន្នន័យមេ-អតិថិជន',
+    'master_data_client_edit' => 'ទិន្នន័យមេ-កែប្រែ-អតិថិជន',
+    'master_data_client_create' => 'ទិន្នន័យមេ-បង្កើត-អតិថិជន',
+
+    'master_data_staff_index' => 'ទិន្នន័យមេ-បុគ្គលិក',
+    'master_data_staff_edit' => 'ទិន្នន័យមេ-កែប្រែ-បុគ្គលិក',
+    'master_data_staff_create' => 'ទិន្នន័យមេ-បង្កើត-បុគ្គលិក',
     
     'user_index' => 'តារាង-អ្នកប្រើប្រាស់',
     'user_edit' => 'កែប្រែ-អ្នកប្រើប្រាស់',
