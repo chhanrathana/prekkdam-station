@@ -20,6 +20,8 @@ class CreateExchangeRatesTable extends Migration
             $table->double('khr',2)->default(4000);
             $table->softDeletes();
             $table->timestamps();
+            $table->uuid('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

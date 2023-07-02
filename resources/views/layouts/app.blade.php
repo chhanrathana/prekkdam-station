@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>@yield('title','ប្រព័ន្ធគ្រប់គ្រងស្ថានីយ៍ឥន្ទនៈ')</title>    
+    <title>@yield('title',__('form.system_name'))</title>    
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/customs.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
