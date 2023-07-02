@@ -17,19 +17,19 @@ class CreateOilSalesTable extends Migration
             $table->uuid('id')->primary();
             $table->char('code', 5)->unique();
             $table->date('date');
-            $table->double('old_motor_right',2)->default(0);
-            $table->double('new_motor_right',2)->default(0);
-            $table->double('old_motor_left',2)->default(0);
-            $table->double('new_motor_left',2)->default(0);
+            $table->double('old_motor_right',5)->default(0);
+            $table->double('new_motor_right',5)->default(0);
+            $table->double('old_motor_left',5)->default(0);
+            $table->double('new_motor_left',5)->default(0);
             $table->double('qty',2)->virtualAs('(new_motor_right - old_motor_right) + (new_motor_left - old_motor_left)');
             $table->enum('unit', ['tons', 'liters'])->default('liters');
-            $table->double('cost',2)->default(0);
-            $table->double('price',2)->default(0);
+            $table->double('cost',5)->default(0);
+            $table->double('price',5)->default(0);
             $table->double('total_cost',2)->virtualAs('(cost * qty)');
             $table->double('total_price',2)->virtualAs('(price * qty)');
-            $table->double('paid_amount',2)->default(0);
+            $table->double('paid_amount',5)->default(0);
             $table->enum('currency', ['usd', 'khr'])->default('khr');
-            $table->double('exchange_rate',2)->default(0);
+            $table->double('exchange_rate',5)->default(0);
             $table->boolean('active')->default(1);
             $table->timestamps();
             $table->softDeletes();
@@ -41,8 +41,8 @@ class CreateOilSalesTable extends Migration
             $table->foreign('branch_id')->references('id')->on('branches');     
             $table->uuid('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->uuid('customer_id')->nullable();
-            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->uuid('client_id')->nullable();
+            $table->foreign('client_id')->references('id')->on('clients');
         });
     }
 

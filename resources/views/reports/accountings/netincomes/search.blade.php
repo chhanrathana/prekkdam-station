@@ -39,7 +39,7 @@
                         <i class="fas fa-search"></i>
                         {{ __('form.search') }}
                     </button>
-                    <a href="{{route('report.accounting.netincome.index')}}" class="btn btn-warning mb-2">
+                    <a href="#" class="btn btn-warning mb-2">
                         <i class="fas fa-times"></i>
                         {{ __('form.clear') }}
                     </a>

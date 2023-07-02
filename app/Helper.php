@@ -1,10 +1,13 @@
 <?php
 
+use App\Models\Client;
 use App\Models\ExchangeRate;
 use App\Models\OilPurchase;
 use App\Models\OilSale;
 use App\Models\OilType;
 use App\Models\PaymentTransaction;
+use App\Models\Staff;
+use App\Models\Vendor;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -29,23 +32,45 @@ function generateOilSaleCode()
     return 'S'.str_pad($code, 4, '0', STR_PAD_LEFT);
 }
 
-function getExchangeRate($date){
-    $record = ExchangeRate::where('date', $date)->first();
-    if(!$record){
-        // new new once if null
-        $lastUpdate = ExchangeRate::orderByDesc('date')->first();
-        $record = new ExchangeRate();
-        $record->date = $date;
-        $record->usd = $lastUpdate->usd;
-        $record->khr = $lastUpdate->khr;
-        $record->save();
-    }
-    return $record->khr;
+function generateStaffCode()
+{
+    $count = Staff::withTrashed()->count();
+    $code = (1 + $count);
+    return 'SF'.str_pad($code, 3, '0', STR_PAD_LEFT);
+}
+
+function generateVendorCode()
+{
+    $count = Vendor::withTrashed()->count();
+    $code = (1 + $count);
+    return 'VD'.str_pad($code, 3, '0', STR_PAD_LEFT);
+}
+
+function generateClientCode()
+{
+    $count = Client::withTrashed()->count();
+    $code = (1 + $count);
+    return 'CL'.str_pad($code, 3, '0', STR_PAD_LEFT);
 }
 
 function getLiterOfTon($id){
     $record = OilType::where('id', $id)->first();
     return $record->liter_of_ton;
+}
+
+function getExchangeRate($date){
+    $record = ExchangeRate::where('date', $date)->first();
+    
+    if(!$record){
+        // new new once if null
+        $lastUpdate = ExchangeRate::orderByDesc('date')->first();        
+        $record = new ExchangeRate();
+        $record->date = Carbon::parse($date)->format('d/m/Y');
+        $record->usd = $lastUpdate->usd;
+        $record->khr = $lastUpdate->khr;
+        $record->save();        
+    }
+    return $record->khr;
 }
 
 function currentParamter(){	
@@ -60,7 +85,7 @@ function countDay($startDate, $endDate){
 }
 
 function getBackupData($name){
-    $file = json_decode(file_get_contents(base_path('database/seeders/Data/20220520_kunpukqp_loan.json')), true);        
+    $file = json_decode(file_get_contents(base_path('database/seeders/Data/sancapub_prod.json')), true);        
     foreach ($file as $item) {            
         if($item['type'] == 'table' && $item['name'] == $name){
             return $item['data'];                

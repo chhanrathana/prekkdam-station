@@ -8,7 +8,6 @@ use App\Models\Loan;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\LoanExport;
-use App\Http\Requests\OilPurchaseRequest;
 use App\Models\OilPurchase;
 
 class RequestController extends Controller
@@ -19,7 +18,7 @@ class RequestController extends Controller
 
         return view('operations.purchases.requests.index',[
             'records' => $records,
-            'types'   => $this->getOilTypes(),
+            'types'   => $this->getOilTypes(),            
         ]);
     }
 
@@ -30,11 +29,20 @@ class RequestController extends Controller
             'types'         => $this->getOilTypes(),
             'code'          => generateOilPurchaseCode(),
             'statuses'      => $this->getOilStatuses(),
+            'vendors'       => $this->getActiveVndors()
         ]);
     }
  
-    public function store(OilPurchaseRequest $request)
+    public function store(Request $request)
     {
+        $request->validate([    
+            'oil_type_id' => 'required',     
+            'vendor_id' => 'required',
+            'status_id' => 'required',        
+            'qty' => 'required',
+            'date' => 'date_format:d/m/Y',
+            'cost' => 'required',                   
+        ]);
         DB::beginTransaction();
         try {                      
             $record = $this->purchaseRequstService->createPurchase($request);
@@ -49,20 +57,28 @@ class RequestController extends Controller
     public function edit($id)
     {
         $record = OilPurchase::find($id);
-
         return view('operations.purchases.requests.edit', [
             'currentDate'   => $this->currentDate,
             'types'         => $this->getOilTypes(),
             'statuses'      => $this->getOilStatuses(),
+            'vendors'       => $this->getActiveVndors(),
             'record'        => $record,
         ]);
     }
 
-    public function update(OilPurchaseRequest $request, $id)
+    public function update(Request $request, $id)
     {
+        $request->validate([            
+            'oil_type_id' => 'required',     
+            'vendor_id' => 'required',
+            'status_id' => 'required',        
+            'qty' => 'required',
+            'date' => 'date_format:d/m/Y',
+            'cost' => 'required',           
+        ]);
         DB::beginTransaction();
         try {            
-            $this->purchaseRequstService->createPurchase($request);
+            $this->purchaseRequstService->createPurchase($request, $id);
             DB::commit();
             return redirect()->back()->with('success', __('message.success'));
         } catch (\Exception $ex) {

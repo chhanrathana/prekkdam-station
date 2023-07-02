@@ -17,8 +17,9 @@ class RequestService
             $record->code = generateOilPurchaseCode();
         }
         $record->fill($request->only([
-            'date', 'status_id', 'oil_type_id', 'qty', 'cost'
+            'date', 'status_id', 'oil_type_id', 'qty', 'cost', 'vendor_id'
         ]));
+        
         $record->remain_qty = $record->qty;
         $record->exchange_rate = getExchangeRate(formatToOrignDate($request->date));
         $record->currency = CurrencyEnum::USD;

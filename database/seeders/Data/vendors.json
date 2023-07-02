@@ -1,0 +1,23 @@
+{
+    "RECORDS": [
+        {
+            "id": "51eab0dc-85e1-4679-a35e-2c3a20a786f2",
+            "code": "VD001",
+            "name_en": "OTEHR",
+            "name_kh": "ផ្សេង",
+            "date_of_birth": "",
+            "phone_number": "NIL",
+            "id_card_no": "",
+            "photo": "",
+            "address": "",
+            "created_at": "7/2023/2 17:21:08",
+            "updated_at": "7/2023/2 17:21:08",
+            "deleted_at": "",
+            "sex": "M",
+            "status": "active",
+            "user_id": "",
+            "village_id": "",
+            "branch_id": ""
+        }
+    ]
+}

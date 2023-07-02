@@ -18,11 +18,11 @@ class CreateClientsTable extends Migration
             $table->char('code',6);
             $table->string('name_en', 50);
             $table->string('name_kh', 50);
-            $table->date('date_of_birth');
+            $table->date('date_of_birth')->nullable();
             $table->string('phone_number', 50);
             $table->string('id_card_no', 20)->nullable();
             $table->string('photo')->nullable();
-            $table->boolean('is_new')->default(1);
+            $table->string('address', 500)->nullable();
             $table->timestamps();
             $table->softDeletes();
             

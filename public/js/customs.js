@@ -2,7 +2,7 @@ $(document).ready(function () {
     $(":input[data-inputmask-alias]").inputmask();
     $('[data-toggle="tooltip"]').tooltip();
     $(".number").inputmask('Regex', {
-        regex: "^[0-9]{1,9}(\\.\\d{1,2})?$"
+        regex: "^[0-9]{1,9}(\\.\\d{1,4})?$"
     });
 
     $(".term").inputmask('Regex', {

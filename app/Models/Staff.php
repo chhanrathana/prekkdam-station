@@ -25,7 +25,8 @@ class Staff extends BaseModel
         'status',
         'branch_id',
         'salary_amount',
-        'code'
+        'code',
+        'address'
     ];
 
     public function setDateOfBirthAttribute($value){

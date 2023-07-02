@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\ActiveEnum;
 use App\Enums\OilStatusEnum;
+use App\Enums\StatusEnum;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -14,11 +15,14 @@ use App\Http\Services\Operations\Sales\PaymentService;
 use App\Http\Services\Operations\Sales\RequestService;
 use App\Http\Services\Operations\Purchases\RequestService as PurchasesRequestService;
 use App\Http\Services\Settings\PDFService;
+use App\Models\Client;
 use App\Models\LoanPayment;
 use App\Models\ExpenseItem;
 use App\Models\OilStatus;
 use App\Models\OilType;
 use App\Models\PaymentRevenue;
+use App\Models\Staff;
+use App\Models\Vendor;
 use App\Models\WorkShift;
 use Carbon\Carbon;
 
@@ -54,6 +58,18 @@ class Controller extends BaseController
 
     protected function getOilTypes(){        
         return OilType::where('active', ActiveEnum::YES)->orderBy('id')->get();
+    }
+
+    protected function getActiveVndors(){        
+        return Vendor::where('status', StatusEnum::ACTIVE)->orderBy('name_kh')->get();
+    }
+
+    protected function getActiveClients(){        
+        return Client::where('status', StatusEnum::ACTIVE)->orderBy('name_kh')->get();
+    }
+
+    protected function getActiveStaffs(){
+        return Staff::where('status', StatusEnum::ACTIVE)->orderBy('name_kh')->get();
     }
 
     protected function getOilStatuses(){        

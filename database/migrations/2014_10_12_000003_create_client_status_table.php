@@ -17,6 +17,7 @@ class CreateClientStatusTable extends Migration
             $table->string('id', 10)->primary();
             $table->string('name_kh')->nullable();
             $table->string('name_en')->nullable();
+            $table->string('css')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

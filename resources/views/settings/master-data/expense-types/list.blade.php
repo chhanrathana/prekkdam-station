@@ -1,17 +1,18 @@
 <div class="card">
-    <div class="card-header text-white bg-info">
+  
+    <div class="card-header">
         <div class="row">
             <div class="col">
                 <i class="fas fa-list"></i>
                 <strong>{{ __('form.expense_type_list') }}</strong>
             </div>
             <div class="col">
-                <a class="float-right btn btn-md btn-warning" href="{{ route('setting.master-data.expense-type.create') }}">
-                    <i class="fas fa-plus"></i>
+                <a class="float-right btn btn-md btn-info" href="{{ route('setting.master-data.expense-type.create') }}">
+                     <i class="fas fa-plus"></i>
                     <strong>{{ __('form.add_new') }}</strong>
-               </a>
+                </a>
             </div>
-        </div>        
+        </div>
     </div>
     
     <div class="card-body">
@@ -29,6 +30,7 @@
                 <tbody>
                     @foreach($records as $record)
                     <tr>
+                       
                         <td class="text-center text-nowrap">
                             <a class="btn btn-sm btn-primary mr-1 "
                                 href="{{ route('setting.master-data.expense-type.edit',['id' => $record->id ])}}" type="button">                                    

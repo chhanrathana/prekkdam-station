@@ -20,7 +20,7 @@ class CreateUserTypeUrlsTable extends Migration
             $table->char('url_id',6)->nullable();
             $table->foreign('url_id')->references('id')->on('urls');     
             
-            $table->unique(['user_type_id', 'url_id']);
+            // $table->unique(['user_type_id', 'url_id']);
         });
     }
 

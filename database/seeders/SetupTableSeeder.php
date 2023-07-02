@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Branch;
+use App\Models\ClientStatus;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 use App\Models\Sex;
@@ -12,6 +13,8 @@ use App\Models\ExpenseType;
 use App\Models\OilStatus;
 use App\Models\OilType;
 use App\Models\Staff;
+use App\Models\Vendor;
+use App\Models\VendorStatus;
 use App\Models\WorkShift;
 
 class SetupTableSeeder extends Seeder
@@ -52,6 +55,7 @@ class SetupTableSeeder extends Seeder
                 'name_kh' => 'ស៊ុបពែ',
                 'name_en' => 'Super',
                 'liter_of_ton' => 1390,
+                'css' => 'bg-danger',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
@@ -60,6 +64,7 @@ class SetupTableSeeder extends Seeder
                 'name_kh' => 'សាំង',
                 'name_en' => 'Regular',
                 'liter_of_ton' => 1390,
+                'css' => 'bg-warning',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
@@ -68,6 +73,7 @@ class SetupTableSeeder extends Seeder
                 'name_kh' => 'ម៉ាស៊ូត',
                 'name_en' => 'Diesel',
                 'liter_of_ton' => 1190,
+                'css' => 'bg-success',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
@@ -76,6 +82,7 @@ class SetupTableSeeder extends Seeder
                 'name_kh' => 'ហ្គាស',
                 'name_en' => 'Gas',
                 'liter_of_ton' => 1850,
+                'css' => 'bg-secondary',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]
@@ -118,7 +125,43 @@ class SetupTableSeeder extends Seeder
             ]
         ]);
 
-       
+        ClientStatus::insert([
+            [
+                'id' => 'active',
+                'name_kh' => 'បើក',
+                'name_en' => 'ACTIVE',
+                'css' => 'badge badge-success',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'id' => 'inactive',
+                'name_kh' => 'បិទ',
+                'name_en' => 'INACTIVE',
+                'css' => 'badge badge-danger',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]
+        ]);
+
+        VendorStatus::insert([
+            [
+                'id' => 'active',
+                'name_kh' => 'បើក',
+                'name_en' => 'ACTIVE',
+                'css' => 'badge badge-success',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'id' => 'inactive',
+                'name_kh' => 'បិទ',
+                'name_en' => 'INACTIVE',
+                'css' => 'badge badge-danger',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]
+        ]);
 
         OilStatus::insert([            
             [
@@ -164,6 +207,8 @@ class SetupTableSeeder extends Seeder
         
         $staffs = getBackupData('staffs');
         $this->storeStaff($staffs);
+
+        $this->storeVendors();
     }
 
     private function storeExpenseType(){
@@ -184,6 +229,30 @@ class SetupTableSeeder extends Seeder
         $chunks = array_chunk( $data , 5000 );
         foreach ( $chunks as $chunk ){
             ExpenseType::insert( $chunk );
+        }
+    }
+
+    private function storeVendors(){
+        $file = json_decode(file_get_contents(base_path('database/seeders/Data/vendors.json')) , true );
+        $data = [];
+        foreach ( $file['RECORDS'] as $item ){
+            $data []        = [
+                'id' => $item['id'],
+                'code'=> $item['code'],
+                'name_kh'=> $item['name_kh'],
+                'name_en' => $item['name_en'],
+                'phone_number' => $item['phone_number'],
+                'sex' => $item['sex'],
+                'status' => $item['status'],
+                'address' => $item['address'],
+                'created_at'=> Carbon::now(),
+                'updated_at'=> Carbon::now()
+            ];          
+        }
+
+        $chunks = array_chunk( $data , 5000 );
+        foreach ( $chunks as $chunk ){
+            Vendor::insert( $chunk );
         }
     }
 
@@ -212,13 +281,14 @@ class SetupTableSeeder extends Seeder
         foreach ($staffs as $item) {        
                $data[] = [
                 'id' => $item['id'],                
-                // 'code' => $item['code'],
+                'code' => $item['code'],
                 'name_en' => $item['name_en'],
                 'name_kh' => $item['name_kh'],
                 'sex' => $item['sex'],
                 'date_of_birth' => $item['date_of_birth'],
                 'phone_number' => $item['phone_number'],
                 'start_work_date' => $item['start_work_date'],
+                'salary_amount' => $item['salary_amount'],
                 'status' => $item['status'],
                 'branch_id' => $item['branch_id'],
 

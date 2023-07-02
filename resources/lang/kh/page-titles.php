@@ -29,6 +29,7 @@ return [
     'revenue_create' => 'បញ្ចូល-ចំណូល',
     'revenue_edit' => 'កែប្រែ-ចំណូល',
     'revenue_list' => 'តារាង-ចំណូល',
+    
     'master_data_loan_index' => 'ទិន្នន័យមេ-កម្ចី',
     'master_data_deposit_index' => 'ទិន្នន័យមេ-សន្សំ',
     'master_data_expense_type_index' => 'ទិន្នន័យមេ-ប្រភេទចំណាយ',
@@ -37,6 +38,12 @@ return [
     'master_data_revenue_type_index' => 'ទិន្នន័យមេ-ប្រភេទចំណូល',
     'master_data_revenue_type_edit' => 'ទិន្នន័យមេ-កែប្រែ-ប្រភេទចំចំណូល',
     'master_data_revenue_type_create' => 'ទិន្នន័យមេ-បង្កើត-ប្រភេទចំណូល',
+
+    'master_data_vendor_index' => 'ទិន្នន័យមេ-អ្នកផ្គត់ផ្គង់',
+    'master_data_rvendor_edit' => 'ទិន្នន័យមេ-កែប្រែ-អ្នកផ្គត់ផ្គង់',
+    'master_data_vendor_create' => 'ទិន្នន័យមេ-បង្កើត-អ្នកផ្គត់ផ្គង់',
+
+    'master_data_oil_type_index' => 'ទិន្នន័យមេ-ប្រភេទឥន្ទនៈ',
     
     'user_index' => 'តារាង-អ្នកប្រើប្រាស់',
     'user_edit' => 'កែប្រែ-អ្នកប្រើប្រាស់',

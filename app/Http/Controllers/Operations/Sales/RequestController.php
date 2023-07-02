@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Operations\Sales;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\OilSaleRequest;
 use App\Models\OilSale;
 
 class RequestController extends Controller
@@ -26,13 +25,26 @@ class RequestController extends Controller
             'currentDate'   => $this->currentDate,
             'types'         => $this->getOnsaleOils(),
             'shifts'        => $this->getWorkShifts(),
+            'clients'       => $this->getActiveClients(),
+            'staffs'        => $this->getActiveStaffs(),
         ]);
     }
  
-    public function store(OilSaleRequest $request)
+    public function store(Request $request)
     {        
+        $request->validate([
+            'date' => 'date_format:d/m/Y',            
+            'work_shift_id' =>'required',
+            'oil_purchase_id' => 'required',
+            'old_motor_right' => 'required|numeric',
+            'new_motor_right' => 'required|numeric|gt:old_motor_right',
+            'old_motor_left' => 'required|numeric',
+            'new_motor_left' => 'required|numeric|gt:old_motor_left',
+            'price' => 'required|numeric',
+        ]);
+
         DB::beginTransaction();
-        try {          
+        try {                     
             $this->saleRequstService->createSale($request); 
             DB::commit();
             return redirect()->back()->with('success', __('message.success'));
@@ -54,8 +66,18 @@ class RequestController extends Controller
         ]);
     }
 
-    public function update(OilSaleRequest $request, $id)
+    public function update(Request $request, $id)
     {
+        $request->validate([
+            'date' => 'date_format:d/m/Y',            
+            'work_shift_id' =>'required',
+            'oil_purchase_id' => 'required',
+            'old_motor_right' => 'required|numeric',
+            'new_motor_right' => 'required|numeric|gt:old_motor_right',
+            'old_motor_left' => 'required|numeric',
+            'new_motor_left' => 'required|numeric|gt:old_motor_left',
+            'price' => 'required|numeric',
+        ]);
         DB::beginTransaction();
         try {            
             $this->saleRequstService->createSale($request); 

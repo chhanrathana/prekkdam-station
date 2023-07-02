@@ -46,7 +46,6 @@ class ExpenseTypeController extends Controller
             'record' => $record,
         ]);
     }
-
    
     public function update(Request $request, $id)
     {
@@ -70,7 +69,6 @@ class ExpenseTypeController extends Controller
 
     public function destroy($id)
     {
-
         ExpenseType::find($id)->delete();
         return redirect()->route('setting.master-data.expense-type.index');
     }   

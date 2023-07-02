@@ -72,8 +72,8 @@
                 @yield('content')
             </div>
           </div>
-        </main>
-        <footer class="c-footer text-center"> @ 2023 Comany</footer>
+        </main>        
+        <footer class="c-footer"><div class="text-center">@ 2023 {{ __('form.campany_name') }}</div></footer>
       </div>
     </div>
 

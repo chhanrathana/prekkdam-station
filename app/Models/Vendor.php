@@ -46,34 +46,12 @@ class Vendor extends BaseModel
         return $this->belongsTo(ClientType::class, 'client_type_id');
     }
 
-    public function loans(){
-        return $this->hasMany(Loan::class);
-    }
-
-
-    public function memberships(){
-        return $this->hasMany(Memberships::class);
-    }
-
-    public function newLoans(){
-        return $this->hasMany(Loan::class)->where('client_id' ,'>', 1);
-    }
-
-    public function isHasActiveLoan(){
-        return $this->loans()->where('status','!=','finish')->count();
-    }
-
-    public function getAddressAttribute()
+     
+    public function _status()
     {
-        $village = Village::where('id', $this->village_id)->first();
-        if(!$village){
-            return '';
-        }
-        return
-            'ភ.' . $village->name_kh
-            . ' ឃ.' . $village->commune->name_kh
-            . ' ស.' . $village->commune->district->name_kh;
+        return $this->belongsTo(VendorStatus::class, 'status', 'id');
     }
+    
 
     public function _sex()
     {

@@ -18,10 +18,11 @@ class CreateVendorsTable extends Migration
             $table->char('code',6);
             $table->string('name_en', 50);
             $table->string('name_kh', 50);
-            $table->date('date_of_birth');
+            $table->date('date_of_birth')->nullable();
             $table->string('phone_number', 50);
             $table->string('id_card_no', 20)->nullable();
             $table->string('photo')->nullable();
+            $table->string('address', 500)->nullable();
             $table->timestamps();
             $table->softDeletes();
             
@@ -29,7 +30,7 @@ class CreateVendorsTable extends Migration
             $table->foreign('sex')->references('id')->on('sexes');
 
             $table->string('status',10)->nullable();
-            $table->foreign('status')->references('id')->on('client_status');
+            $table->foreign('status')->references('id')->on('vendor_status');
 
             $table->uuid('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
@@ -41,7 +42,7 @@ class CreateVendorsTable extends Migration
             $table->foreign('branch_id')->references('id')->on('branches');
             
 
-            $table->unique(['code','branch_id'],'clients_code_unique');
+            $table->unique(['code','branch_id'],'vendor_code_unique');
         });
     }
 

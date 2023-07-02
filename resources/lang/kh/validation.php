@@ -45,15 +45,15 @@ return [
     'file' => ':attribute must be a file.',
     'filled' => ':attribute field must have a value.',
     'gt' => [
-        'numeric' => ':attribute must be greater than :value.',
-        'file' => ':attribute must be greater than :value kilobytes.',
-        'string' => ':attribute must be greater than :value characters.',
+        'numeric' => ':attribute ចាំបាច់ត្រូវធំជាង :value.',
+        'file' => ':attribute ចាំបាច់ត្រូវធំជាង :value kilobytes.',
+        'string' => ':attribute ចាំបាច់ត្រូវធំជាង :value characters.',
         'array' => ':attribute must have more than :value items.',
     ],
     'gte' => [
-        'numeric' => ':attribute must be greater than or equal :value.',
-        'file' => ':attribute must be greater than or equal :value kilobytes.',
-        'string' => ':attribute must be greater than or equal :value characters.',
+        'numeric' => ':attribute ចាំបាច់ត្រូវធំជាង or equal :value.',
+        'file' => ':attribute ចាំបាច់ត្រូវធំជាង or equal :value kilobytes.',
+        'string' => ':attribute ចាំបាច់ត្រូវធំជាង or equal :value characters.',
         'array' => ':attribute must have :value items or more.',
     ],
     'image' => ':attribute must be an image.',
@@ -181,7 +181,15 @@ return [
         'oil_type_id' => 'ប្រភេទឥន្ទនៈ',
         'cost_usd' => 'តម្លៃដើម',
         'qty_ton' => 'បរិមាណ',
-        'work_shift_id' => 'វេនធ្វើការ'
+        'work_shift_id' => 'វេនធ្វើការ',
+        'oil_purchase_id' => 'ប្រភេទឥន្ទនៈ',
+        'old_motor_right' => 'លេខកុងទ័រចាស់',
+        'old_motor_left' => 'លេខកុងទ័រចាស់',
+        'new_motor_left' => 'លេខកុងទ័រថ្មី',
+        'new_motor_right' => 'លេខកុងទ័រថ្មី',
+        'vendor_id' => 'អ្នកផ្គត់ផ្គង់',
+        'status_id' => 'សភាព',
+        'staff_id' => 'បុគ្គលិក',
 ],
 
 ];

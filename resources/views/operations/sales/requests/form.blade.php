@@ -40,7 +40,7 @@
 
             <div class="form-group col-sm-4">
                 <label >{{ __('form.oil_type') }} <span class="text-danger">*</span></label>
-                <select class="form-control select2  {{ $errors->first('oil_purchase_id') ? 'is-invalid':'' }}"  name="oil_purchase_id" id="oil_purchase_id">
+                <select class="form-control select2  {{ $errors->first('oil_purchase_id') ? 'is-invalid':'' }}"  name="oil_purchase_id">
                     <option value="" selected>[-- {{ __('form.select') }} --]</option>
                     @foreach ($types as $type)
                         @isset ($record)
@@ -55,7 +55,7 @@
 
             <div class="form-group col-sm-4">
                 <label >{{ __('form.shift') }} <span class="text-danger">*</span></label>
-                <select class="form-control select2  {{ $errors->first('work_shift_id') ? 'is-invalid':'' }}"  name="work_shift_id" id="work_shift_id">
+                <select class="form-control select2  {{ $errors->first('work_shift_id') ? 'is-invalid':'' }}"  name="work_shift_id">
                     <option value="" selected>[-- {{ __('form.select') }} --]</option>
                     @foreach ($shifts as $shift)
                         @isset ($record)
@@ -69,18 +69,33 @@
             </div>
 
             <div class="form-group col-sm-4">
-                <label >{{ __('form.client') }} <span class="text-danger">*</span></label>
-                <select class="form-control select2  {{ $errors->first('work_shift_id') ? 'is-invalid':'' }}"  name="work_shift_id" id="work_shift_id">
+                <label >{{ __('form.staff') }} <span class="text-danger">*</span></label>
+                <select class="form-control select2  {{ $errors->first('staff_id') ? 'is-invalid':'' }}"  name="staff_id">
                     <option value="" selected>[-- {{ __('form.select') }} --]</option>
-                    @foreach ($shifts as $shift)
+                    @foreach ($staffs as $staff)
                         @isset ($record)
-                            <option value="{{ $shift->id }}" {{ $record->work_shift_id == $shift->id ? 'selected' :  '' }} >{{ $shift->name_kh }}</option>
+                            <option value="{{ $staff->id }}" {{ $record->staff_id == $staff->id ? 'selected' :  '' }} >{{ $staff->name_kh }}</option>
                         @else
-                            <option value="{{ $shift->id }}">{{ $shift->name_kh }}</option>
+                            <option value="{{ $staff->id }}">{{ $staff->name_kh }}</option>
                         @endif
                     @endforeach
                 </select>
-                <div class="invalid-feedback">{{ $errors->first('work_shift_id') }}</div>
+                <div class="invalid-feedback">{{ $errors->first('staff_id') }}</div>
+            </div>
+
+            <div class="form-group col-sm-4">
+                <label >{{ __('form.client') }} <span class="text-danger">*</span></label>
+                <select class="form-control select2  {{ $errors->first('client_id') ? 'is-invalid':'' }}"  name="work_shift_id">
+                    <option value="" selected>[-- {{ __('form.select') }} --]</option>
+                    @foreach ($clients as $client)
+                        @isset ($record)
+                            <option value="{{ $client->id }}" {{ $record->client_id == $client->id ? 'selected' :  '' }} >{{ $client->name_kh }}</option>
+                        @else
+                            <option value="{{ $client->id }}">{{ $client->name_kh }}</option>
+                        @endif
+                    @endforeach
+                </select>
+                <div class="invalid-feedback">{{ $errors->first('client_id') }}</div>
             </div>
 
             <div class="form-group col-sm-4">

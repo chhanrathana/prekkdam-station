@@ -13,6 +13,7 @@ class OilPurchase extends BaseModel
         'cost',
         'oil_type_id',        
         'status_id',
+        'vendor_id'
     ];
 
     public static function boot()
@@ -23,6 +24,11 @@ class OilPurchase extends BaseModel
     public function type()
     {
         return $this->belongsTo(OilType::class,'oil_type_id');
+    }
+
+    public function vendor()
+    {
+        return $this->belongsTo(Vendor::class,'vendor_id');
     }
 
     public function _status()

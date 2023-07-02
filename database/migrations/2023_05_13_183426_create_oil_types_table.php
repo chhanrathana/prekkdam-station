@@ -19,6 +19,7 @@ class CreateOilTypesTable extends Migration
             $table->string('name_en')->nullable();
             $table->integer('liter_of_ton')->default(0)->comment('liters of a ton');            
             $table->boolean('active')->default(1);
+            $table->string('css')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

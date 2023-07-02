@@ -15,11 +15,14 @@ class CreateStaffsTable extends Migration
     {
         Schema::create('staffs', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->char('code',6);
             $table->string('name_en', 255)->nullable();
             $table->string('name_kh', 255);
             $table->date('date_of_birth');
             $table->string('phone_number',50)->nullable();
             $table->date('start_work_date')->nullable();
+            $table->double('salary_amount',5)->default(0);
+            $table->string('address', 500)->nullable();
             $table->timestamps();
             $table->softDeletes();
 
@@ -31,6 +34,8 @@ class CreateStaffsTable extends Migration
 
             $table->uuid('branch_id')->nullable();
             $table->foreign('branch_id')->references('id')->on('branches');
+
+            // $table->unique(['code','branch_id'],'clients_code_unique');
         });
     }
     
