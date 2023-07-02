@@ -21,7 +21,7 @@
                         <th class="text-center text-nowrap">{{ __('form.total_cost') }}</th>
                         <th class="text-center text-nowrap">{{ __('form.price') }}</th>
                         <th class="text-center text-nowrap">{{ __('form.total_price') }}</th>
-                    </tr>                  
+                    </tr>
                 </thead>
                 <tbody>
                     @foreach ($records as $record)

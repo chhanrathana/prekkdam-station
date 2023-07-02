@@ -62,7 +62,7 @@
 
          
             <div class="form-group col-sm-4">
-                <label >{{ __('form.phone_number') }}</label>
+                <label >{{ __('form.phone_number') }}<span class="text-danger">*</span></label>
                 <input
                     class="form-control {{ $errors->first('phone_number') ? 'is-invalid':'' }}"
                     name="phone_number"

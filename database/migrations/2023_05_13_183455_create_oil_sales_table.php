@@ -43,6 +43,8 @@ class CreateOilSalesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->uuid('client_id')->nullable();
             $table->foreign('client_id')->references('id')->on('clients');
+            $table->uuid('staff_id')->nullable();
+            $table->foreign('staff_id')->references('id')->on('staffs');
         });
     }
 
