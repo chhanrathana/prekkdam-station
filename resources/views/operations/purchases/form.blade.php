@@ -121,7 +121,7 @@
                 <div class="invalid-feedback">{{ $errors->first('cost') }}</div>
             </div>
 
-            <div class="form-group col-sm-4">
+            {{-- <div class="form-group col-sm-4">
                 <label>{{ __('form.total_cost') }} <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <input
@@ -138,7 +138,7 @@
                     </div>
                 </div>
                 <div class="invalid-feedback">{{ $errors->first('total_cost') }}</div>
-            </div>
+            </div> --}}
 
             <div class="form-group col-sm-4">
                 <label>{{ __('form.payment') }} <span class="text-danger">*</span></label>

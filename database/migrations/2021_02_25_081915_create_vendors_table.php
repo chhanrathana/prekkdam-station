@@ -41,7 +41,6 @@ class CreateVendorsTable extends Migration
             $table->uuid('branch_id')->nullable();
             $table->foreign('branch_id')->references('id')->on('branches');
             
-
             $table->unique(['code','branch_id'],'vendor_code_unique');
         });
     }

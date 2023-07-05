@@ -24,15 +24,15 @@ class SaleService
             'date', 'oil_purchase_id', 'work_shift_id', 'old_motor_right', 'new_motor_right', 'old_motor_left', 'new_motor_left','price','staff_id','client_id','paid_amount'
         ]));            
         $record->exchange_rate = getExchangeRate(formatToOrignDate($request->date));        
-        $record->cost = ($oilPurchase->cost * $oilPurchase->exchange_rate / ($oilPurchase->qty * $oilPurchase->type->liter_of_ton)) ;
+        $record->cost = ($oilPurchase->exchange_rate * ($oilPurchase->total_cost  / ($oilPurchase->qty * $oilPurchase->type->liter_of_ton)));
         $record->currency = CurrencyEnum::KHR;
         $record->unit = UnitEnum::LITERS;
         $record->save();
 
         $useQty = OilSale::where('oil_purchase_id', $request->oil_purchase_id)->sum('qty');
         // update remain qty
-        $oilPurchase->remain_qty = $oilPurchase->qty -  ($useQty / $oilPurchase->type->liter_of_ton);
-        if($oilPurchase->remain_qty <= 0){
+        $remainQty = $oilPurchase->qty -  ($useQty / $oilPurchase->type->liter_of_ton);
+        if($remainQty <= 0){
             $oilPurchase->status_id = OilStatusEnum::OUT_STOCK;
         }
         $oilPurchase->save();
@@ -54,7 +54,6 @@ class SaleService
         $query->when($request->to_date, function ($q) use ($request) {
             $q->where('date', '<=', formatToOrignDate($request->to_date));
         });
-
         
         $query->orderByDesc('code');        
         if ($paginate) {

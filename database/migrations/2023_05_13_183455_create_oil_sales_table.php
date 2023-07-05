@@ -25,8 +25,9 @@ class CreateOilSalesTable extends Migration
             $table->enum('unit', ['tons', 'liters'])->default('liters');
             $table->double('cost',5)->default(0);
             $table->double('price',5)->default(0);
-            $table->double('total_cost',2)->virtualAs('(cost * qty)');
-            $table->double('total_price',2)->virtualAs('(price * qty)');
+            $table->double('total_cost',5)->virtualAs('(cost * qty)');
+            $table->double('total_price',5)->virtualAs('(price * qty)');
+            $table->double('total_revenue',5)->virtualAs('(total_price - total_cost)');
             $table->double('paid_amount',5)->default(0);
             $table->enum('currency', ['usd', 'khr'])->default('khr');
             $table->double('exchange_rate',5)->default(0);

@@ -174,5 +174,6 @@ return [
     'staff_info' => 'ព័ត៌មានបុគ្គលិក',
     'in_stock' => 'ក្នុងស្តុក',
     'print' => 'បោះពុម្ភ PDF',
-    'download' => 'ទាញយក Excel'
+    'download' => 'ទាញយក Excel',
+    'total_revenue' => 'ចំណេញសរុប'
 ];

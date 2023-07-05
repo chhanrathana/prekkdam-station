@@ -98,7 +98,7 @@ class Controller extends BaseController
     protected function getOnsaleOils(){
         $query = OilType::join('oil_purchases', 'oil_types.id', 'oil_purchases.oil_type_id');
         $query->where('oil_purchases.status_id', OilStatusEnum::ON_SALE);
-        return $query->get(['oil_purchases.id', 'oil_types.name_kh', 'oil_types.name_en', DB::raw('(oil_purchases.remain_qty * oil_types.liter_of_ton) as remain_qty'), 'oil_purchases.code']);
+        return $query->get(['oil_purchases.id', 'oil_types.name_kh', 'oil_types.name_en', 'oil_purchases.code']);
     }        
 
     protected function getNetIncome($brandId, $fromDate, $toDate){

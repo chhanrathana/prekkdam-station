@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
             GeolocationTableSeeder::class,            
             InterestTypeTableSeeder::class,
             ClientSeeder::class,
-            // LoanSeeder::class,
+            PurcahseSeeder::class,
+            SaleSeeder::class,
             // PaymentSeeder::class
         ]);
     }

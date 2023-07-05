@@ -18,9 +18,7 @@ class PurchaseService
         }
         $record->fill($request->only([
             'date', 'status_id', 'oil_type_id', 'qty', 'cost', 'vendor_id','paid_amount'
-        ]));
-        
-        $record->remain_qty = $record->qty;
+        ]));        
         $record->exchange_rate = getExchangeRate(formatToOrignDate($request->date));
         $record->currency = CurrencyEnum::USD;
         $record->unit = UnitEnum::TONS;

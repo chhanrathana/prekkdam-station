@@ -20,7 +20,6 @@ class SaleController extends Controller
     public function download(Request $request, $type)
     {
         
-
         if($type == DownloadEnum::PDF){
             $html = view('reports.operations.sales.pdf',[
                 'records' => $this->getSales($request),
@@ -44,11 +43,15 @@ class SaleController extends Controller
             $q->where('code', $code);
         });
 
-        $query->when($request->name, function ($q) use ($request) {
-            $name = mb_strtoupper(trim($request->name));
-            $q->where('name_kh', 'like', '%' . $name . '%');
-            $q->orWhere('name_en', 'like', '%' . $name . '%');
+        $query->when($request->from_date, function ($q) use ($request) {
+            $q->where('date', '>=', formatToOrignDate($request->from_date));
         });
+
+        $query->when($request->to_date, function ($q) use ($request) {
+            $q->where('date', '<=', formatToOrignDate($request->to_date));
+        });
+        
+
         $query->orderByDesc('date');
         return $query->get();
     }

@@ -20,7 +20,6 @@ class CreateOilPurchasesTable extends Migration
             $table->date('date');
             $table->double('qty',5)->default(0);
             $table->enum('unit', ['tons', 'liters'])->default('tons');
-            $table->double('remain_qty',5)->default(0);
             $table->double('cost',5)->default(0);
             $table->enum('currency', ['usd', 'khr'])->default('usd');
             $table->double('exchange_rate',5)->default(0);
