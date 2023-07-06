@@ -7,7 +7,7 @@
 @stop
 @section('content')
 <div class="card">
-    <form action="{{ route('profile.update',['id' => auth()->user()->id]) }}" method="POST">
+    <form action="{{ route('setting.profile.update',['id' => auth()->user()->id]) }}" method="POST">
         @csrf
         @method('PATCH')
         <div class="card-header"> <strong>ប្តូរលេខសម្ងាត់</strong></div>

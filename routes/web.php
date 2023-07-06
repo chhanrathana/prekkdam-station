@@ -176,7 +176,7 @@ Route::middleware(['auth'])->group(function () {
 
             Route::group(['prefix' => 'profile', 'as' => 'profile.'], function () {
                 Route::get('',          [ProfileController::class, 'index'])->name('index');
-                Route::post('',         [ProfileController::class, 'store'])->name('store');            
+                Route::post('',         [ProfileController::class, 'store'])->name('store');
                 Route::delete('{id}',   [ProfileController::class, 'destroy'])->name('destroy');
                 Route::patch('{id}',    [ProfileController::class, 'update'])->name('update');
                 Route::get('{id}',      [ProfileController::class, 'show'])->name('show');

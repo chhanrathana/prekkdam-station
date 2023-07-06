@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-    @include('includes.modal-upload-image', ['imageRoute'=>  route('profile.store') ])
+    @include('includes.modal-upload-image', ['imageRoute'=>  route('setting.profile.store') ])
     <div class="card">
         <div class="card-header">
             <div class="row">
@@ -49,7 +49,7 @@
                         </tbody>
                     </table>
                     
-                    <a href="{{ route('profile.edit',['id' =>  auth()->user()->id]) }}" class="btn btn-outline-primary float-right" id="btn-crop-avatar">
+                    <a href="{{ route('setting.profile.edit',['id' =>  auth()->user()->id]) }}" class="btn btn-outline-primary float-right" id="btn-crop-avatar">
                         <span class="material-icons-outlined">edit</span>
                         កែប្រែ
                     </a>
