@@ -27,7 +27,7 @@ class SaleSeeder extends Seeder
                 'new_motor_right' => $item['new_motor_right'],
                 'old_motor_left' => $item['old_motor_left'],
                 'new_motor_left' => $item['new_motor_left'],
-                'unit' => $item['unit'],
+                'unit' => strtoupper($item['unit']) ,
                 'cost' => $item['cost'],
                 'price' => $item['price'],
                 'paid_amount' => $item['paid_amount'],

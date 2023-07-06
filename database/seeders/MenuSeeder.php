@@ -104,7 +104,7 @@ class MenuSeeder extends Seeder
                                 'url' => 'report.operation.purchase.index',
                                 'active_url' => 'report/operation/purchase/*',
                                 'url_id'        => 'URL077',
-                                'active'        => 1,
+                                'active'        => 0,
                             ],                                                   
                         ],
                     ],                                     

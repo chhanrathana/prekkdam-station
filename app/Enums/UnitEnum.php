@@ -4,6 +4,6 @@ namespace App\Enums;
 abstract class UnitEnum
 {
     const 
-    TONS = 'tons',
-    LITERS = 'liters';
+    TONS = 'T',
+    LITERS = 'L';
 }

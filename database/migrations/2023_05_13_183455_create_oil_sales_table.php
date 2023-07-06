@@ -22,7 +22,7 @@ class CreateOilSalesTable extends Migration
             $table->double('old_motor_left',5)->default(0);
             $table->double('new_motor_left',5)->default(0);
             $table->double('qty',2)->virtualAs('(new_motor_right - old_motor_right) + (new_motor_left - old_motor_left)');
-            $table->enum('unit', ['tons', 'liters'])->default('liters');
+            $table->enum('unit', ['T', 'L'])->default('L');
             $table->double('cost',5)->default(0);
             $table->double('price',5)->default(0);
             $table->double('total_cost',5)->virtualAs('(cost * qty)');

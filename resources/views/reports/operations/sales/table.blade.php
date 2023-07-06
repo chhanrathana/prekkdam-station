@@ -1,21 +1,21 @@
 <table class="table table-bordered table-striped table-hover">
     <thead>
         <tr>
-            <th class="text-center text-nowrap">{{ __('form.no') }}</th>
-            <th class="text-center text-nowrap">{{ __('form.code') }}</th>
-            <th class="text-center text-nowrap">{{ __('form.tank') }}</th>
-            <th class="text-center text-nowrap">{{ __('form.sale_date') }}</th>
-            <th class="text-center text-nowrap">{{ __('form.oil_type') }}</th>                        
+            <th class="text-center text-nowrap" style="width: 40px">{{ __('form.no') }}</th>
+            <th class="text-center text-nowrap" style="width: 50px">{{ __('form.code') }}</th>
+            <th class="text-center text-nowrap" style="width: 20px">{{ __('form.tank') }}</th>
+            <th class="text-center text-nowrap" style="width: 50px">{{ __('form.sale_date') }}</th>
+            <th class="text-center text-nowrap" style="width: 70px">{{ __('form.oil_type') }}</th>                        
             <th class="text-center text-nowrap" style="width: 30px">{{ __('form.shift') }}</th>
-            <th class="text-center text-nowrap">{{ __('form.staff') }}</th>
-            <th class="text-center text-nowrap">{{ __('form.client') }}</th>
+            <th class="text-center text-nowrap" style="width: 80px">{{ __('form.staff') }}</th>
+            <th class="text-center text-nowrap" style="width: 70px">{{ __('form.client') }}</th>
             
             <th class="text-center text-nowrap" style="width: 80px">{{ __('form.old_motor') }}{{ __('form.right') }}</th>
             <th class="text-center text-nowrap" style="width: 80px">{{ __('form.new_motor') }}{{ __('form.right') }}</th>
             <th class="text-center text-nowrap" style="width: 80px">{{ __('form.old_motor') }}{{ __('form.left') }}</th>
             <th class="text-center text-nowrap" style="width: 80px">{{ __('form.new_motor') }}{{ __('form.left') }}</th>
-            <th class="text-center text-nowrap" style="width: 95px">{{ __('form.cost') }}</th>
-            <th class="text-center text-nowrap" style="width: 95px">{{ __('form.qty') }}</th>
+            <th class="text-center text-nowrap" style="width: 80px">{{ __('form.cost') }}</th>
+            <th class="text-center text-nowrap" style="width: 60px">{{ __('form.qty') }}</th>
             
             <th class="text-center text-nowrap" style="width: 95px">{{ __('form.total_cost') }}</th>
             <th class="text-center text-nowrap" style="width: 95px">{{ __('form.price') }}</th>
@@ -60,11 +60,11 @@
         @endforeach
         <tr class="text-bold">
             <td colspan="13" class="text-center"> {{ __('form.total') }}</td>
-            <td class="text-right text-nowrap">{{ number_format($totalQty,2) }} {{ $record->unit }}</td>            
-            <td class="text-right text-nowrap">{{ number_format($totalCost,2) }} {{ $record->currency }}</td>
+            <td class="text-right text-nowrap">{{ number_format($totalQty,2) }} L</td>            
+            <td class="text-right text-nowrap">{{ number_format($totalCost,2) }} KHR</td>
             <td class="text-center text-nowrap">-</td>
-            <td class="text-right text-nowrap">{{ number_format($totalPrice,2) }} {{ $record->currency }}</td>
-            <td class="text-right text-nowrap">{{ number_format($totalRevenue,2) }} {{ $record->currency }}</td>
+            <td class="text-right text-nowrap">{{ number_format($totalPrice,2) }} KHR</td>
+            <td class="text-right text-nowrap">{{ number_format($totalRevenue,2) }} KHR</td>
         </tr>
         </tbody>
 </table>  
