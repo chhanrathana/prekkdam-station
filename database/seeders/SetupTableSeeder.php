@@ -14,6 +14,7 @@ use App\Models\ExpenseType;
 use App\Models\OilStatus;
 use App\Models\OilType;
 use App\Models\Staff;
+use App\Models\Tank;
 use App\Models\Vendor;
 use App\Models\VendorStatus;
 use App\Models\WorkShift;
@@ -140,6 +141,23 @@ class SetupTableSeeder extends Seeder
                 'name_kh' => 'បិទ',
                 'name_en' => 'INACTIVE',
                 'css' => 'badge badge-danger',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]
+        ]);
+
+        Tank::insert([
+            [
+                'id' => 'a',
+                'name_kh' => 'A',
+                'name_en' => 'A',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'id' => 'b',
+                'name_kh' => 'B',
+                'name_en' => 'B',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]

@@ -38,6 +38,21 @@
             </div>
 
             <div class="form-group col-sm-4">
+                <label >{{ __('form.tank') }} <span class="text-danger">*</span></label>
+                <select class="form-control select2  {{ $errors->first('tank_id') ? 'is-invalid':'' }}"  name="tank_id">
+                    <option value="" selected>[-- {{ __('form.select') }} --]</option>
+                    @foreach ($tanks as $tank)
+                        @isset ($record)
+                            <option value="{{ $tank->id }}" {{ $record->tank_id == $tank->id ? 'selected' :  '' }} >{{ $tank->name_kh }}</option>
+                        @else
+                            <option value="{{ $tank->id }}">{{ $tank->name_kh }}</option>
+                        @endif
+                    @endforeach
+                </select>
+                <div class="invalid-feedback">{{ $errors->first('tank_id') }}</div>
+            </div>
+
+            <div class="form-group col-sm-4">
                 <label >{{ __('form.oil_type') }} <span class="text-danger">*</span></label>
                 <select class="form-control select2  {{ $errors->first('oil_purchase_id') ? 'is-invalid':'' }}"  name="oil_purchase_id">
                     <option value="" selected>[-- {{ __('form.select') }} --]</option>

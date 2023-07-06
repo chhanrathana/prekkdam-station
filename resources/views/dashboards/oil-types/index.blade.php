@@ -11,13 +11,8 @@
         $totalClients = 0;
         $totalPrincipal = 0;
     @endphp
-    <div class="row">
-        
-        @foreach ($records as $reocrd)
-            {{-- @php
-                $totalClients = $totalClients + $interest->count;
-                $totalPrincipal = $totalPrincipal + $interest->principal_amount;
-            @endphp --}}
+    <div class="row">        
+        @foreach ($records as $reocrd)            
             <div class="col-sm-6 col-lg-6">
                 <div class="card">
                     <div class="card-header {{ $reocrd->css }} content-center">
@@ -28,13 +23,13 @@
                     </div>
                     <div class="card-body row text-center">
                         <div class="col">
-                            <div class="text-value-xl">{{ number_format($reocrd->purchases->sum('qty')??0,4) }} T</div>
-                            <div class="text-uppercase text-muted small text-font-bold">{{ __('form.total') }}</div>
+                            <div class="text-value-xl">{{ number_format($reocrd->liter_of_ton *  $reocrd->purchases->sum('qty')??0,4) }} L</div>
+                            <div class="text-uppercase text-muted small text-font-bold">{{ __('form.total_purchase') }}</div>
                         </div>
                         <div class="c-vr"></div>
                         <div class="col">
-                            <div class="text-value-xl">{{ number_format($reocrd->purchases->sum('remain_qty')??0,4) }} T</div>
-                            <div class="text-uppercase text-muted small text-font-bold">{{ __('form.in_stock') }} </div>
+                            <div class="text-value-xl">{{ number_format($reocrd->sales->sum('qty')??0,4) }} L</div>
+                            <div class="text-uppercase text-muted small text-font-bold">{{ __('form.total_sale') }} </div>
                         </div>
                     </div>
                 </div>

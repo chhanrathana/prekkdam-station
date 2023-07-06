@@ -175,5 +175,8 @@ return [
     'in_stock' => 'ក្នុងស្តុក',
     'print' => 'បោះពុម្ភ PDF',
     'download' => 'ទាញយក Excel',
-    'total_revenue' => 'ចំណេញសរុប'
+    'total_revenue' => 'ចំណេញសរុប',
+    'tank' => 'ធុង',
+    'total_purchase' => 'បានទិញសរុប',
+    'total_sale' => 'បានលក់សរុប',
 ];

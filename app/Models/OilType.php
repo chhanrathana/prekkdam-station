@@ -15,11 +15,13 @@ class OilType extends BaseModel
         'active'        
     ];    
 
-    public function sales(){
-        return $this->hasMany(OilSale::class);
-    }
-
+   
     public function purchases(){
         return $this->hasMany(OilPurchase::class);
     }
+
+    public function sales(){
+        return $this->hasManyThrough(OilSale::class, OilPurchase::class);
+    }
+        
 }

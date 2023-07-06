@@ -27,6 +27,7 @@ class SaleController extends Controller
             'shifts'        => $this->getWorkShifts(),
             'clients'       => $this->getActiveClients(),
             'staffs'        => $this->getActiveStaffs(),
+            'tanks'         => $this->getActiveTanks(),
         ]);
     }
  
@@ -67,6 +68,7 @@ class SaleController extends Controller
             'shifts'        => $this->getWorkShifts(),
             'clients'       => $this->getActiveClients(),
             'staffs'        => $this->getActiveStaffs(),
+            'tanks'         => $this->getActiveTanks(),
         ]);
     }
 

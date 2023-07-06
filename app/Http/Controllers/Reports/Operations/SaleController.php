@@ -13,7 +13,8 @@ class SaleController extends Controller
     public function index(Request $request)
     {        
         return view('reports.operations.sales.index',[
-            'records' => $this->getSales($request)
+            'records'=> $this->getSales($request),
+            'types'  => $this->getOilTypes(),
         ]);
     }
 
@@ -36,8 +37,14 @@ class SaleController extends Controller
     }
 
     private function getSales($request){
-        $query = OilSale::query();
+        $query = OilSale::select('oil_sales.*');
         
+        $query->when($request->oil_type_id, function ($q) use ($request) {
+            $oilTypeId = mb_strtoupper(trim($request->oil_type_id));
+            $q->join('oil_purchases', 'oil_sales.oil_purchase_id', 'oil_purchases.id');
+            $q->where('oil_purchases.oil_type_id', $oilTypeId);
+        });
+
         $query->when($request->code, function ($q) use ($request) {
             $code = mb_strtoupper(trim($request->code));
             $q->where('code', $code);

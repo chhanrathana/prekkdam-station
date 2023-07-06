@@ -63,4 +63,6 @@ return [
     'purchase_request_index' => 'ការទិញ',
     'purchase_request_create' => 'ការទិញ-បង្កើត',
     'purchase_request_edit' => 'ការទិញ-កែប្រែ',
+    'report_operation_sale' => 'របាយការណ៍ប្រតិបត្តិការលក់',
+    'report_operation_purchasse' => 'របាយការណ៍ប្រតិបត្តិការទិញ',
 ];

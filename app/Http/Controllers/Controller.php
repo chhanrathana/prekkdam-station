@@ -24,6 +24,7 @@ use App\Models\OilStatus;
 use App\Models\OilType;
 use App\Models\PaymentRevenue;
 use App\Models\Staff;
+use App\Models\Tank;
 use App\Models\Vendor;
 use App\Models\WorkShift;
 use Carbon\Carbon;
@@ -74,6 +75,10 @@ class Controller extends BaseController
 
     protected function getOilStatuses(){        
         return OilStatus::where('active', ActiveEnum::YES)->orderBy('id')->get();
+    }
+
+    protected function getActiveTanks(){        
+        return Tank::where('active', ActiveEnum::YES)->orderBy('id')->get();
     }
 
     protected function getWorkShifts(){

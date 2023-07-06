@@ -21,8 +21,8 @@ class SaleSeeder extends Seeder
             $data []        = [
                 'id' => $item['id'],
                 'code'=> $item['code'],
-                'date'=> $item['date'],
-
+                'date'=>  Carbon::createFromFormat('d/m/Y', $item['date'])->format('Y-m-d'),
+                'tank_id'=> $item['tank_id'],
                 'old_motor_right' => $item['old_motor_right'],
                 'new_motor_right' => $item['new_motor_right'],
                 'old_motor_left' => $item['old_motor_left'],

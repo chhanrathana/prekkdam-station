@@ -29,7 +29,8 @@ class PurchaseController extends Controller
             'types'         => $this->getOilTypes(),
             'code'          => generateOilPurchaseCode(),
             'statuses'      => $this->getOilStatuses(),
-            'vendors'       => $this->getActiveVndors()
+            'vendors'       => $this->getActiveVndors(),
+            'tanks'         => $this->getActiveTanks(),
         ]);
     }
  
@@ -62,6 +63,7 @@ class PurchaseController extends Controller
             'types'         => $this->getOilTypes(),
             'statuses'      => $this->getOilStatuses(),
             'vendors'       => $this->getActiveVndors(),
+            'tanks'         => $this->getActiveTanks(),
             'record'        => $record,
         ]);
     }

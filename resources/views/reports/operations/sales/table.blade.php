@@ -3,6 +3,7 @@
         <tr>
             <th class="text-center text-nowrap">{{ __('form.no') }}</th>
             <th class="text-center text-nowrap">{{ __('form.code') }}</th>
+            <th class="text-center text-nowrap">{{ __('form.tank') }}</th>
             <th class="text-center text-nowrap">{{ __('form.sale_date') }}</th>
             <th class="text-center text-nowrap">{{ __('form.oil_type') }}</th>                        
             <th class="text-center text-nowrap" style="width: 30px">{{ __('form.shift') }}</th>
@@ -39,6 +40,7 @@
                 @endphp
                 <td class="text-center text-nowrap">{{ $loop->index + 1 }}</td>
                 <td class="text-center text-nowrap">{{ $record->code??''}}</td>                            
+                <td class="text-center text-nowrap">{{ $record->tank->name_kh??''}}</td>
                 <td class="text-center text-nowrap">{{ $record->date??''}}</td>
                 <td class="text-left text-nowrap">{{ $record->purchase->type->name_kh??''}}</td>                            
                 <td class="text-left text-nowrap">{{ $record->shift->name_kh??''}}</td>
@@ -57,7 +59,7 @@
             </tr>
         @endforeach
         <tr class="text-bold">
-            <td colspan="12" class="text-center"> {{ __('form.total') }}</td>
+            <td colspan="13" class="text-center"> {{ __('form.total') }}</td>
             <td class="text-right text-nowrap">{{ number_format($totalQty,2) }} {{ $record->unit }}</td>            
             <td class="text-right text-nowrap">{{ number_format($totalCost,2) }} {{ $record->currency }}</td>
             <td class="text-center text-nowrap">-</td>

@@ -38,7 +38,7 @@ class MenuSeeder extends Seeder
                         'url' => '',
                         'active_url' => 'report/accounting/*',
                         'icon' => 'request_quote',
-                        'active'        => 1,
+                        'active'        => 0,
                         'childs' => [
                             [
                                 'label' => 'សមតុល្យ',
@@ -200,7 +200,7 @@ class MenuSeeder extends Seeder
                         'url'           => '',
                         'active_url'    => 'operation/account-receivable/*',
                         'icon'          => 'paid',
-                        'active'        => 1,
+                        'active'        => 0,
                         'childs'        => [
                             [
                                 'label' => 'បញ្ចូលថ្មី',
@@ -226,7 +226,7 @@ class MenuSeeder extends Seeder
                         'url'           => '',
                         'active_url'    => 'operation/account-payable/*',
                         'icon'          => 'money_off',
-                        'active'        => 1,
+                        'active'        => 0,
                         'childs'        => [
                             [
                                 'label' => 'បញ្ចូលថ្មី',
@@ -319,7 +319,7 @@ class MenuSeeder extends Seeder
                         'url' => '',
                         'active_url' => 'setting/user/*',
                         'icon' => 'group',
-                        'active'        => 1,
+                        'active'        => 0,
                         'childs' => [
                             [
                                 'label' => 'បញ្ជូលថ្មី',
@@ -345,7 +345,7 @@ class MenuSeeder extends Seeder
                         'url' => '',
                         'active_url' => 'user/*',
                         'icon' => 'manage_accounts',
-                        'active'        => 1,
+                        'active'        => 0,
                         'childs' => [
                             [
                                 'label' => 'បញ្ជូលថ្មី',

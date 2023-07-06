@@ -11,7 +11,7 @@
                     <tr>
                         <th class="text-center text-nowrap">{{ __('form.no') }}</th>
                         <th class="text-center text-nowrap">{{ __('form.code') }}</th>
-                        
+                        <th class="text-center text-nowrap">{{ __('form.tank') }}</th>  
                         <th class="text-center text-nowrap">{{ __('form.status') }}</th>  
                         <th class="text-center text-nowrap">{{ __('form.oil_type') }}</th>
                         <th class="text-center text-nowrap">{{ __('form.vendor') }}</th>
@@ -27,7 +27,8 @@
                 @foreach ($records as $record)
                     <tr>                       
                         <td class="text-center text-nowrap">{{ $loop->index + 1 }}</td>
-                        <td class="text-center text-nowrap">{{ $record->code??''}}</td>                        
+                        <td class="text-center text-nowrap">{{ $record->code??''}}</td>         
+                        <td class="text-center text-nowrap">{{ $record->tank->name_kh??''}}</td>
                         <td class="text-center text-nowrap"><span class="{{ $record->_status->css??'' }}">{{ $record->_status->name_kh??'' }}</span></td>
                         <td class="text-center text-nowrap">{{ $record->date??''}}</td>
                         <td class="text-center text-nowrap">{{ $record->vendor->name_kh??''}}</td>

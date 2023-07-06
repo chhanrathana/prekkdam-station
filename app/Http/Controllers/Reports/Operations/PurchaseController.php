@@ -13,7 +13,8 @@ class PurchaseController extends Controller
     public function index(Request $request)
     {        
         return view('reports.operations.purchases.index',[
-            'records' => $this->getSales($request)
+            'records' => $this->getSales($request),
+            'types'  => $this->getOilTypes(),
         ]);
     }
 

@@ -21,11 +21,11 @@ class PurcahseSeeder extends Seeder
             $data []        = [
                 'id' => $item['id'],
                 'code'=> $item['code'],
-                'date'=> $item['date'],
+                'date'=>  Carbon::createFromFormat('d/m/Y', $item['date'])->format('Y-m-d'),
                 'qty' => $item['qty'],
                 'cost' => $item['cost'],
                 'currency' => $item['currency'],
-
+                'tank_id'=> $item['tank_id'],
                 'exchange_rate' => $item['exchange_rate'],
                 'paid_amount' => $item['paid_amount'],
                 'oil_type_id' => $item['oil_type_id'],

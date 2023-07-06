@@ -21,7 +21,18 @@ class SaleService
             $record->code = generateOilSaleCode();
         }
         $record->fill($request->only([
-            'date', 'oil_purchase_id', 'work_shift_id', 'old_motor_right', 'new_motor_right', 'old_motor_left', 'new_motor_left','price','staff_id','client_id','paid_amount'
+            'date', 
+            'oil_purchase_id', 
+            'work_shift_id', 
+            'old_motor_right', 
+            'new_motor_right', 
+            'old_motor_left', 
+            'new_motor_left',
+            'price',
+            'staff_id',
+            'client_id',
+            'paid_amount',
+            'tank_id'
         ]));            
         $record->exchange_rate = getExchangeRate(formatToOrignDate($request->date));        
         $record->cost = ($oilPurchase->exchange_rate * ($oilPurchase->total_cost  / ($oilPurchase->qty * $oilPurchase->type->liter_of_ton)));

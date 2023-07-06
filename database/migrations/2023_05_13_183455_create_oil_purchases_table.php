@@ -41,6 +41,9 @@ class CreateOilPurchasesTable extends Migration
 
             $table->uuid('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
+
+            $table->string('tank_id',5)->nullable();
+            $table->foreign('tank_id')->references('id')->on('tanks');
         });
     }
 

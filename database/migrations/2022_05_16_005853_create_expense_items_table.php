@@ -26,6 +26,9 @@ class CreateExpenseItemsTable extends Migration
 
             $table->uuid('branch_id')->nullable();
             $table->foreign('branch_id')->references('id')->on('branches');
+
+            $table->uuid('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
