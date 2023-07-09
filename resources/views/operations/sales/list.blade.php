@@ -37,11 +37,11 @@
                                         <i class="fas fa-pen"></i> {{ __('form.btn_edit') }}
                                     </a>
 
-                                    <a class="btn btn-sm btn-warning mr-1" target="_blank" 
+                                    {{-- <a class="btn btn-sm btn-warning mr-1" target="_blank" 
                                         href="{{ route('operation.sale.print',['id' => $record->id ]) }}"type="button">
                                         <i class="fas fa-print"></i>
                                         <strong>{{ __('form.print') }}</strong>
-                                    </a>
+                                    </a> --}}
 
                                     {{-- <a class="btn btn-sm btn-warning  mr-1" target="_blank" href="#">
                                         <i class="fas fa-trash"></i> {{ __('form.print') }}
