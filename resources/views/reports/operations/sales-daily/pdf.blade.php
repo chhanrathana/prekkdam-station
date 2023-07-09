@@ -2,16 +2,16 @@
 
 @section('html')
     <div class="text-center heading-title-center khmer-moul">
-        តារាងលក់តាមថ្ងៃ
+        តារាងលក់ប្រចាំថ្ងៃ
         <br/>
-        {{  $fromDate }} - {{ $toDate }}
+        {{  $date }} 
     </div>
-    <div class="text-right">
+    <div class="text-right" style="font-size: 9px">
         <small class="print-date"><i>printed at {{ \Carbon\Carbon::now() }}</i></small>   
     </div>
-    @include('reports.operations.sales.table')
+    @include('reports.operations.sales-daily.table')
     
-    {{-- <table style="width:100%; line-height: 3; border: 0px solid rgba(255, 255, 255, 0) !important;">
+    <table style="width:100%; line-height: 3; border: 0px solid rgba(255, 255, 255, 0) !important;">
         <tr style="border: 0px solid rgba(255, 255, 255, 0) !important;">
             <th style="text-align:center; border: 0px solid rgba(255, 255, 255, 0) !important;">
                 <div class="caption-left">
@@ -32,7 +32,7 @@
                         <div class="text-left">
                             <p class="p">ថ្ងៃ............. ខែ............. ឆ្នាំ {{ \Carbon\Carbon::now()->format('Y') }}</p>
                         </div>
-                        <div class="khmer-moul" style="pandding-left:20px;">អ្នកធ្វើរបាយការណ៍</div>
+                        <div class="khmer-os" style="pandding-left:20px;">អ្នកធ្វើរបាយការណ៍</div>
                         <br>
                         <br>
                         <div class="text-right">
@@ -44,5 +44,5 @@
                 </div>
             </th>
         </tr>
-    </table>   --}}
+    </table>  
 @endsection

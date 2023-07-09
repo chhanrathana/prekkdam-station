@@ -176,7 +176,7 @@ return [
     'print' => 'PDF',
     'download' => 'Excel',
     'total_revenue' => 'ចំណេញសរុប',
-    'tank' => 'ធុង',
+    'tank' => 'ទូរ',
     'total_purchase' => 'បានទិញសរុប',
     'total_sale' => 'បានលក់សរុប',
 ];

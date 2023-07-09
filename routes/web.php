@@ -8,6 +8,7 @@ use App\Http\Controllers\Operations\PurchaseController;
 use App\Http\Controllers\Operations\SaleController;
 use App\Http\Controllers\Reports\Operations\PurchaseController as OperationsPurchaseController;
 use App\Http\Controllers\Reports\Operations\SaleController as OperationsSaleController;
+use App\Http\Controllers\Reports\Operations\SaleDailyController;
 use App\Http\Controllers\Settings\AddressController;
 use App\Http\Controllers\Settings\MasterData\ExpenseTypeController;
 use App\Http\Controllers\Settings\MasterData\OilTypeController;
@@ -49,9 +50,19 @@ Route::middleware(['auth'])->group(function () {
                     Route::get('download/{type?}',  [OperationsSaleController::class, 'download'])->name('download');
                 });
 
-                Route::group(['prefix' => 'purchase', 'as' => 'purchase.'], function () {                    
-                    Route::get('',                  [OperationsPurchaseController::class, 'index'])->name('index');
-                    Route::get('download/{type?}',  [OperationsPurchaseController::class, 'download'])->name('show');
+                Route::group(['prefix' => 'sale-daily', 'as' => 'sale-daily.'], function () {                    
+                    Route::get('',                  [SaleDailyController::class, 'index'])->name('index');
+                    Route::get('download/{type?}',  [SaleDailyController::class, 'download'])->name('download');
+                });
+
+                // Route::group(['prefix' => 'purchase', 'as' => 'purchase.'], function () {                    
+                //     Route::get('',                  [OperationsPurchaseController::class, 'index'])->name('index');
+                //     Route::get('download/{type?}',  [OperationsPurchaseController::class, 'download'])->name('show');
+                // });
+
+                Route::group(['prefix' => 'daily-purchase', 'as' => 'daily-purchase.'], function () {                    
+                    Route::get('',                  [OperationsSaleController::class, 'index'])->name('index');
+                    Route::get('download/{type?}',  [OperationsSaleController::class, 'download'])->name('download');
                 });
             });
         });
@@ -61,7 +72,8 @@ Route::middleware(['auth'])->group(function () {
                 Route::get('create',            [SaleController::class, 'create'])->name('create');
                 Route::post('create',           [SaleController::class, 'store'])->name('store');
                 Route::get('list',              [SaleController::class, 'index'])->name('index');
-                Route::get('list/{id}',         [SaleController::class, 'show'])->name('show');
+                // Route::get('list/{id}',         [SaleController::class, 'show'])->name('show');
+                Route::get('list/{id}/print',   [SaleController::class, 'print'])->name('print');
                 Route::delete('list/{id}',      [SaleController::class, 'destroy'])->name('destroy');
                 Route::patch('list/{id}',       [SaleController::class, 'update'])->name('update');
                 Route::get('list/{id}/edit',    [SaleController::class, 'edit'])->name('edit');

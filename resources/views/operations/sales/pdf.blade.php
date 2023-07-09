@@ -1,15 +1,36 @@
 @extends('layouts.pdf-layout')
 
 @section('html')
-    <div class="text-center heading-title-center khmer-moul">
-        តារាងលក់តាមថ្ងៃ
+    <div class="text-center heading-title-center">        
+        តារាងលក់ប្រចាំថ្ងៃ
         <br/>
-        {{  $fromDate }} - {{ $toDate }}
+        {{-- {{  $fromDate }} - {{ $toDate }} --}}
     </div>
     <div class="text-right">
         <small class="print-date"><i>printed at {{ \Carbon\Carbon::now() }}</i></small>   
     </div>
-    @include('reports.operations.sales.table')
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover" id ="table">
+            <thead>
+                <tr>
+                    <th class="text-center text-nowrap">{{ __('form.no') }}</th>
+                    <th class="text-center text-nowrap">{{ __('form.code') }}</th>
+                    <th class="text-center text-nowrap">{{ __('form.oil_type') }}</th>
+                    <th class="text-center text-nowrap">{{ __('form.shift') }}</th>
+                    <th class="text-center text-nowrap">{{ __('form.qty') }}</th>                        
+                    <th class="text-center text-nowrap">{{ __('form.cost') }}</th>
+                    <th class="text-center text-nowrap">{{ __('form.total_cost') }}</th>
+                    <th class="text-center text-nowrap">{{ __('form.price') }}</th>
+                    <th class="text-center text-nowrap">{{ __('form.total_price') }}</th>
+                </tr>
+            </thead>
+            <tbody>                
+            </tbody>
+        </table>
+    </div>   
+
+    {{-- @include('reports.operations.sales.table') --}}
     
     {{-- <table style="width:100%; line-height: 3; border: 0px solid rgba(255, 255, 255, 0) !important;">
         <tr style="border: 0px solid rgba(255, 255, 255, 0) !important;">

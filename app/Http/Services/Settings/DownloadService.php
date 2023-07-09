@@ -6,7 +6,7 @@ use Mpdf\Mpdf;
 
 class DownloadService{
 
-    static function PDF($htmlReport, $title = 'របាការណ៍', $orientation = 'P', $font = 12, $printCard = false, $mt = 6, $ml = 5, $mr = 5)
+    static function PDF($htmlReport, $title = 'របាការណ៍', $orientation = 'P', $font = 12, $printCard = false, $mt = 6, $ml = 5, $mr = 5, $format = 'A4')
     {
         $defaultConfig = (new \Mpdf\Config\ConfigVariables())->getDefaults();
         $fontDirs = $defaultConfig['fontDir'];
@@ -46,7 +46,7 @@ class DownloadService{
                 ]
             ],
             'default_font' => 'siemreap',
-            'format' => 'A4',
+            'format' =>  $format,
             'margin_top' => $mt,
             'margin_left'=> $ml,
             'margin_right'=> $mr,

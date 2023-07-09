@@ -33,10 +33,20 @@
                                 <div class="btn-group"role="group"aria-label="Action">
         
                                     <a class="btn btn-sm btn-primary mr-1 "
-                                        href="{{ route('operation.sale.edit',['id' => $record->id ]) }}"type="button">                                    
+                                        href="{{ route('operation.sale.edit',['id' => $record->id ]) }}"type="button">
                                         <i class="fas fa-pen"></i> {{ __('form.btn_edit') }}
                                     </a>
-        
+
+                                    <a class="btn btn-sm btn-warning mr-1" target="_blank" 
+                                        href="{{ route('operation.sale.print',['id' => $record->id ]) }}"type="button">
+                                        <i class="fas fa-print"></i>
+                                        <strong>{{ __('form.print') }}</strong>
+                                    </a>
+
+                                    {{-- <a class="btn btn-sm btn-warning  mr-1" target="_blank" href="#">
+                                        <i class="fas fa-trash"></i> {{ __('form.print') }}
+                                    </a> --}}
+                                            
                                     <button class="btn btn-sm btn-danger btn-delete  mr-1"data-id="{{ $record->id }}">                                    
                                         <i class="fas fa-trash"></i> {{ __('form.btn_remove') }}
                                     </button>

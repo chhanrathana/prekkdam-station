@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Operations;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Http\Services\Settings\DownloadService;
 use App\Models\OilSale;
 
 class SaleController extends Controller
@@ -61,7 +62,6 @@ class SaleController extends Controller
     public function edit($id)
     {
         $record = OilSale::find($id);
-
         return view('operations.sales.edit', [
             'record'        => $record,
             'types'         => $this->getOnsaleOils(),
@@ -100,11 +100,19 @@ class SaleController extends Controller
     public function show($id)
     {
         $record = OilSale::find($id);
-
         return view('operations.sales.show',[
             'record' => $record
         ]);
     } 
+
+    public function print($id)
+    {
+        $record = OilSale::find($id);        
+        $html = view('operations.sales.pdf',[
+            'record' =>$record,
+        ]);
+        return DownloadService::PDF($html, $title = 'របាការណ៍', $orientation = 'P', $font = 12, $printCard = false, $mt = 2, $ml = 2, $mr = 2, $format = 'A5');        
+    }
 
     public function destroy($id)
     {

@@ -42,7 +42,7 @@ class MenuSeeder extends Seeder
                         'childs' => [
                             [
                                 'label' => 'សមតុល្យ',
-                                'permission' => 'report.monthly',
+                                'permission' => '#',
                                 'url' => 'report.accounting.balancesheet.index',
                                 'active_url' => 'report/accounting/balancesheet/*',
                                 'url_id'        => 'URL078',
@@ -50,7 +50,7 @@ class MenuSeeder extends Seeder
                             ],                           
                             [
                                 'label' => 'ចំនូល',
-                                'permission' => 'report-financial.principal',
+                                'permission' => '#',
                                 'url' => 'report.accounting.revenue.index',
                                 'active_url' => 'report/accounting/revenue/*',
                                 'url_id'        => 'URL077',
@@ -58,7 +58,7 @@ class MenuSeeder extends Seeder
                             ],  
                             [
                                 'label' => 'ចំណាយ',
-                                'permission' => 'report-financial.principal',
+                                'permission' => '#',
                                 'url' => 'report.accounting.expense.index',
                                 'active_url' => 'report/accounting/expense/*',
                                 'url_id'        => 'URL077',
@@ -91,16 +91,24 @@ class MenuSeeder extends Seeder
                         'active'        => 1,
                         'childs' => [
                             [
-                                'label' => 'លក់',
-                                'permission' => 'report.monthly',
+                                'label' => 'លក់តាមថ្ងៃ',
+                                'permission' => '#',
                                 'url' => 'report.operation.sale.index',
                                 'active_url' => 'report/operation/sale/*',
                                 'url_id'        => 'URL078',
                                 'active'        => 1,
-                            ],                           
+                            ],
+                            [
+                                'label' => 'លក់ប្រចាំថ្ងៃ',
+                                'permission' => '#',
+                                'url' => 'report.operation.sale-daily.index',
+                                'active_url' => 'report/operation/sale-daily/*',
+                                'url_id'        => 'URL078',
+                                'active'        => 1,
+                            ],
                             [
                                 'label' => 'ទិញ',
-                                'permission' => 'report-financial.principal',
+                                'permission' => '#',
                                 'url' => 'report.operation.purchase.index',
                                 'active_url' => 'report/operation/purchase/*',
                                 'url_id'        => 'URL077',
@@ -125,7 +133,7 @@ class MenuSeeder extends Seeder
                         'childs'        => [
                             [
                                 'label' => 'បញ្ចូលថ្មី',
-                                'permission' => 'sale.daily-create',
+                                'permission' => '#',
                                 'url' => 'operation.sale.create',
                                 'active_url' => 'operation/sale/create/*',
                                 'url_id'        => 'URL012',
@@ -151,7 +159,7 @@ class MenuSeeder extends Seeder
                         'childs'        => [
                             [
                                 'label' => 'បញ្ចូលថ្មី',
-                                'permission' => 'purchase.daily-create',
+                                'permission' => '#',
                                 'url' => 'operation.purchase.create',
                                 'active_url' => 'operation/purchase/create/*',
                                 'url_id'        => 'URL012',
@@ -204,7 +212,7 @@ class MenuSeeder extends Seeder
                         'childs'        => [
                             [
                                 'label' => 'បញ្ចូលថ្មី',
-                                'permission' => 'purchase.daily-create',
+                                'permission' => '#',
                                 'url' => 'operation.account-receivable.create',
                                 'active_url' => 'operation/account-receivable/create/*',
                                 'url_id'        => 'URL012',
@@ -230,7 +238,7 @@ class MenuSeeder extends Seeder
                         'childs'        => [
                             [
                                 'label' => 'បញ្ចូលថ្មី',
-                                'permission' => 'purchase.daily-create',
+                                'permission' => '#',
                                 'url' => 'operation.account-payable.create',
                                 'active_url' => 'operation/account-payable/create/*',
                                 'url_id' => 'URL012',
