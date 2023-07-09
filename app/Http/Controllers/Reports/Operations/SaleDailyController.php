@@ -48,7 +48,7 @@ class SaleDailyController extends Controller
             $q->where('oil_sales.date', '=', formatToOrignDate($request->date));
         });
 
-        $query->when($request->work_shift_id, function ($q) use ($request) {            
+        $query->when($request->work_shift_id && $request->work_shift_id <> 'all', function ($q) use ($request) {            
             $q->where('oil_sales.work_shift_id', '=', $request->work_shift_id);
         });
     
