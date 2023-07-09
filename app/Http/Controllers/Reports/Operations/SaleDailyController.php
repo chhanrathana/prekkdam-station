@@ -36,7 +36,7 @@ class SaleDailyController extends Controller
                 'records' =>$records,
                 'date' => $request->date,
             ]);
-            return DownloadService::PDF($html, $title = 'របាការណ៍', $orientation = 'P', $font = 12, $printCard = false, $mt = 2, $ml = 2, $mr = 2, $format = 'A5');
+            return DownloadService::PDF($html, $title = 'របាការណ៍', $orientation = 'L', $font = 12, $printCard = false, $mt = 2, $ml = 2, $mr = 2, $format = 'A5');
         }
         return Excel::download(new ReportOperationSaleExport($records, $request->from_date, $request->to_date), 'sale_transaction.xlsx');
     }

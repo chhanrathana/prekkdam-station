@@ -20,7 +20,6 @@
                 </div>
                 </div>
             </th>
-
             <th style="width: 250px; border: 0px solid rgba(255, 255, 255, 0) !important;">
 
             </th>
@@ -33,7 +32,6 @@
                             <p class="p">ថ្ងៃ............. ខែ............. ឆ្នាំ {{ \Carbon\Carbon::now()->format('Y') }}</p>
                         </div>
                         <div class="khmer-os" style="pandding-left:20px;">អ្នកធ្វើរបាយការណ៍</div>
-                        <br>
                         <br>
                         <div class="text-right">
                             <div style="margin-left:100px;" >

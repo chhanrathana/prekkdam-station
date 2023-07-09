@@ -1,14 +1,14 @@
 <table class="table table-bordered table-striped table-hover">
     <thead>
         <tr>
-            <th class="text-center text-nowrap" style="width: 40px">{{ __('form.no') }}</th>
-            <th class="text-center text-nowrap" style="width: 50px">{{ __('form.code') }}</th>
-            <th class="text-center text-nowrap" style="width: 70px">{{ __('form.oil_type') }}</th>                        
-            <th class="text-center text-nowrap" style="width: 30px">{{ __('form.shift') }}</th>
-            <th class="text-center text-nowrap" style="width: 80px">{{ __('form.staff') }}</th>
+            <th class="text-center text-nowrap" style="width: 30px">{{ __('form.no') }}</th>
+            <th class="text-center text-nowrap" style="width: 100px">{{ __('form.code') }}</th>
+            <th class="text-center text-nowrap" style="width: 100px">{{ __('form.oil_type') }}</th>                        
+            <th class="text-center text-nowrap" style="width: 80px">{{ __('form.shift') }}</th>
+            <th class="text-center text-nowrap" style="width: 100px">{{ __('form.staff') }}</th>
             <th class="text-center text-nowrap" style="width: 80px">{{ __('form.qty') }}</th>            
-            <th class="text-center text-nowrap" style="width: 95px">{{ __('form.price') }}</th>
-            <th class="text-center text-nowrap" style="width: 95px">{{ __('form.total_price') }}</th>
+            <th class="text-center text-nowrap" style="width: 150px">{{ __('form.price') }}</th>
+            <th class="text-center text-nowrap" style="width: 150px">{{ __('form.total_price') }}</th>
         </tr>
     </thead>
     <tbody>
