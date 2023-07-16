@@ -38,6 +38,7 @@ class SaleController extends Controller
             'date' => 'date_format:d/m/Y',            
             'work_shift_id' =>'required',
             'oil_purchase_id' => 'required',
+            'tank_id' =>'required',
             'staff_id' =>'required',
             'client_id' =>'required',
             'old_motor_right' => 'required|numeric',
@@ -77,6 +78,7 @@ class SaleController extends Controller
         $request->validate([
             'date' => 'date_format:d/m/Y',            
             'work_shift_id' =>'required',
+            'tank_id' =>'required',
             'staff_id' =>'required',
             'client_id' =>'required',
             'oil_purchase_id' => 'required',

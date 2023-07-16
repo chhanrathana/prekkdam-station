@@ -31,7 +31,7 @@
                     </select>
                 </div>
                                                                                   
-                <div class="col-sm-12 col-md-2 col-lg-2 col-xl-2 mb-1">
+                <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 mb-1">
                     <button type="submit" class="btn btn-primary mb-2">
                         <i class="fas fa-search"></i>
                         {{ __('form.search') }}
