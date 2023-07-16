@@ -60,7 +60,7 @@
                         @isset ($record)
                             <option value="{{ $type->id }}" {{ $record->oil_purchase_id == $type->id ? 'selected' :  '' }} >{{ $type->code.' | '.$type->name_kh }}</option>
                         @else
-                            <option value="{{ $type->id }}">{{$type->code.' | '. $type->name_kh }}</option>
+                            <option value="{{ $type->id }}">{{$type->code.' | '. $type->name_kh.' | '.number_format($type->qty - ($type->sales->sum('qty')??0),2) .' L' }}</option>
                         @endif
                     @endforeach
                 </select>
@@ -242,7 +242,7 @@
                         <span class="input-group-text">{{ __('form.khr') }}</span>
                     </div>
                 </div>
-                <div class="invalid-feedback">{{ $errors->first('paid_amount') }}</div>
+                <div class="invalid-feedback">{{ $errors->first('cost') }}</div>
             </div>                                          --}}
         </div>
     </div>
