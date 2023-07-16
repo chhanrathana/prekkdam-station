@@ -43,6 +43,7 @@ class SaleController extends Controller
             $oilTypeId = mb_strtoupper(trim($request->oil_type_id));
             $q->join('oil_purchases', 'oil_sales.oil_purchase_id', 'oil_purchases.id');
             $q->where('oil_purchases.oil_type_id', $oilTypeId);
+            $q->whereNull('oil_purchases.deleted_at');
         });
         
         $query->when($request->from_date, function ($q) use ($request) {
