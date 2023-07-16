@@ -19,7 +19,7 @@
                                             <span class="material-icons-outlined">account_circle</span>
                                         </span>
                                     </div>
-                                    <input class="form-control" type="text" placeholder="{{ __('form.account') }}" name="email" value="test"  required autofocus>
+                                    <input class="form-control" type="text" placeholder="{{ __('form.account') }}" name="email" required autofocus>
                                 </div>
                             </div>
                             
@@ -30,7 +30,7 @@
                                             <span class="material-icons-outlined">lock</span>
                                         </span>
                                     </div>
-                                    <input class="form-control" type="password" placeholder="{{ __('form.password') }}" name="password" required value="FA4257->tPHZBW<P">
+                                    <input class="form-control" type="password" placeholder="{{ __('form.password') }}" name="password" required>
                                 </div>
                             </div>
                             

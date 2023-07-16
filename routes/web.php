@@ -167,13 +167,13 @@ Route::middleware(['auth'])->group(function () {
             });
 
             Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
-                Route::get('',          [BlankController::class, 'index'])->name('index');
-                Route::post('',         [BlankController::class, 'store'])->name('store');
-                Route::get('create',    [BlankController::class, 'create'])->name('create');
-                Route::delete('{id}',   [BlankController::class, 'destroy'])->name('destroy');
-                Route::patch('{id}',    [BlankController::class, 'update'])->name('update');
-                Route::get('{id}',      [BlankController::class, 'show'])->name('show');
-                Route::get('{id}/edit', [BlankController::class, 'edit'])->name('edit');
+                Route::get('',          [UserController::class, 'index'])->name('index');
+                Route::post('',         [UserController::class, 'store'])->name('store');
+                Route::get('create',    [UserController::class, 'create'])->name('create');
+                Route::delete('{id}',   [UserController::class, 'destroy'])->name('destroy');
+                Route::patch('{id}',    [UserController::class, 'update'])->name('update');
+                Route::get('{id}',      [UserController::class, 'show'])->name('show');
+                Route::get('{id}/edit', [UserController::class, 'edit'])->name('edit');
             });
     
             Route::group(['prefix' => 'role', 'as' => 'role.'], function () {
