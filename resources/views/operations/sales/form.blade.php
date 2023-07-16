@@ -226,7 +226,7 @@
                 </div>                
             </div>  --}}
             
-            <div class="form-group col-sm-4">
+            {{-- <div class="form-group col-sm-4">
                 <label>{{ __('form.payment') }} <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <input
@@ -242,8 +242,8 @@
                         <span class="input-group-text">{{ __('form.khr') }}</span>
                     </div>
                 </div>
-                <div class="invalid-feedback">{{ $errors->first('cost') }}</div>
-            </div>                                         
+                <div class="invalid-feedback">{{ $errors->first('paid_amount') }}</div>
+            </div>                                          --}}
         </div>
     </div>
     <div class="card-footer">
