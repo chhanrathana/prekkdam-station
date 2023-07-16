@@ -24,11 +24,11 @@ class PurchaseService
             'cost', 
             'vendor_id',
             'paid_amount',
-            'tank_id'
+            // 'tank_id'
         ]));        
         $record->exchange_rate = getExchangeRate(formatToOrignDate($request->date));
-        $record->currency = CurrencyEnum::USD;
-        $record->unit = UnitEnum::TONS;
+        $record->currency = CurrencyEnum::KHR;
+        $record->unit = UnitEnum::LITERS;
         $record->save();
         return $record;
     }

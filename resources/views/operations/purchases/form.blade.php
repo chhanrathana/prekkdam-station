@@ -53,7 +53,7 @@
                 <div class="invalid-feedback">{{ $errors->first('vendor_id') }}</div>
             </div>
 
-            <div class="form-group col-sm-4">
+            {{-- <div class="form-group col-sm-4">
                 <label >{{ __('form.tank') }} <span class="text-danger">*</span></label>
                 <select class="form-control select2  {{ $errors->first('tank_id') ? 'is-invalid':'' }}"  name="tank_id">
                     <option value="" selected>[-- {{ __('form.select') }} --]</option>
@@ -66,7 +66,7 @@
                     @endforeach
                 </select>
                 <div class="invalid-feedback">{{ $errors->first('tank_id') }}</div>
-            </div>
+            </div> --}}
 
             <div class="form-group col-sm-4">
                 <label >{{ __('form.oil_type') }} <span class="text-danger">*</span></label>
@@ -111,7 +111,7 @@
                     value="{{ (old('qty')??$record->qty??0)?? 0 }}"
                     >
                     <div class="input-group-append">
-                        <span class="input-group-text">{{ __('form.ton') }}</span>
+                        <span class="input-group-text">{{ __('form.liter') }}</span>
                     </div>
                 </div>
                 <div class="invalid-feedback">{{ $errors->first('qty_ton') }}</div>
@@ -130,7 +130,7 @@
                     value="{{ (old('cost')??$record->cost??0)?? 0 }}"
                     >
                     <div class="input-group-append">
-                        <span class="input-group-text">{{ __('form.usd') }}</span>
+                        <span class="input-group-text">{{ __('form.khr') }}</span>
                     </div>
                 </div>
                 <div class="invalid-feedback">{{ $errors->first('cost') }}</div>
@@ -168,7 +168,7 @@
                     value="{{ (old('paid_amount')??$record->paid_amount??0)?? 0 }}"
                     >
                     <div class="input-group-append">
-                        <span class="input-group-text">{{ __('form.usd') }}</span>
+                        <span class="input-group-text">{{ __('form.khr') }}</span>
                     </div>
                 </div>
                 <div class="invalid-feedback">{{ $errors->first('paid_amount') }}</div>

@@ -158,6 +158,7 @@ return [
     'khr' => 'KHR',
     'usd' => 'USD',
     'ton' => 'តោន',
+    'liter' => 'លីត្រ',
     'price' => 'តម្លៃលក់',
     'total_price' => 'លក់សរុប',
     'sale_list' => 'តារាងលក់',
