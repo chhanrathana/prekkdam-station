@@ -35,14 +35,14 @@ class SaleService
             'tank_id'
         ]));            
         $record->exchange_rate = getExchangeRate(formatToOrignDate($request->date));        
-        $record->cost = ($oilPurchase->exchange_rate * ($oilPurchase->total_cost  / ($oilPurchase->qty * $oilPurchase->type->liter_of_ton)));
+        $record->cost = $oilPurchase->cost;
         $record->currency = CurrencyEnum::KHR;
         $record->unit = UnitEnum::LITERS;
         $record->save();
 
         $useQty = OilSale::where('oil_purchase_id', $request->oil_purchase_id)->sum('qty');
         // update remain qty
-        $remainQty = $oilPurchase->qty -  ($useQty / $oilPurchase->type->liter_of_ton);
+        $remainQty = ($oilPurchase->qty -  $useQty);
         if($remainQty <= 0){
             $oilPurchase->status_id = OilStatusEnum::OUT_STOCK;
         }
