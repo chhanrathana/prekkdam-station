@@ -23,7 +23,7 @@
                     </div>
                     <div class="card-body row text-center">
                         <div class="col">
-                            <div class="text-value-xl">{{ number_format($reocrd->liter_of_ton *  $reocrd->purchases->sum('qty')??0,4) }} L</div>
+                            <div class="text-value-xl">{{ number_format($reocrd->purchases->sum('qty')??0,4) }} L</div>
                             <div class="text-uppercase text-muted small text-font-bold">{{ __('form.total_purchase') }}</div>
                         </div>
                         <div class="c-vr"></div>
