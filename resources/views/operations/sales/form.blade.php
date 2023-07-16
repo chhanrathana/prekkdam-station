@@ -58,9 +58,9 @@
                     <option value="" selected>[-- {{ __('form.select') }} --]</option>
                     @foreach ($types as $type)
                         @isset ($record)
-                            <option value="{{ $type->id }}" {{ $record->oil_purchase_id == $type->id ? 'selected' :  '' }} >{{ $type->code.' | '.$type->name_kh.' | '.number_format($type->remain_qty).' LITERS' }}</option>
+                            <option value="{{ $type->id }}" {{ $record->oil_purchase_id == $type->id ? 'selected' :  '' }} >{{ $type->code.' | '.$type->name_kh }}</option>
                         @else
-                            <option value="{{ $type->id }}">{{$type->code.' | '. $type->name_kh.' | '.number_format($type->remain_qty) .' LITERS' }}</option>
+                            <option value="{{ $type->id }}">{{$type->code.' | '. $type->name_kh }}</option>
                         @endif
                     @endforeach
                 </select>

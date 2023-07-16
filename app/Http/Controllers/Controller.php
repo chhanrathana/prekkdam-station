@@ -11,14 +11,9 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 use App\Http\Services\Operations\ClientService;
-use App\Http\Services\Operations\Sales\PaymentService;
-use App\Http\Services\Operations\Sales\RequestService;
-use App\Http\Services\Operations\Purchases\RequestService as PurchasesRequestService;
 use App\Http\Services\Operations\PurchaseService;
 use App\Http\Services\Operations\SaleService;
-use App\Http\Services\Settings\PDFService;
 use App\Models\Client;
-use App\Models\LoanPayment;
 use App\Models\ExpenseItem;
 use App\Models\OilStatus;
 use App\Models\OilType;
@@ -44,19 +39,12 @@ class Controller extends BaseController
 
     public function __construct()
     {
-        $this->clientService = new ClientService();        
-        $this->saleService = new SaleService();       
-        $this->purchaseService = new PurchaseService();     
+        $this->clientService = new ClientService();
+        $this->saleService = new SaleService();
+        $this->purchaseService = new PurchaseService();
         $this->currentDate = Carbon::now()->format('d/m/Y');
     }
     
-    protected function updateLateTransaction(){
-        $today = Carbon::now()->format('Y-m-d');
-        LoanPayment::whereDate('end_interest_date', '<', $today)
-        ->whereIn('status', ['pending','lack'])
-        ->update(['status' =>'late']);
-    }
-
     protected function getOilTypes(){        
         return OilType::where('active', ActiveEnum::YES)->orderBy('id')->get();
     }
@@ -103,8 +91,9 @@ class Controller extends BaseController
     protected function getOnsaleOils(){
         $query = OilType::join('oil_purchases', 'oil_types.id', 'oil_purchases.oil_type_id');
         $query->where('oil_purchases.status_id', OilStatusEnum::ON_SALE);
+        $query->whereNull('oil_purchases.deleted_at');
         return $query->get(['oil_purchases.id', 'oil_types.name_kh', 'oil_types.name_en', 'oil_purchases.code']);
-    }        
+    }
 
     protected function getNetIncome($brandId, $fromDate, $toDate){
         $query = PaymentRevenue::query();
