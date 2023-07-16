@@ -42,5 +42,10 @@ class OilPurchase extends BaseModel
     {
         return $this->belongsTo(OilStatus::class, 'status_id');
     }
+
+    public function sales()
+    {
+        return $this->hasMany(OilSale::class,'oil_purchase_id');
+    }
    
 }

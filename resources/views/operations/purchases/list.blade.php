@@ -47,7 +47,7 @@
                         <td class="text-left text-nowrap">{{ $record->vendor->name_kh??''}}</td>
                         <td class="text-center text-nowrap">{{ $record->date??''}}</td>
                         <td class="text-right text-nowrap">{{ number_format($record->qty,4) }} {{ $record->unit }}</td>
-                        <td class="text-right text-nowrap">{{ number_format($record->remain_qty,2) }} {{ $record->unit }}</td>
+                        <td class="text-right text-nowrap">{{ number_format($record->qty - ($record->sales->sum('qty')??0),2) }} {{ $record->unit }}</td>
                         <td class="text-right text-nowrap">{{ number_format($record->cost,2) }} {{ $record->currency }}</td>
                         <td class="text-right text-nowrap">{{ number_format($record->total_cost,2) }} {{ $record->currency }}</td>
                     </tr>
