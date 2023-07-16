@@ -9,7 +9,7 @@
     <script>
         $(document).ready( function () {
             $('#table').on('click', '.btn-delete', function(){
-                var url = '/operation/purchase/request/list/'+$(this).attr("data-id");;
+                var url = '/operation/purchase/list/'+$(this).attr("data-id");;
                 $('#frmDelete').attr('action', url);
                 console.log('console....' + url);
                 $('#deleteModal').modal('show');
