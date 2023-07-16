@@ -54,22 +54,30 @@ class SaleService
     {
         $query = OilSale::query();      
         
-        $query->when($request->oil_type_id, function ($q) use ($request) {
-            $q->where('oil_type_id', $request->oil_type_id);
+        $query->when($request->oil_type_id && $request->oil_type_id <> 'all', function ($q) use ($request) {
+            $oilTypeId = mb_strtoupper(trim($request->oil_type_id));
+            $q->join('oil_purchases', 'oil_sales.oil_purchase_id', 'oil_purchases.id');
+            $q->where('oil_purchases.oil_type_id', $oilTypeId);
+            $q->whereNull('oil_purchases.deleted_at');
         });
 
+        // $query->when($request->oil_type_id, function ($q) use ($request) {
+        //     oil_purchases
+        //     $q->where('oil_type_id', $request->oil_type_id);
+        // });
+
         $query->when($request->from_date, function ($q) use ($request) {
-            $q->where('date', '>=', formatToOrignDate($request->from_date));
+            $q->where('oil_sales.date', '>=', formatToOrignDate($request->from_date));
         });
 
         $query->when($request->to_date, function ($q) use ($request) {
-            $q->where('date', '<=', formatToOrignDate($request->to_date));
+            $q->where('oil_sales.date', '<=', formatToOrignDate($request->to_date));
         });
         
-        $query->orderByDesc('code');        
+        $query->orderByDesc('oil_sales.code');        
         if ($paginate) {
             return $query->paginate(env('PAGINATION'));
         }
-        return $query->get();
+        return $query->get(['oil_sales.*']);
     }    
 }
