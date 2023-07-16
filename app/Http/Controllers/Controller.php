@@ -92,7 +92,7 @@ class Controller extends BaseController
         $query = OilType::join('oil_purchases', 'oil_types.id', 'oil_purchases.oil_type_id');
         $query->where('oil_purchases.status_id', OilStatusEnum::ON_SALE);
         $query->whereNull('oil_purchases.deleted_at');
-        return $query->get(['oil_purchases.id','oil_purchases.qty', 'oil_types.name_kh', 'oil_types.name_en', 'oil_purchases.code']);
+        return $query->get(['oil_types.id','oil_purchases.qty', 'oil_types.name_kh', 'oil_types.name_en', 'oil_purchases.code','oil_purchases.id as oil_purchase_id']);
     }
 
     protected function getNetIncome($brandId, $fromDate, $toDate){

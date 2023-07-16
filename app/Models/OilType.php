@@ -22,6 +22,5 @@ class OilType extends BaseModel
 
     public function sales(){
         return $this->hasManyThrough(OilSale::class, OilPurchase::class);
-    }
-        
+    }        
 }
