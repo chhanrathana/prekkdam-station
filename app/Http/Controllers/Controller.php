@@ -45,7 +45,7 @@ class Controller extends BaseController
         $this->currentDate = Carbon::now()->format('d/m/Y');
     }
     
-    protected function getOilTypes(){        
+    protected function getOilTypes(){
         return OilType::where('active', ActiveEnum::YES)->orderBy('id')->get();
     }
 

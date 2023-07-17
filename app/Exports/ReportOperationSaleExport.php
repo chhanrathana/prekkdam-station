@@ -20,7 +20,7 @@ class ReportOperationSaleExport implements FromView
 
     public function view(): View
     {
-        return view('reports.operations.sales.excel', [
+        return view('reports.sales.monthly.excel', [
             'records' => $this->records,
             'fromDate' => $this->fromDate,
             'toDate' => $this->toDate,

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Reports\Operations;
+namespace App\Http\Controllers\Reports\Purchases;
 
 use App\Enums\DownloadEnum;
 use App\Exports\ReportOperationSaleExport;
@@ -10,7 +10,7 @@ use App\Models\OilSale;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
-class SaleController extends Controller
+class MonthlyController extends Controller
 {
     public function index(Request $request)
     {        

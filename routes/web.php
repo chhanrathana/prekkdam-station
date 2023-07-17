@@ -6,9 +6,11 @@ use App\Http\Controllers\Operations\ExpenseController;
 use App\Http\Controllers\Settings\MasterData\ClientController;
 use App\Http\Controllers\Operations\PurchaseController;
 use App\Http\Controllers\Operations\SaleController;
-use App\Http\Controllers\Reports\Operations\PurchaseController as OperationsPurchaseController;
 use App\Http\Controllers\Reports\Operations\SaleController as OperationsSaleController;
 use App\Http\Controllers\Reports\Operations\SaleDailyController;
+use App\Http\Controllers\Reports\Purchases\StockController;
+use App\Http\Controllers\Reports\Sales\DailyController;
+use App\Http\Controllers\Reports\Sales\MonthlyController;
 use App\Http\Controllers\Settings\AddressController;
 use App\Http\Controllers\Settings\MasterData\ExpenseTypeController;
 use App\Http\Controllers\Settings\MasterData\OilTypeController;
@@ -44,25 +46,32 @@ Route::middleware(['auth'])->group(function () {
                 Route::get('expense',       [BlankController::class, 'index'])->name('expense.index');
             });
     
-            Route::group(['prefix' => 'operation', 'as' => 'operation.'], function () {
-                Route::group(['prefix' => 'sale', 'as' => 'sale.'], function () {                    
-                    Route::get('',                  [OperationsSaleController::class, 'index'])->name('index');
+            Route::group(['prefix' => 'sale', 'as' => 'sale.'], function () {
+                Route::group(['prefix' => 'monthly', 'as' => 'monthly.'], function () {                    
+                    Route::get('',                  [MonthlyController::class, 'index'])->name('index');
+                    Route::get('download/{type?}',  [MonthlyController::class, 'download'])->name('download');
+                });
+
+                Route::group(['prefix' => 'daily', 'as' => 'daily.'], function () {                    
+                    Route::get('',                  [DailyController::class, 'index'])->name('index');
+                    Route::get('download/{type?}',  [DailyController::class, 'download'])->name('download');
+                });
+            });
+
+            Route::group(['prefix' => 'purchase', 'as' => 'purchase.'], function () {
+                
+                Route::group(['prefix' => 'stock', 'as' => 'stock.'], function () {                    
+                    Route::get('',                  [StockController::class, 'index'])->name('index');
+                });
+
+                Route::group(['prefix' => 'monthly', 'as' => 'monthly.'], function () {                    
+                    Route::get('',                  [BlankController::class, 'index'])->name('index');
                     Route::get('download/{type?}',  [OperationsSaleController::class, 'download'])->name('download');
                 });
 
-                Route::group(['prefix' => 'sale-daily', 'as' => 'sale-daily.'], function () {                    
-                    Route::get('',                  [SaleDailyController::class, 'index'])->name('index');
+                Route::group(['prefix' => 'daily', 'as' => 'daily.'], function () {                    
+                    Route::get('',                  [BlankController::class, 'index'])->name('index');
                     Route::get('download/{type?}',  [SaleDailyController::class, 'download'])->name('download');
-                });
-
-                // Route::group(['prefix' => 'purchase', 'as' => 'purchase.'], function () {                    
-                //     Route::get('',                  [OperationsPurchaseController::class, 'index'])->name('index');
-                //     Route::get('download/{type?}',  [OperationsPurchaseController::class, 'download'])->name('show');
-                // });
-
-                Route::group(['prefix' => 'daily-purchase', 'as' => 'daily-purchase.'], function () {                    
-                    Route::get('',                  [OperationsSaleController::class, 'index'])->name('index');
-                    Route::get('download/{type?}',  [OperationsSaleController::class, 'download'])->name('download');
                 });
             });
         });

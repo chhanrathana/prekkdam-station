@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Reports\Operations;
+namespace App\Http\Controllers\Reports\Sales;
 
 use App\Enums\DownloadEnum;
 use App\Exports\ReportOperationSaleExport;
@@ -9,10 +9,9 @@ use App\Http\Services\Settings\DownloadService;
 use App\Models\OilSale;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
-class SaleDailyController extends Controller
+class DailyController extends Controller
 {
     public function index(Request $request)
     {   
@@ -20,7 +19,7 @@ class SaleDailyController extends Controller
             $request->date = Carbon::now()->format('d/m/Y');
         }     
         
-        return view('reports.operations.sales-daily.index',[
+        return view('reports.sales.daily.index',[
             'records'=> $this->getSales($request),
             'shifts' => $this->getWorkShifts(),
             'date'  => $request->date,
@@ -32,7 +31,7 @@ class SaleDailyController extends Controller
         $records = $this->getSales($request);
 
         if($type == DownloadEnum::PDF){
-            $html = view('reports.operations.sales-daily.pdf',[
+            $html = view('reports.sales.daily.pdf',[
                 'records' =>$records,
                 'date' => $request->date,
             ]);
@@ -54,18 +53,5 @@ class SaleDailyController extends Controller
     
         $query->orderBy('oil_sales.work_shift_id');
         return $query->get();
-    }
-    private function groupBy (){
-        $query = OilSale::query();
-        $query->select(
-            DB::raw('date(expense_datetime) as expense_date'), 
-            DB::raw('sum(amount) as total_amount')
-        );
-        $query->where('branch_id',$brandId);
-        $query->whereDate('expense_datetime', '>=', $fromDate);
-        $query->whereDate('expense_datetime', '<=', $toDate);   
-        $query->groupBy('expense_date');
-        $query->orderBy('expense_date','desc');
-        $expenses = $query->get();        
-    }
+    }   
 }

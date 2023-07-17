@@ -61,10 +61,10 @@
         <tr class="text-bold">
             <td colspan="13" class="text-center"> {{ __('form.total') }}</td>
             <td class="text-right text-nowrap">{{ number_format($totalQty,2) }} L</td>            
-            <td class="text-right text-nowrap">{{ number_format($totalCost,2) }} KHR</td>
+            <td class="text-right text-nowrap">{{ number_format($totalCost,2) .' '.__('form.khr')}} </td>
             <td class="text-center text-nowrap">-</td>
-            <td class="text-right text-nowrap">{{ number_format($totalPrice,2) }} KHR</td>
-            <td class="text-right text-nowrap">{{ number_format($totalRevenue,2) }} KHR</td>
+            <td class="text-right text-nowrap">{{ number_format($totalPrice,2) .' '.__('form.khr')}} </td>
+            <td class="text-right text-nowrap">{{ number_format($totalRevenue,2) .' '.__('form.khr')}} </td>
         </tr>
         </tbody>
 </table>  
