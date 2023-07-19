@@ -19,7 +19,6 @@ class RevenueController extends Controller
         ]);
     }
 
-
     public function download(Request $request, $type)
     {
         $records = $this->getSales($request);
@@ -34,7 +33,6 @@ class RevenueController extends Controller
         }
         return Excel::download(new ReportOperationSaleExport($records, $request->from_date, $request->to_date), 'sale_transaction.xlsx');
     }
-
 
     private function getSales($request){
         $query = OilSale::select('oil_sales.*');

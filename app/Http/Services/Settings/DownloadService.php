@@ -60,7 +60,7 @@ class DownloadService{
             $mpdf->defaultfooterline = false;
             $mpdf->setFooter(' ទំព័រ {PAGENO} នៃ {nbpg}');
         }
-        $mpdf->WriteHTML($htmlReport);
+        $mpdf->WriteHTML($htmlReport);               
         return $mpdf->Output($title, 'I');
     }
 }
