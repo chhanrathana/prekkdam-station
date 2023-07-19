@@ -14,7 +14,7 @@
                         <th class="text-center text-nowrap">{{ __('form.code') }}</th>
                         {{-- <th class="text-center text-nowrap">{{ __('form.tank') }}</th> --}}
                         <th class="text-center text-nowrap">{{ __('form.status') }}</th>  
-                        <th class="text-center text-nowrap">{{ __('form.oil_type') }}</th>
+                        <th class="text-center text-nowrap">{{ __('form.type') }}</th>
                         <th class="text-center text-nowrap">{{ __('form.vendor') }}</th>
                         <th class="text-center text-nowrap">{{ __('form.purchase_date') }}</th>
                         <th class="text-center text-nowrap">{{ __('form.qty') }}</th>

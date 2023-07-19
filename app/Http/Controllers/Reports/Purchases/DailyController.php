@@ -6,10 +6,9 @@ use App\Enums\DownloadEnum;
 use App\Exports\ReportOperationSaleExport;
 use App\Http\Controllers\Controller;
 use App\Http\Services\Settings\DownloadService;
-use App\Models\OilSale;
+use App\Models\OilPurchase;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
 class DailyController extends Controller
@@ -20,19 +19,18 @@ class DailyController extends Controller
             $request->date = Carbon::now()->format('d/m/Y');
         }     
         
-        return view('reports.operations.sales-daily.index',[
-            'records'=> $this->getSales($request),
-            'shifts' => $this->getWorkShifts(),
+        return view('reports.purchases.daily.index',[
+            'records'=> $this->getPurchases($request),            
             'date'  => $request->date,
         ]);
     }
 
     public function download(Request $request, $type)
     {
-        $records = $this->getSales($request);
+        $records = $this->getPurchases($request);
 
         if($type == DownloadEnum::PDF){
-            $html = view('reports.operations.sales-daily.pdf',[
+            $html = view('reports.purchases.daily.pdf',[
                 'records' =>$records,
                 'date' => $request->date,
             ]);
@@ -41,31 +39,13 @@ class DailyController extends Controller
         return Excel::download(new ReportOperationSaleExport($records, $request->from_date, $request->to_date), 'sale_transaction.xlsx');
     }
 
-    private function getSales($request){
-        $query = OilSale::select('oil_sales.*');
-                        
+    private function getPurchases($request){
+        $query = OilPurchase::select('oil_purchases.*');                        
         $query->when($request->date, function ($q) use ($request) {            
-            $q->where('oil_sales.date', '=', formatToOrignDate($request->date));
+            $q->where('oil_purchases.date', '=', formatToOrignDate($request->date));
         });
 
-        $query->when($request->work_shift_id && $request->work_shift_id <> 'all', function ($q) use ($request) {            
-            $q->where('oil_sales.work_shift_id', '=', $request->work_shift_id);
-        });
-    
-        $query->orderBy('oil_sales.work_shift_id');
+        $query->orderBy('oil_purchases.oil_type_id');
         return $query->get();
-    }
-    private function groupBy (){
-        $query = OilSale::query();
-        $query->select(
-            DB::raw('date(expense_datetime) as expense_date'), 
-            DB::raw('sum(amount) as total_amount')
-        );
-        $query->where('branch_id',$brandId);
-        $query->whereDate('expense_datetime', '>=', $fromDate);
-        $query->whereDate('expense_datetime', '<=', $toDate);   
-        $query->groupBy('expense_date');
-        $query->orderBy('expense_date','desc');
-        $expenses = $query->get();        
-    }
+    }   
 }

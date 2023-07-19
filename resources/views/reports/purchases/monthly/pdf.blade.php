@@ -2,14 +2,14 @@
 
 @section('html')
     <div class="text-center heading-title-center khmer-moul">
-        តារាងលក់តាមថ្ងៃ
+        តារាងទិញប្រេងចូលតាមថ្ងៃ
         <br/>
         {{  $fromDate }} - {{ $toDate }}
     </div>
     <div class="text-right">
         <small class="print-date"><i>printed at {{ \Carbon\Carbon::now() }}</i></small>   
     </div>
-    @include('reports.operations.sales.table')
+    @include('reports.purchases.monthly.table')
     
     {{-- <table style="width:100%; line-height: 3; border: 0px solid rgba(255, 255, 255, 0) !important;">
         <tr style="border: 0px solid rgba(255, 255, 255, 0) !important;">

@@ -4,26 +4,26 @@
         <div class="row">
             <div class="col">
                 <i class="fas fa-list"></i>
-                 <strong>{{ __('form.sale_list') }}</strong>
+                 <strong>{{ __('form.purchase_list') }}</strong>
             </div>
             <div class="col">
                 <div class="btn-group float-right"role="group"aria-label="Action">
-                    <a class="btn btn-sm btn-danger mr-1" target="_blank" href="{{ route('report.sale.monthly.download', ['type' => 'PDF']).currentParamter() }}">
+                    <a class="btn btn-sm btn-danger mr-1" target="_blank" href="{{ route('report.purchase.monthly.download', ['type' => 'PDF']).currentParamter() }}">
                         <i class="fas fa-print"></i>
                         <strong>{{ __('form.print') }}</strong>
                     </a>
                     
-                    <a class="btn btn-sm btn-warning mr-1" target="_blank" href="{{ route('report.sale.monthly.download', ['type' => 'EXCEL']).currentParamter() }}">
+                    {{-- <a class="btn btn-sm btn-warning mr-1" target="_blank" href="{{ route('report.purchase.monthly.download', ['type' => 'EXCEL']).currentParamter() }}">
                         <i class="fas fa-download"></i>
                         <strong>{{ __('form.download') }}</strong>
-                    </a>
+                    </a> --}}
                 </div>
             </div>
         </div>
     </div>
     <div class="card-body">        
         <div class="table-responsive">
-            @include('reports.operations.sales.table')
+            @include('reports.purchases.monthly.table')
         </div>        
     </div>
 </div>

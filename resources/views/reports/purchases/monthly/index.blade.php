@@ -2,6 +2,6 @@
 @section('title' ,  __('page-titles.report_operation_sale'))
 
 @section('content')
-    @include('reports.operations.sales.search')
-    @include('reports.operations.sales.list')
+    @include('reports.purchases.monthly.search')
+    @include('reports.purchases.monthly.list')
 @endsection

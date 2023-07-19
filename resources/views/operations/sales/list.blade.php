@@ -13,7 +13,7 @@
                         <th class="text-center text-nowrap">{{ __('form.no') }}</th>
                         <th class="text-center text-nowrap">{{ __('form.code') }}</th>
                         <th class="text-center text-nowrap">{{ __('form.tank') }}</th>
-                        <th class="text-center text-nowrap">{{ __('form.oil_type') }}</th>
+                        <th class="text-center text-nowrap">{{ __('form.type') }}</th>
                         <th class="text-center text-nowrap">{{ __('form.sale_date') }}</th>
                         <th class="text-center text-nowrap">{{ __('form.shift') }}</th>
                         <th class="text-center text-nowrap">{{ __('form.staff') }}</th>

@@ -65,4 +65,5 @@ return [
     'purchase_request_edit' => 'ការទិញ-កែប្រែ',
     'report_operation_sale' => 'របាយការណ៍ប្រតិបត្តិការលក់',
     'report_operation_purchasse' => 'របាយការណ៍ប្រតិបត្តិការទិញ',
+    'report_operation_purchase' => 'របាយការណ៍ប្រតិបត្តិការទិញតាមថ្ងៃ'
 ];

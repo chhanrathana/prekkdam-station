@@ -2,14 +2,14 @@
 
 @section('html')
     <div class="text-center heading-title-center khmer-moul">
-        តារាងលក់ប្រចាំថ្ងៃ
+        តារាងទិញចូលតាមថ្ងៃ
         <br/>
         {{  $date }} 
     </div>
     <div class="text-right" style="font-size: 9px">
         <small class="print-date"><i>printed at {{ \Carbon\Carbon::now() }}</i></small>   
     </div>
-    @include('reports.operations.sales-daily.table')
+    @include('reports.purchases.daily.table')
     
     <table style="width:100%; line-height: 3; border: 0px solid rgba(255, 255, 255, 0) !important;">
         <tr style="border: 0px solid rgba(255, 255, 255, 0) !important;">

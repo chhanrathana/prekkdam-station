@@ -4,7 +4,7 @@
         <strong>{{ __('form.search') }}</strong>
     </div>
     <div class="card-body">
-        <form action="{{ route('report.sale.daily.index') }}" class="mt-2" id="frmSearch" method="GET">
+        <form action="{{ route('report.purchase.daily.index') }}" class="mt-2" id="frmSearch" method="GET">
             <div class="form-row">
                                     
                 <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 mb-1">
@@ -20,16 +20,7 @@
                         value="{{ request('date')??$date }}"
                         placeholder="{{ __('form.date') }}">
                 </div>
-                
-                <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 mb-1">
-                    <select class="form-control select2" name="work_shift_id" >
-                        <option value="" disabled selected>[-- {{ __('form.shift') }} --]</option>
-                        <option value="all" {{ request('work_shift_id') == 'all'?'selected':'' }}>{{__('form.all')}}</option>
-                        @foreach ($shifts as $shift)
-                            <option value="{{ $shift->id }}" {{ request('work_shift_id') == $shift->id?'selected':'' }}>{{ $shift->name_kh }}</option>
-                        @endforeach
-                    </select>
-                </div>
+                            
                                                                                   
                 <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 mb-1">
                     <button type="submit" class="btn btn-primary mb-2">

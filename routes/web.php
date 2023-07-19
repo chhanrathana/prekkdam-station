@@ -8,6 +8,8 @@ use App\Http\Controllers\Operations\PurchaseController;
 use App\Http\Controllers\Operations\SaleController;
 use App\Http\Controllers\Reports\Operations\SaleController as OperationsSaleController;
 use App\Http\Controllers\Reports\Operations\SaleDailyController;
+use App\Http\Controllers\Reports\Purchases\DailyController as PurchasesDailyController;
+use App\Http\Controllers\Reports\Purchases\MonthlyController as PurchasesMonthlyController;
 use App\Http\Controllers\Reports\Purchases\StockController;
 use App\Http\Controllers\Reports\Sales\DailyController;
 use App\Http\Controllers\Reports\Sales\MonthlyController;
@@ -65,13 +67,13 @@ Route::middleware(['auth'])->group(function () {
                 });
 
                 Route::group(['prefix' => 'monthly', 'as' => 'monthly.'], function () {                    
-                    Route::get('',                  [BlankController::class, 'index'])->name('index');
-                    Route::get('download/{type?}',  [OperationsSaleController::class, 'download'])->name('download');
+                    Route::get('',                  [PurchasesMonthlyController::class, 'index'])->name('index');
+                    Route::get('download/{type?}',  [PurchasesMonthlyController::class, 'download'])->name('download');
                 });
 
                 Route::group(['prefix' => 'daily', 'as' => 'daily.'], function () {                    
-                    Route::get('',                  [BlankController::class, 'index'])->name('index');
-                    Route::get('download/{type?}',  [SaleDailyController::class, 'download'])->name('download');
+                    Route::get('',                  [PurchasesDailyController::class, 'index'])->name('index');
+                    Route::get('download/{type?}',  [PurchasesDailyController::class, 'download'])->name('download');
                 });
             });
         });

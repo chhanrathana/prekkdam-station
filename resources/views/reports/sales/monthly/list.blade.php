@@ -13,10 +13,10 @@
                         <strong>{{ __('form.print') }}</strong>
                     </a>
                     
-                    <a class="btn btn-sm btn-warning mr-1" target="_blank" href="{{ route('report.sale.monthly.download', ['type' => 'EXCEL']).currentParamter() }}">
+                    {{-- <a class="btn btn-sm btn-warning mr-1" target="_blank" href="{{ route('report.sale.monthly.download', ['type' => 'EXCEL']).currentParamter() }}">
                         <i class="fas fa-download"></i>
                         <strong>{{ __('form.download') }}</strong>
-                    </a>
+                    </a> --}}
                 </div>
             </div>
         </div>

@@ -4,7 +4,7 @@
         <strong>{{ __('form.search') }}</strong>
     </div>
     <div class="card-body">
-        <form action="{{ route('report.sale.monthly.index') }}" class="mt-2" id="frmSearch" method="GET">
+        <form action="{{ route('report.purchase.monthly.index') }}" class="mt-2" id="frmSearch" method="GET">
             <div class="form-row">
                 
                 <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 mb-1">
