@@ -23,12 +23,12 @@
                     </div>
                     <div class="card-body row text-center">
                         <div class="col">
-                            <div class="text-value-xl">{{ number_format($reocrd->purchases->sum('qty')??0,2) }} L</div>
+                            <div class="text-value-md">{{ number_format($reocrd->purchases->sum('qty')??0,2) }} L</div>
                             <div class="text-uppercase text-muted small text-font-bold">{{ __('form.total_purchase') }}</div>
                         </div>
                         <div class="c-vr"></div>
                         <div class="col">
-                            <div class="text-value-xl">{{ number_format($reocrd->sales->sum('qty')??0,2) }} L</div>
+                            <div class="text-value-md">{{ number_format($reocrd->sales->sum('qty')??0,2) }} L</div>
                             <div class="text-uppercase text-muted small text-font-bold">{{ __('form.total_sale') }} </div>
                         </div>
                     </div>
