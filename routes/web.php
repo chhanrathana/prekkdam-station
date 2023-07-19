@@ -6,6 +6,7 @@ use App\Http\Controllers\Operations\ExpenseController;
 use App\Http\Controllers\Settings\MasterData\ClientController;
 use App\Http\Controllers\Operations\PurchaseController;
 use App\Http\Controllers\Operations\SaleController;
+use App\Http\Controllers\Reports\Accountings\RevenueController;
 use App\Http\Controllers\Reports\Operations\SaleController as OperationsSaleController;
 use App\Http\Controllers\Reports\Operations\SaleDailyController;
 use App\Http\Controllers\Reports\Purchases\DailyController as PurchasesDailyController;
@@ -44,7 +45,11 @@ Route::middleware(['auth'])->group(function () {
                 Route::get('balancesheet',  [BlankController::class, 'index'])->name('balancesheet.index');
                 Route::get('netincome',     [BlankController::class, 'index'])->name('netincome.index');
                 Route::get('cashflow',      [BlankController::class, 'index'])->name('cashflow.index');
-                Route::get('revenue',       [BlankController::class, 'index'])->name('revenue.index');
+
+                Route::group(['prefix' => 'revenue', 'as' => 'revenue.'], function () {                    
+                    Route::get('',                  [RevenueController::class, 'index'])->name('index');
+                    Route::get('download/{type?}',  [RevenueController::class, 'download'])->name('download');
+                });
                 Route::get('expense',       [BlankController::class, 'index'])->name('expense.index');
             });
     

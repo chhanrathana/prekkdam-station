@@ -176,7 +176,7 @@ return [
     'in_stock' => 'ក្នុងស្តុក',
     'print' => 'PDF',
     'download' => 'Excel',
-    'total_revenue' => 'ចំណេញសរុប',
+    'total_revenue' => 'ចំណូលសរុប',
     'tank' => 'ទូរ',
     'total_purchase' => 'បានទិញសរុប',
     'total_sale' => 'បានលក់សរុប',

@@ -3,7 +3,7 @@
         <tr>
             <th class="text-center text-nowrap" style="width: 30px">{{ __('form.no') }}</th>
             <th class="text-center text-nowrap" style="width: 60px">{{ __('form.code') }}</th>
-            <th class="text-center text-nowrap" style="width: 100px">{{ __('form.oil_type') }}</th>                        
+            <th class="text-center text-nowrap" style="width: 100px">{{ __('form.type') }}</th>                        
             <th class="text-center text-nowrap" style="width: 50px">{{ __('form.shift') }}</th>
             <th class="text-center text-nowrap" style="width: 100px">{{ __('form.staff') }}</th>
             <th class="text-center text-nowrap" style="width: 50px">{{ __('form.qty') }}</th>   

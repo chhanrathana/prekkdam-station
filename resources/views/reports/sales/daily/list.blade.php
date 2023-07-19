@@ -11,9 +11,7 @@
                     <a class="btn btn-sm btn-danger mr-1" target="_blank" href="{{ route('report.sale.daily.download', ['type' => 'PDF']).currentParamter() }}">
                         <i class="fas fa-print"></i>
                         <strong>{{ __('form.print') }}</strong>
-                    </a>
-                    
-                    
+                    </a>                                        
                 </div>
             </div>
         </div>
