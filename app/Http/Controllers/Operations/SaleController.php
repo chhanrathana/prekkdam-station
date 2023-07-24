@@ -156,6 +156,9 @@ class SaleController extends Controller
         $record = OilSale::where('oil_purchase_id', $request->oil_purchase_id)
         ->orderByDesc('date')
         ->first(['old_motor_right', 'new_motor_right', 'old_motor_left', 'new_motor_left']);
-        return response()->json(['record' => $record]);
+        return response()->json(['record' => [
+            'new_motor_left' =>  $record->new_motor_left??0,
+            'new_motor_right' => $record->new_motor_right??0,
+        ]]);
     }
 }

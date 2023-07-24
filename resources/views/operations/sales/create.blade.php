@@ -26,8 +26,10 @@
                 },
                 success: function (response) {
                     console.log('reposnse...',response)                   
-                    $('#old_motor_left').val(response['record.new_motor_left']);
-                    $('#old_motor_right').val(response['record.new_motor_right']);                    
+                    // console.log(response.record.new_motor_left);
+                    $('#old_motor_left').val(parseFloat(response.record.new_motor_left));    
+                    $('#old_motor_right').val(parseFloat(response.record.new_motor_right));    
+              
                 },
                 error: function(xhr) {                   
                     console.log("Error : " + xhr.statusText + xhr.responseText);
