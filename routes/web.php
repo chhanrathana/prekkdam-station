@@ -93,6 +93,7 @@ Route::middleware(['auth'])->group(function () {
                 Route::delete('list/{id}',      [SaleController::class, 'destroy'])->name('destroy');
                 Route::patch('list/{id}',       [SaleController::class, 'update'])->name('update');
                 Route::get('list/{id}/edit',    [SaleController::class, 'edit'])->name('edit');
+                Route::get('motor',             [SaleController::class, 'getMotor'])->name('motor');
             });            
             
             Route::group(['prefix' => 'purchase', 'as' => 'purchase.'], function () {

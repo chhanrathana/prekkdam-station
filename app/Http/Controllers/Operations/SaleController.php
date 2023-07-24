@@ -54,7 +54,9 @@ class SaleController extends Controller
             $oilPurchase = OilPurchase::where('id', $request->oil_purchase_id)->first();
 
             $qty = ($request->new_motor_right - $request->old_motor_right) + ($request->new_motor_left - $request->old_motor_left);
+
             $saleQty = $oilPurchase->sales->sum('qty')??0;
+            
             // qty not enougl
             if(($oilPurchase->qty - $saleQty  - $qty ) < 0){
                 return redirect()->back()->with('error', 'បរិមាណប្រេងលើសស្តុក!');
@@ -148,4 +150,12 @@ class SaleController extends Controller
             return redirect()->back()->with('error', __('message.failed') . $ex->getMessage());
         }
     }    
+
+    public function getMotor(Request $request)
+    {                       
+        $record = OilSale::where('oil_purchase_id', $request->oil_purchase_id)
+        ->orderByDesc('date')
+        ->first(['old_motor_right', 'new_motor_right', 'old_motor_left', 'new_motor_left']);
+        return response()->json(['record' => $record]);
+    }
 }

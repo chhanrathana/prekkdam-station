@@ -24,7 +24,7 @@
             <div class="form-group col-sm-4">
                 <label>{{ __('form.sale_date') }}<span class="text-danger">*</span></label>
                 <input
-                    class="form-control {{ $errors->first('date') ? 'is-invalid':'' }}"
+                    class="form-control {{ $errors->first('date') ? 'is-invalid':'' }} motor-change"
                     name="date"
                     type="text"
                     maxlength="10"
@@ -54,7 +54,7 @@
 
             <div class="form-group col-sm-4">
                 <label >{{ __('form.oil_type') }} <span class="text-danger">*</span></label>
-                <select class="form-control select2  {{ $errors->first('oil_purchase_id') ? 'is-invalid':'' }}"  name="oil_purchase_id">
+                <select class="form-control select2  {{ $errors->first('oil_purchase_id') ? 'is-invalid':'' }} motor-change"  name="oil_purchase_id">
                     <option value="" selected>[-- {{ __('form.select') }} --]</option>
                     @foreach ($types as $type)
                         @isset ($record)
@@ -118,6 +118,7 @@
                 <input
                     class="form-control number {{ $errors->first('old_motor_left') ? 'is-invalid':'' }}"
                     name="old_motor_left"
+                    id="old_motor_left"
                     pattern="[0-9.]+"
                     type="text"
                     placeholder="455.63"
@@ -156,6 +157,7 @@
                     <input
                     class="form-control number {{ $errors->first('old_motor_right') ? 'is-invalid':'' }}"
                     name="old_motor_right"
+                    id="old_motor_right"
                     pattern="[0-9.]+"
                     type="text"
                     placeholder="293777.7"

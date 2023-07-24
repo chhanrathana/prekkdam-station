@@ -38,7 +38,7 @@ class SaleService
         $record->unit = UnitEnum::LITERS;
         $record->save();
 
-        $useQty = $record->qty + OilSale::where('oil_purchase_id', $request->oil_purchase_id)->sales->sum('qty');
+        $useQty = $record->qty + ($record->sales->sum('qty'));
         // update remain qty
         $remainQty = ($oilPurchase->qty -  $useQty);
         if($remainQty <= 0){

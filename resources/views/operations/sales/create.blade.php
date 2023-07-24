@@ -2,37 +2,37 @@
 @section('title' ,  __('page-titles.sale_request_create'))
 
 @section('content')        
-    <form action="{{ route('operation.sale.store') }}" method="POST">
+    <form action="{{ route('operation.sale.store') }}" method="POST" id="form">
         @csrf
         @include('operations.sales.form')
     </form>
 @endsection
 
 @section('script')
-    {{-- <script>
-
-    $('#form-check-settlement').on('submit',function ($event){
-            $event.preventDefault();
-            const formData = $(this).serializeArray();
-            if($(this).valid()){
-                $.ajax({
-                    url : '{{ route('report.close-settlement-transaction.search-settlement') }}',
-                    type : 'POST',
-                    data : formData,
-                    beforeSend : function (){
-                        $('#btn-check-settlement').prop('disabled',true);
-                        $('#btn-check-settlement').addClass("btn-loading");
-                    },
-                    success : function (res){
-                        $('body').find('#search-content').html(res);
-                        $('#btn-check-settlement').prop('disabled',false);
-                        $('#btn-check-settlement').removeClass("btn-loading");
-                    },
-                    error : function (){
-
-                    }
-                })
-            }
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".motor-change").change(function () {
+                suggestMotorValue();
+            });
         });
-    </script> --}}
+
+        function suggestMotorValue(){
+            $.ajax({
+                url : '{{ route('operation.sale.motor') }}',
+                type: "GET",                
+                data: $('#form').serialize(),
+                beforeSend: function() {
+                    console.log('loading')
+                },
+                success: function (response) {
+                    console.log('reposnse...',response)                   
+                    $('#old_motor_left').val(response['record.new_motor_left']);
+                    $('#old_motor_right').val(response['record.new_motor_right']);                    
+                },
+                error: function(xhr) {                   
+                    console.log("Error : " + xhr.statusText + xhr.responseText);
+                }
+            });
+        }
+    </script>   
 @endsection
