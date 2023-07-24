@@ -100,7 +100,16 @@ class SaleController extends Controller
         ]);
         DB::beginTransaction();
         try {            
-            $this->saleService->createSale($request); 
+            $oilPurchase = OilPurchase::where('id', $request->oil_purchase_id)->first();
+
+            $qty = ($request->new_motor_right - $request->old_motor_right) + ($request->new_motor_left - $request->old_motor_left);
+            $saleQty = $oilPurchase->sales->sum('qty')??0;
+            // qty not enougl
+            if(($oilPurchase->qty - $saleQty  - $qty ) < 0){
+                return redirect()->back()->with('error', 'បរិមាណប្រេងលើសស្តុក!');
+            }
+
+            $this->saleService->createSale($request, $oilPurchase); 
             DB::commit();            
             return redirect()->back()->with('success', __('message.success'));
         } catch (\Exception $ex) {
