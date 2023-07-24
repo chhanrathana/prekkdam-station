@@ -5,16 +5,13 @@ namespace App\Http\Services\Operations;
 use App\Enums\CurrencyEnum;
 use App\Enums\OilStatusEnum;
 use App\Enums\UnitEnum;
-use App\Models\OilPurchase;
 use App\Models\OilSale;
 
 class SaleService
 {
    
-    public function createSale($request)
-    {
-        $oilPurchase = OilPurchase::where('id', $request->oil_purchase_id)->first();
-
+    public function createSale($request, $oilPurchase)
+    {        
         $record = OilSale::find($request->oil_sale_id);
         if (!$record) {
             $record = new OilSale();

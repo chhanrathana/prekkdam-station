@@ -16,19 +16,18 @@
             <div class="col-sm-6 col-lg-6">
                 <div class="card">
                     <div class="card-header {{ $reocrd->css }} content-center">
-                        <svg class="c-icon c-icon-3xl text-white my-4">
+                        <svg class="c-icon c-icon-1xl text-white my-4">
                         </svg>
-                        <h4 class="text-font-bold text-primary big">{{ $reocrd->name_kh }}</h4>
-    
+                        <h4 class="text-font-bold text-primary big">{{ $reocrd->name_kh }}</h4>    
                     </div>
                     <div class="card-body row text-center">
                         <div class="col">
-                            <div class="text-value-md">{{ number_format($reocrd->purchases->sum('qty')??0,2) }} L</div>
+                            <div class="text-value-lg">{{ number_format($reocrd->purchases->sum('qty')??0,2) }} L</div>
                             <div class="text-uppercase text-muted small text-font-bold">{{ __('form.total_purchase') }}</div>
                         </div>
                         <div class="c-vr"></div>
                         <div class="col">
-                            <div class="text-value-md">{{ number_format($reocrd->sales->sum('qty')??0,2) }} L</div>
+                            <div class="text-value-lg">{{ number_format($reocrd->sales->sum('qty')??0,2) }} L</div>
                             <div class="text-uppercase text-muted small text-font-bold">{{ __('form.total_sale') }} </div>
                         </div>
                     </div>
@@ -37,5 +36,5 @@
         @endforeach
     </div>
     </div>
-</div>   
+</div>
 @stop

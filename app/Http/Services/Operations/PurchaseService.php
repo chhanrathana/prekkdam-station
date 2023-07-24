@@ -49,7 +49,7 @@ class PurchaseService
             $q->where('date', '<=', formatToOrignDate($request->to_date));
         });
 
-        $query->orderByDesc('code');        
+        $query->orderByDesc('date');        
         if ($paginate) {
             return $query->paginate(env('PAGINATION'));
         }

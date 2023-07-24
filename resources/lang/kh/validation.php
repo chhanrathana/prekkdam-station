@@ -190,7 +190,8 @@ return [
         'vendor_id' => 'អ្នកផ្គត់ផ្គង់',
         'status_id' => 'សភាព',
         'staff_id' => 'បុគ្គលិក',
-        'client_id' => 'អតិថិជន'
+        'client_id' => 'អតិថិជន',
+        'tank_id' => 'ទូរ',
 ],
 
 ];

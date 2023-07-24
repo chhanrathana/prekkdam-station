@@ -17,7 +17,7 @@ class DailyController extends Controller
     {   
         if(!$request->date){
             $request->date = Carbon::now()->format('d/m/Y');
-        }     
+        }
         
         return view('reports.sales.daily.index',[
             'records'=> $this->getSales($request),
