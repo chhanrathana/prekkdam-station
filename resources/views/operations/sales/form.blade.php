@@ -58,9 +58,9 @@
                     <option value="" selected>[-- {{ __('form.select') }} --]</option>
                     @foreach ($types as $type)
                         @isset ($record)
-                            <option value="{{ $type->oil_purchase_id }}" {{ $record->oil_purchase_id == $type->oil_purchase_id ? 'selected' :  '' }} >{{ $type->code.' | '.$type->name_kh.' | '.number_format($type->qty - ($type->sales->sum('qty')??0),2) .' L' }}</option>
+                            <option value="{{ $type->oil_purchase_id }}" {{ $record->oil_purchase_id == $type->oil_purchase_id ? 'selected' :  '' }} >{{ $type->code.' | '.$type->name_kh.' | '.number_format(($type->purchases->sum('qty')??0) - ($type->sales->sum('qty')??0),2) .' L' }}</option>
                         @else
-                            <option value="{{ $type->oil_purchase_id }}">{{$type->code.' | '. $type->name_kh.' | '.number_format($type->qty - ($type->sales->sum('qty')),2) .' L' }}</option>
+                            <option value="{{ $type->oil_purchase_id }}">{{$type->code.' | '. $type->name_kh.' | '.number_format(($type->purchases->sum('qty')??0) - ($type->sales->sum('qty')),2) .' L' }}</option>
                         @endif
                     @endforeach
                 </select>
