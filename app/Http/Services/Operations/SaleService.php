@@ -5,6 +5,7 @@ namespace App\Http\Services\Operations;
 use App\Enums\CurrencyEnum;
 use App\Enums\OilStatusEnum;
 use App\Enums\UnitEnum;
+use App\Models\OilPurchase;
 use App\Models\OilSale;
 
 class SaleService
@@ -42,6 +43,16 @@ class SaleService
         $remainQty = ($oilPurchase->qty -  $useQty);
         if($remainQty <= 0){
             $oilPurchase->status_id = OilStatusEnum::OUT_STOCK;
+
+            // release new stock for sale
+            $releaseNewStock = OilPurchase::where('oil_type_id', $oilPurchase->oil_type_id)
+            ->where('status_id', OilStatusEnum::POSTPONSE)
+            ->orderBy('date')
+            ->first();
+            if($releaseNewStock){
+                $releaseNewStock->status_id = OilStatusEnum::ON_SALE;
+                $releaseNewStock->save();
+            }
         }
         $oilPurchase->save();
         return $record;

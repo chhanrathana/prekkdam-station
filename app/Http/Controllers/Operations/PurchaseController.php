@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Operations;
 
+use App\Enums\ActiveEnum;
+use App\Enums\OilStatusEnum;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Loan;
@@ -9,6 +11,7 @@ use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\LoanExport;
 use App\Models\OilPurchase;
+use App\Models\OilStatus;
 
 class PurchaseController extends Controller
 {    
@@ -23,12 +26,14 @@ class PurchaseController extends Controller
     }
 
     public function create()
-    {                         
+    {                       
+        $statuses = OilStatus::where('active', ActiveEnum::YES)
+        ->where('id', OilStatusEnum::POSTPONSE)->orderBy('id')->get();  
         return view('operations.purchases.create', [
             'currentDate'   => $this->currentDate,
             'types'         => $this->getOilTypes(),
             'code'          => generateOilPurchaseCode(),
-            'statuses'      => $this->getOilStatuses(),
+            'statuses'      => $statuses,
             'vendors'       => $this->getActiveVndors(),
             'tanks'         => $this->getActiveTanks(),
         ]);
