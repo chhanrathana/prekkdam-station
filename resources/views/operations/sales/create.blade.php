@@ -1,4 +1,4 @@
-{{-- @extends('layouts.app')
+@extends('layouts.app')
 @section('title' ,  __('page-titles.sale_request_create'))
 
 @section('content')        
@@ -9,7 +9,7 @@
 @endsection
 
 @section('script')
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         $(document).ready(function () {
             $(".motor-change").change(function () {
                 suggestMotorValue();
