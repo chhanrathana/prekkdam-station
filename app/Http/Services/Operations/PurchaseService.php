@@ -36,6 +36,11 @@ class PurchaseService
     public function getPurchases($request, $paginate = true)
     {
         $query = OilPurchase::query();       
+
+                
+        $query->when($request->code, function ($q) use ($request) {
+            $q->where('code', $request->code);
+        });
         
         $query->when($request->oil_type_id, function ($q) use ($request) {
             $q->where('oil_type_id', $request->oil_type_id);

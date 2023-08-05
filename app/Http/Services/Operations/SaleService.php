@@ -75,6 +75,10 @@ class SaleService
         //     $q->where('oil_type_id', $request->oil_type_id);
         // });
 
+        $query->when($request->code, function ($q) use ($request) {
+            $q->where('code', $request->code);
+        });
+
         $query->when($request->from_date, function ($q) use ($request) {
             $q->where('oil_sales.date', '>=', formatToOrignDate($request->from_date));
         });

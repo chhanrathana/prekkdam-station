@@ -7,6 +7,16 @@
         <form action="{{ route('operation.purchase.index') }}" class="mt-2" id="frmSearch" method="GET">
             <div class="form-row">   
 
+                <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 mb-1">
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="code"
+                        maxlength="5"
+                        value="{{ request('code') }}"
+                        placeholder="{{ __('form.code') }}">
+                </div>
+                
                  <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 mb-1">
                     <select class="form-control select2" name="oil_type_id" >
                         <option value="" disabled selected>[-- {{ __('form.type') }} --]</option>

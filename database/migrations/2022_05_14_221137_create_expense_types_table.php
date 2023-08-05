@@ -19,6 +19,9 @@ class CreateExpenseTypesTable extends Migration
             $table->string('name_en', 255)->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->uuid('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
