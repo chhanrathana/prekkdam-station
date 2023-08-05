@@ -42,10 +42,11 @@ class SaleController extends Controller
             'tank_id' =>'required',
             'staff_id' =>'required',
             'client_id' =>'required',
-            'old_motor_right' => 'required|numeric',
-            'new_motor_right' => 'required|numeric|gte:old_motor_right',
-            'old_motor_left' => 'required|numeric',
-            'new_motor_left' => 'required|numeric|gte:old_motor_left',
+            // 'old_motor_right' => 'required|numeric',
+            // 'new_motor_right' => 'required|numeric|gte:old_motor_right',
+            // 'old_motor_left' => 'required|numeric',
+            // 'new_motor_left' => 'required|numeric|gte:old_motor_left',
+            'qty' => 'required',
             'price' => 'required|numeric',
         ]);
 
@@ -53,12 +54,12 @@ class SaleController extends Controller
         try {                  
             $oilPurchase = OilPurchase::where('id', $request->oil_purchase_id)->first();
 
-            $qty = ($request->new_motor_right - $request->old_motor_right) + ($request->new_motor_left - $request->old_motor_left);
+            // $qty = ($request->new_motor_right - $request->old_motor_right) + ($request->new_motor_left - $request->old_motor_left);
 
             $saleQty = $oilPurchase->sales->sum('qty')??0;
             
             // qty not enougl
-            if(($oilPurchase->qty - $saleQty  - $qty ) < 0){
+            if(($oilPurchase->qty - $saleQty  - $request->qty ) < 0){
                 return redirect()->back()->with('error', 'បរិមាណប្រេងលើសស្តុក!');
             }
 
@@ -94,20 +95,21 @@ class SaleController extends Controller
             'staff_id' =>'required',
             'client_id' =>'required',
             'oil_purchase_id' => 'required',
-            'old_motor_right' => 'required|numeric',
-            'new_motor_right' => 'required|numeric|gte:old_motor_right',
-            'old_motor_left' => 'required|numeric',
-            'new_motor_left' => 'required|numeric|gte:old_motor_left',
+            // 'old_motor_right' => 'required|numeric',
+            // 'new_motor_right' => 'required|numeric|gte:old_motor_right',
+            // 'old_motor_left' => 'required|numeric',
+            // 'new_motor_left' => 'required|numeric|gte:old_motor_left',
+            'qty' => 'required',
             'price' => 'required|numeric',
         ]);
         DB::beginTransaction();
         try {            
             $oilPurchase = OilPurchase::where('id', $request->oil_purchase_id)->first();
 
-            $qty = ($request->new_motor_right - $request->old_motor_right) + ($request->new_motor_left - $request->old_motor_left);
+            // $qty = ($request->new_motor_right - $request->old_motor_right) + ($request->new_motor_left - $request->old_motor_left);
             $saleQty = $oilPurchase->sales->sum('qty')??0;
             // qty not enougl
-            if(($oilPurchase->qty - $saleQty  - $qty ) < 0){
+            if(($oilPurchase->qty - $saleQty  - $request->qty ) < 0){
                 return redirect()->back()->with('error', 'បរិមាណប្រេងលើសស្តុក!');
             }
 

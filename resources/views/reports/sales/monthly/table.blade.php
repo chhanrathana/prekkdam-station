@@ -10,10 +10,10 @@
             <th class="text-center text-nowrap" style="width: 80px">{{ __('form.staff') }}</th>
             <th class="text-center text-nowrap" style="width: 70px">{{ __('form.client') }}</th>
             
-            <th class="text-center text-nowrap" style="width: 80px">{{ __('form.old_motor') }}{{ __('form.right') }}</th>
+            {{-- <th class="text-center text-nowrap" style="width: 80px">{{ __('form.old_motor') }}{{ __('form.right') }}</th>
             <th class="text-center text-nowrap" style="width: 80px">{{ __('form.new_motor') }}{{ __('form.right') }}</th>
             <th class="text-center text-nowrap" style="width: 80px">{{ __('form.old_motor') }}{{ __('form.left') }}</th>
-            <th class="text-center text-nowrap" style="width: 80px">{{ __('form.new_motor') }}{{ __('form.left') }}</th>
+            <th class="text-center text-nowrap" style="width: 80px">{{ __('form.new_motor') }}{{ __('form.left') }}</th> --}}
             <th class="text-center text-nowrap" style="width: 80px">{{ __('form.cost') }}</th>
             <th class="text-center text-nowrap" style="width: 60px">{{ __('form.qty') }}</th>
             
@@ -46,10 +46,10 @@
                 <td class="text-left text-nowrap">{{ $record->shift->name_kh??''}}</td>
                 <td class="text-left text-nowrap">{{ $record->staff->name_kh??''}}</td>
                 <td class="text-left text-nowrap">{{ $record->client->name_kh??''}}</td>
-                <td class="text-right text-nowrap">{{ number_format($record->old_motor_right,2) }} </td>
+                {{-- <td class="text-right text-nowrap">{{ number_format($record->old_motor_right,2) }} </td>
                 <td class="text-right text-nowrap">{{ number_format($record->new_motor_right,2) }} </td>
                 <td class="text-right text-nowrap">{{ number_format($record->old_motor_left,2) }} </td>
-                <td class="text-right text-nowrap">{{ number_format($record->new_motor_left,2) }} </td>
+                <td class="text-right text-nowrap">{{ number_format($record->new_motor_left,2) }} </td> --}}
                 <td class="text-right text-nowrap">{{ number_format($record->cost,2) }} {{ $record->currency }}</td>
                 <td class="text-right text-nowrap">{{ number_format($record->qty,2) }} {{ $record->unit }}</td>                
                 <td class="text-right text-nowrap">{{ number_format($record->total_cost,2) }} {{ $record->currency }}</td>
@@ -59,7 +59,7 @@
             </tr>
         @endforeach
         <tr class="text-bold">
-            <td colspan="13" class="text-center"> {{ __('form.total') }}</td>
+            <td colspan="9" class="text-center"> {{ __('form.total') }}</td>
             <td class="text-right text-nowrap">{{ number_format($totalQty,2) }} L</td>            
             <td class="text-right text-nowrap">{{ number_format($totalCost,2) .' '.__('form.khr')}} </td>
             <td class="text-center text-nowrap">-</td>

@@ -112,7 +112,7 @@
                 <div class="invalid-feedback">{{ $errors->first('client_id') }}</div>
             </div>
          
-            <div class="form-group col-sm-4">
+            {{-- <div class="form-group col-sm-4">
                 <label>{{ __('form.old_motor') }} <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <input
@@ -188,8 +188,27 @@
                     </div>
                     <div class="invalid-feedback">{{ $errors->first('new_motor_right') }}</div>
                 </div>                      
-            </div>
+            </div> --}}
 
+            <div class="form-group col-sm-4">
+                <label>{{ __('form.qty') }} <span class="text-danger">*</span></label>
+                <div class="input-group">
+                <input
+                    class="form-control number {{ $errors->first('qty') ? 'is-invalid':'' }}"
+                    name="qty"
+                    pattern="[0-9.]+"
+                    type="text"
+                    placeholder="10"
+                    maxlength="7"
+                    value="{{ (old('qty')??$record->qty??0)?? 0 }}"
+                    >
+                    <div class="input-group-append">
+                        <span class="input-group-text">{{ __('form.liter') }}</span>
+                    </div>
+                </div>
+                <div class="invalid-feedback">{{ $errors->first('qty_ton') }}</div>
+            </div>
+            
             <div class="form-group col-sm-4">
                 <label>{{ __('form.sale_price') }} <span class="text-danger">*</span></label>
                 <div class="input-group">
