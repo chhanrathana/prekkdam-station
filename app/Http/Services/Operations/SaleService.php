@@ -87,7 +87,7 @@ class SaleService
             $q->where('oil_sales.date', '<=', formatToOrignDate($request->to_date));
         });
         
-        $query->orderByDesc('oil_sales.code');        
+        $query->orderByDesc('oil_sales.date');        
         if ($paginate) {
             return $query->paginate(env('PAGINATION'));
         }
