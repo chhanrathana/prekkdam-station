@@ -3,7 +3,7 @@
         <tr>
             <th class="text-center text-nowrap" style="width: 40px">{{ __('form.no') }}</th>
             <th class="text-center text-nowrap" style="width: 50px">{{ __('form.code') }}</th>
-            <th class="text-center text-nowrap" style="width: 20px">{{ __('form.tank') }}</th>
+            {{-- <th class="text-center text-nowrap" style="width: 20px">{{ __('form.tank') }}</th> --}}
             <th class="text-center text-nowrap" style="width: 50px">{{ __('form.sale_date') }}</th>
             <th class="text-center text-nowrap" style="width: 70px">{{ __('form.type') }}</th>                        
             <th class="text-center text-nowrap" style="width: 30px">{{ __('form.shift') }}</th>
@@ -40,7 +40,7 @@
                 @endphp
                 <td class="text-center text-nowrap">{{ $loop->index + 1 }}</td>
                 <td class="text-center text-nowrap">{{ $record->code??''}}</td>                            
-                <td class="text-center text-nowrap">{{ $record->tank->name_kh??''}}</td>
+                {{-- <td class="text-center text-nowrap">{{ $record->tank->name_kh??''}}</td> --}}
                 <td class="text-center text-nowrap">{{ $record->date??''}}</td>
                 <td class="text-left text-nowrap">{{ $record->purchase->type->name_kh??''}}</td>                            
                 <td class="text-left text-nowrap">{{ $record->shift->name_kh??''}}</td>
@@ -59,7 +59,7 @@
             </tr>
         @endforeach
         <tr class="text-bold">
-            <td colspan="7" class="text-center"> {{ __('form.total') }}</td>
+            <td colspan="6" class="text-center"> {{ __('form.total') }}</td>
             <td class="text-right text-nowrap">{{ number_format($totalQty,2) }} L</td>            
             <td class="text-right text-nowrap">{{ number_format($totalCost,2) .' '.__('form.khr')}} </td>
             <td class="text-center text-nowrap">-</td>

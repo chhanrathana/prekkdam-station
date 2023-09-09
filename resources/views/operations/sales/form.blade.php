@@ -37,7 +37,7 @@
                 <div class="invalid-feedback">{{ $errors->first('date') }}</div>
             </div>
 
-            <div class="form-group col-sm-4">
+            {{-- <div class="form-group col-sm-4">
                 <label >{{ __('form.tank') }} <span class="text-danger">*</span></label>
                 <select class="form-control select2  {{ $errors->first('tank_id') ? 'is-invalid':'' }}"  name="tank_id">
                     <option value="" selected>[-- {{ __('form.select') }} --]</option>
@@ -50,7 +50,7 @@
                     @endforeach
                 </select>
                 <div class="invalid-feedback">{{ $errors->first('tank_id') }}</div>
-            </div>
+            </div> --}}
 
             <div class="form-group col-sm-4">
                 <label >{{ __('form.oil_type') }} <span class="text-danger">*</span></label>

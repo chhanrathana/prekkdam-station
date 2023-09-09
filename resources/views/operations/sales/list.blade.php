@@ -12,7 +12,7 @@
                         <th class="text-nowrap"></th>
                         <th class="text-center text-nowrap">{{ __('form.no') }}</th>
                         <th class="text-center text-nowrap">{{ __('form.code') }}</th>
-                        <th class="text-center text-nowrap">{{ __('form.tank') }}</th>
+                        {{-- <th class="text-center text-nowrap">{{ __('form.tank') }}</th> --}}
                         <th class="text-center text-nowrap">{{ __('form.type') }}</th>
                         <th class="text-center text-nowrap">{{ __('form.sale_date') }}</th>
                         <th class="text-center text-nowrap">{{ __('form.shift') }}</th>
@@ -54,7 +54,7 @@
                             </td>
                             <td class="text-center text-nowrap">{{ $loop->index + 1 }}</td>
                             <td class="text-center text-nowrap">{{ $record->code??''}}</td>
-                            <td class="text-center text-nowrap">{{ $record->tank->name_kh??''}}</td>
+                            {{-- <td class="text-center text-nowrap">{{ $record->tank->name_kh??''}}</td> --}}
                             <td class="text-left text-nowrap">{{ $record->purchase->type->name_kh??''}}</td>
                             <td class="text-center text-nowrap">{{ $record->date??''}}</td>
                             <td class="text-left text-nowrap">{{ $record->shift->name_kh??''}}</td>
