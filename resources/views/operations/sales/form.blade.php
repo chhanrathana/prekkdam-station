@@ -82,7 +82,7 @@
                 <div class="invalid-feedback">{{ $errors->first('work_shift_id') }}</div>
             </div>
 
-            <div class="form-group col-sm-4">
+            {{-- <div class="form-group col-sm-4">
                 <label >{{ __('form.staff') }} <span class="text-danger">*</span></label>
                 <select class="form-control select2  {{ $errors->first('staff_id') ? 'is-invalid':'' }}"  name="staff_id">
                     <option value="" selected>[-- {{ __('form.select') }} --]</option>
@@ -95,9 +95,9 @@
                     @endforeach
                 </select>
                 <div class="invalid-feedback">{{ $errors->first('staff_id') }}</div>
-            </div>
+            </div> --}}
 
-            <div class="form-group col-sm-4">
+            {{-- <div class="form-group col-sm-4">
                 <label >{{ __('form.client') }} <span class="text-danger">*</span></label>
                 <select class="form-control select2  {{ $errors->first('client_id') ? 'is-invalid':'' }}"  name="client_id">
                     <option value="" selected>[-- {{ __('form.select') }} --]</option>
@@ -110,7 +110,7 @@
                     @endforeach
                 </select>
                 <div class="invalid-feedback">{{ $errors->first('client_id') }}</div>
-            </div>
+            </div> --}}
          
             {{-- <div class="form-group col-sm-4">
                 <label>{{ __('form.old_motor') }} <span class="text-danger">*</span></label>

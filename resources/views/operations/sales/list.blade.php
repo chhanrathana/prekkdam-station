@@ -16,8 +16,8 @@
                         <th class="text-center text-nowrap">{{ __('form.type') }}</th>
                         <th class="text-center text-nowrap">{{ __('form.sale_date') }}</th>
                         <th class="text-center text-nowrap">{{ __('form.shift') }}</th>
-                        <th class="text-center text-nowrap">{{ __('form.staff') }}</th>
-                        <th class="text-center text-nowrap">{{ __('form.client') }}</th>
+                        {{-- <th class="text-center text-nowrap">{{ __('form.staff') }}</th> --}}
+                        {{-- <th class="text-center text-nowrap">{{ __('form.client') }}</th> --}}
                         <th class="text-center text-nowrap">{{ __('form.qty') }}</th>                        
                         <th class="text-center text-nowrap">{{ __('form.cost') }}</th>
                         <th class="text-center text-nowrap">{{ __('form.total_cost') }}</th>
@@ -58,8 +58,8 @@
                             <td class="text-left text-nowrap">{{ $record->purchase->type->name_kh??''}}</td>
                             <td class="text-center text-nowrap">{{ $record->date??''}}</td>
                             <td class="text-left text-nowrap">{{ $record->shift->name_kh??''}}</td>
-                            <td class="text-left text-nowrap">{{ $record->staff->name_kh??''}}</td>
-                            <td class="text-left text-nowrap">{{ $record->client->name_kh??''}}</td>
+                            {{-- <td class="text-left text-nowrap">{{ $record->staff->name_kh??''}}</td>
+                            <td class="text-left text-nowrap">{{ $record->client->name_kh??''}}</td> --}}
                             <td class="text-right text-nowrap">{{ number_format($record->qty,5) }} {{ $record->unit }}</td>
                             <td class="text-right text-nowrap">{{ number_format($record->cost,2) }} {{ $record->currency }}</td>
                             <td class="text-right text-nowrap">{{ number_format($record->total_cost,2) }} {{ $record->currency }}</td>
