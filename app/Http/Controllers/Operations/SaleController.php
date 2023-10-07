@@ -36,29 +36,19 @@ class SaleController extends Controller
     public function store(Request $request)
     {        
         $request->validate([
-            'date' => 'date_format:d/m/Y',            
-            'work_shift_id' =>'required',
-            'oil_purchase_id' => 'required',
-            // 'tank_id' =>'required',
-            // 'staff_id' =>'required',
-            // 'client_id' =>'required',
-            // 'old_motor_right' => 'required|numeric',
-            // 'new_motor_right' => 'required|numeric|gte:old_motor_right',
-            // 'old_motor_left' => 'required|numeric',
-            // 'new_motor_left' => 'required|numeric|gte:old_motor_left',
-            'qty' => 'required',
-            'price' => 'required|numeric',
+            'work_shift_id'     =>'required',
+            'oil_purchase_id'   => 'required',
+            'date'              => 'date_format:d/m/Y',                        
+            'qty'               => 'required',
+            'price'             => 'required|numeric',
         ]);
 
         DB::beginTransaction();
         try {                  
             $oilPurchase = OilPurchase::where('id', $request->oil_purchase_id)->first();
-
-            // $qty = ($request->new_motor_right - $request->old_motor_right) + ($request->new_motor_left - $request->old_motor_left);
-
-            $saleQty = $oilPurchase->sales->sum('qty')??0;
-            
+            $saleQty = $oilPurchase->sales->sum('qty')??0;            
             // qty not enougl
+
             if(($oilPurchase->qty - $saleQty  - $request->qty ) < 0){
                 return redirect()->back()->with('error', 'បរិមាណប្រេងលើសស្តុក!');
             }
@@ -89,27 +79,21 @@ class SaleController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'date' => 'date_format:d/m/Y',            
-            'work_shift_id' =>'required',
-            // 'tank_id' =>'required',
-            // 'staff_id' =>'required',
-            // 'client_id' =>'required',
-            'oil_purchase_id' => 'required',
-            // 'old_motor_right' => 'required|numeric',
-            // 'new_motor_right' => 'required|numeric|gte:old_motor_right',
-            // 'old_motor_left' => 'required|numeric',
-            // 'new_motor_left' => 'required|numeric|gte:old_motor_left',
-            'qty' => 'required',
-            'price' => 'required|numeric',
+            'work_shift_id'     =>'required',            
+            'oil_purchase_id'   => 'required',
+            'date'              => 'date_format:d/m/Y',                        
+            'qty'               => 'required',
+            'price'             => 'required|numeric',
         ]);
         DB::beginTransaction();
         try {            
             $oilPurchase = OilPurchase::where('id', $request->oil_purchase_id)->first();
-
-            // $qty = ($request->new_motor_right - $request->old_motor_right) + ($request->new_motor_left - $request->old_motor_left);
             $saleQty = $oilPurchase->sales->sum('qty')??0;
-            // qty not enougl
-            if(($oilPurchase->qty - $saleQty  - $request->qty ) < 0){
+            $record = OilSale::find($request->oil_sale_id);
+            
+            // qty not enougl            
+            // total sale qty minus old edit qty
+            if(($oilPurchase->qty - ($saleQty - $record->qty)  - $request->qty ) < 0){
                 return redirect()->back()->with('error', 'បរិមាណប្រេងលើសស្តុក!');
             }
 
